@@ -19,7 +19,7 @@
 
 S_Agent::S_Agent()
 {
-    s_manager_agent.s_agent = this;
+//    s_manager_agent.s_agent = this;
 }
 
 S_Agent::~S_Agent()
@@ -113,7 +113,7 @@ int S_Agent::readagent()
     }
     else if(ret == READ_SUCCESS)
     {
-        if(s_manager_agent.exec() < 0)
+       // if(s_manager_agent.exec() < 0)
         {
             cout << "exec error"<<endl;
             return -1;

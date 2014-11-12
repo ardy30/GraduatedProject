@@ -17,18 +17,20 @@
  */
 #ifndef _BUSINESSCONTROLLER_H
 #define _BUSINESSCONTROLLER_H
-#include <string>
-#include <vector>
-#include <map>
+#include "head.h"
 #include "DataSet.h"
+#include "Tool.h"
 class BusinessController
 {
 public:
+        int DataNumber;
         BusinessController(string In_ID);
         class DataSet* Original_DataSet;
+        class Tool tool;
         vector<string> Container;//申请到的资源
         string InstanceID;
         DataSet* InitialDataSet(string);
+        string IntToString(int);
 };
 
 

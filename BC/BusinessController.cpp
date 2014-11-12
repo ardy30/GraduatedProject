@@ -20,11 +20,16 @@
 BusinessController::BusinessController(string In_ID)
 {
     this -> InstanceID = In_ID;
+    DataNumber = 0;
 }
 
-DataSet* BusinessController::InitialDataSet(string )
+DataSet* BusinessController::InitialDataSet(string path)
 {   
     class DataSet *temp = new DataSet();
+    temp -> path = path;
+    
+    temp -> name = this -> InstanceID + tool.IntToString(DataNumber);
+    DataNumber ++; 
     Original_DataSet = temp;
     temp -> BC = this;
     temp -> next = NULL;

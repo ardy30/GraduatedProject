@@ -33,6 +33,8 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <byteswap.h>
+#include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -40,10 +42,11 @@ using namespace std;
 #define SA struct sockaddr
 #define TCP_SOCKET_SIZE 64*1024
 #define DISK_BLOCK_NUMBER 128*1024
-#define MESG_HEAD_LEN 16
+#define MESG_HEAD_LEN 20
 #define BLOCK_SIZE 512
 #define SERV_PORT 32600
-
+#define FILE_LINE 500
+/*  
 //read return value
 #define READ_ERROR -1
 #define READ_END    0
@@ -54,37 +57,42 @@ using namespace std;
 #define WRITE_ERROR -1
 #define WRITE_BLOCK  1
 #define WRITE_SUCCESS 2
+*/
 
-//mesg_head:opcode
-#define READ_DISK 0x00
-#define WRITE_DISK 0x01
-#define RESPONSE_READ 0x10
-#define RESPONSE_WRITE 0x11
 
-//mesg_head:status
-#define WRITE_CMND 0x00
-#define DATA_OUT_CMND 0x10
-
-#define WRITE_RESPONSE_FAILD 0x00
-#define WRITE_RESPONSE_SUCCESS 0x01
-#define DATA_OUT_RESPONSE_FAILD 0x10
-#define DATA_OUT_RESPONSE_SUCCESS 0x11
 struct mesg_head{
-    unsigned char opcode;
-    unsigned char write_status;
-    unsigned short len;
-    unsigned int addr;
-    unsigned int itt;
-    unsigned int NewOpcode;
+    uint32_t cmd;
+    uint32_t length;
+    uint32_t error;
+    uint32_t para1;
+    uint32_t para2;
 };
+//////////////////////BC_EU/////////////////////////
+const uint32_t MSG_BC_EU_INIT_DATA = 0x00010010;
+const uint32_t MSG_BC_EU_INIT_DATA_ACK = 0x00010011;
 
-#define MAPOP         0x00000000
-#define MAPOP_ACK     0x00000001
-#define SHUFFLEOP     0x00000010
-#define SHUFFLEOP_ACK 0x00000011
-#define INITOP        0x00000100
-#define INITOP_ACK    0x00000101
-#define REDUCE        0x00000110
-#define REDUCE_ACK    0x00000111
+const uint32_t MSG_BC_EU_MAP = 0x00010020;
+const uint32_t MSG_BC_EU_MAP_ACK = 0x00010021;
+
+const uint32_t MSG_BC_EU_SHUFFLE = 0x00010030;
+const uint32_t MSG_BC_EU_SHUFLLE_ACK = 0x00010031;
+
+const uint32_t MSG_BC_EU_REDUCE = 0x00010040;
+const uint32_t MSG_BC_EU_REDUCE_ACK = 0x00010041;
+
+const uint32_t MSG_BC_EU_DELETE_DATA = 0x00010050;
+const uint32_t MSG_BC_EU_DELETE_DATA_ACK = 0x00010051;
+///////////////////////////////////////////////////////
+
+//////////////////////BC_MASTER//////////////////////////
+const uint32_t MSG_BC_MASTER_APPLY_SOURCE =0x00020010;
+const uint32_t MSG_BC_MASTER_APPLY_SOURCE_ACK = 0x00020011;
+///////////////////////////////////////////////////////////
+///////////DataSet State///////////////
+const uint32_t NOT_BUILDING = 0;
+const uint32_t BUILDING = 1;
+////////////DataSet IsInitial////////////
+const uint32_t UNINIT = 0;
+const uint32_t INIT = 1;
 
 #endif

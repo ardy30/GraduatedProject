@@ -22,14 +22,19 @@
 int main(int argc, char **argv)
 {
 
-    string teststr = "test";
-    vector<string> testvect;
-    class BusinessController *BC = new BusinessController(teststr);
-    class DataSet *DataSet1 = BC -> InitialDataSet(teststr);
-    DataSet *DataSet2 = DataSet1->map(teststr,testvect);
+    string InstanceID = "Kmeans";
+    string data_path = "./data";
+    string lib1 = "lib1";
+    vector<string> para1;
+    string lib2 = "lib2";
+    vector<string> para2;
+    vector<string> result;
+    class BusinessController *BC = new BusinessController(InstanceID);
+    class DataSet *DataSet1 = BC -> InitialDataSet(data_path);
+    DataSet *DataSet2 = DataSet1->map(lib1,para1);
     DataSet *DataSet3 = DataSet2->shuffle();
-    DataSet *DataSet4 = DataSet3 -> map(teststr,testvect);
-    testvect = DataSet3 -> reduce();
+    DataSet *DataSet4 = DataSet3 -> map(lib2,para2);
+    result = DataSet4 -> reduce();
     cout << "123"<< endl;
 
     /*   if(argc != 2)

@@ -1,0 +1,62 @@
+package bc_eu;
+
+///////////////////////////////////////////////////////////////////////////
+message pb_MSG_BC_EU_INIT_DATA
+{
+	required string InstanceID = 1;
+	required string Path = 2;
+	required string SplitName = 3;
+	required int32 SplitNumber = 4;
+	required int32 StarLine = 5;
+	required int32 EndLine = 6;
+}
+
+message pb_MSG_BC_EU_MAP
+{
+	required string Cmd = 1;
+	repeated string Para = 2;
+	required string InstanceID = 3;
+	required string SourceSplitName = 4;
+	required int32 SourceSplitNumber = 5;
+	required string DestSplitName = 6;
+	required string DestSplitNumber = 7;
+}
+
+message pb_BC_EU_SHUFFLE
+{
+	message IP_info{
+		required int32 key = 1;
+		required string IP = 2;
+	}
+	required string InstanceID = 1;
+	required string SourceSplitName = 2;
+	required int32 SourceSplitNumber = 3;
+	required string DestSplitName = 4;
+	required int32 DestSplitNummber = 5;
+	required int32 MO = 6;
+	repeated IP_info IP_info_List = 7;
+	
+}
+
+message pb_BC_EU_REDUCE
+{
+	required string InstanceID = 1;
+	required string SourceSplitName = 2;
+	required int32 SourcesplitNumber = 3;
+}
+
+message pb_BC_EU_REDUCE_ACK
+{
+	message result{
+		required string key = 1;
+		required string value = 2;
+	}
+	repeated result result_list = 1;
+}
+
+message pb_BC_EU_DELETE_DATA
+{
+	required string InstanceID = 1;
+	required string SourceSplitName = 2;
+	required int32 SourceSplitNumber = 3;
+}

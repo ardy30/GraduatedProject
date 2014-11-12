@@ -19,13 +19,16 @@
 #define _DATASET_H_
 #include "head.h"
 #include "BusinessController.h"
+#include "DataSetSplit.h"
+#include "Tool.h"
 class DataSet
 {
      public:   
         string name;//InstanceID_Data+time
         string path;//源数据文件
+        string op;
         //string IP[5];//数据分配到的机器地址
-        //vector<class DataSetSplit> Data;
+        vector<class DataSetSplit> Data;
         string lib;//可执行文件名
         vector<string> arg;//参数
         DataSet*  next;//执行计划的下一个单元
@@ -34,10 +37,14 @@ class DataSet
         int IsInitial;//是否申请到资源
         int State;
         class BusinessController  *BC;
+        class Tool tool;
         DataSet();
         DataSet* map(string lib, vector<string> arg);
         DataSet* shuffle();
         vector<string> reduce();
+        int BuildData(int);
+        int CaculateSize();
+
     
 };
 
