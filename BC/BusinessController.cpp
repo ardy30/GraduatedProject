@@ -50,24 +50,46 @@ int BusinessController::ApplyResource(int number)
         exit(0);
     }
     struct mesg_head ApplyResourcemsghead;
-    ApplyResourcemsghead.cmd = MSG_BC_MASTER_APPLY_SOURCE;
+    ApplyResourcemsghead.cmd = MSG_BC_MASTER_APPLY_SOURCE;//初始化头部
+
     bc_master::pb_MSG_BC_MASTER_APPLY mesg_body;
     mesg_body.set_instanceid(InstanceID);
     mesg_body.set_number(number);
     string temp;
-    mesg_body.SerializeToString(&temp);
-    ApplyResourcemsghead.length = temp.length();
+    mesg_body.SerializeToString(&temp);//使用protobuff序列化负载
+
+    ApplyResourcemsghead.length = temp.length();//初始化头部长度字段
+
     MasterAgent->Writebuff.add_buff(&ApplyResourcemsghead,sizeof(ApplyResourcemsghead));
     char* body = new char(temp.size());
-    memcpy(body,temp.c_str(),temp.length());
+    memcpy(body,temp.c_str(),temp.length());//将负载信息转换为char*类型
+
     MasterAgent -> Writebuff.add_buff(body,temp.length());
     delete body;
     MasterAgent -> m_epoll -> epoll_modify(EPOLLOUT,MasterAgent);
-    if((m_epoll.epollwait()) < 0)
+    while(MasterAgent->error ==0 && MasterAgent -> finish == 0)
     {
+        if((m_epoll.epollwait()) < 0)
+        {
       //  delete s_agent;
-        return -1;
+            return -1;
+        }
     }
+
+    ////////////////处理报文////////////////////////
+    bc_master::pb_MSG_BC_MASTER_APPLY_ACK ApplyResourceResponce;
+    ApplyResourceResponce.ParseFromString(MasterAgent->load);
+    for(int i = 0 ;i < ApplyResourceResponce.ip_size(); i++)
+    {
+        string IP = ApplyResourceResponce.ip(0);
+        Container.push_back(IP);
+
+    }
+    delete MasterAgent;
+    return 0 ;
+    
+    //////////////////////////////////////////////
+
             
 
 }

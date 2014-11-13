@@ -118,6 +118,27 @@ int S_Agent::readagent()
     }
     else if(ret == READ_SUCCESS)
     {
+        if(Readbuff.buff_length< MESG_HEAD_LEN)
+        {
+            cout << "read not enough";
+            return 0;
+        }
+        else
+        {
+            memcpy(&message_head,Readbuff.bufferptr,MESG_HEAD_LEN);
+            if(Readbuff.buff_length< MESG_HEAD_LEN)
+            {
+                cout <<"read not enough"<< endl;
+                return 0;
+            }
+            Readbuff.front_truncation(MESG_HEAD_LEN);
+            char *temp = new char[message_head.length+1];
+            memset(temp,message_head.length+1,0);
+            memcpy(temp,Readbuff.bufferptr,message_head.length);
+            load = temp;
+            finish = 1;
+            return 0;
+        }
      /*     if(exec() < 0)
         {
             cout << "exec error"<<endl;

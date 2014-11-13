@@ -33,8 +33,10 @@ class S_Agent: public Agent
         class Buffermanager Writebuff;
         class WriteAgent S_write;
         class ReadAgent S_read;
+
         struct mesg_head message_head;
         string load;
+
         int error;
         int finish;
         //class BusinessController *BC;

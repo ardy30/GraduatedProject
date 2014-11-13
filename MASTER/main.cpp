@@ -67,7 +67,8 @@ int main(int argc, char **argv)
     socklen_t clilen;
     sockaddr_in cliaddr;
     clilen = sizeof(cliaddr);
-    
+   while(1)
+   { 
     if((connfd = accept(fd, (SA *)&cliaddr,&clilen)) < 0)
     {
         cerr<<"accept error"<<strerror(errno)<<endl;
@@ -89,7 +90,7 @@ int main(int argc, char **argv)
     struct mesg_head ptr;
     if((n = read(connfd, &ptr,20)) < 0)
     {   
-        cout << "read error"<< endl;
+     //   cout << "read error"<< endl;
     }   
     
 
@@ -97,6 +98,7 @@ int main(int argc, char **argv)
     {   
         cout << "FIN"<< endl;
        // return READ_END;
+       break;
     }
     else if(n > 0)
     {
@@ -122,7 +124,7 @@ int main(int argc, char **argv)
     }
        
 }
-
+}
   /*    if((m_epoll.epollwait()) < 0)
     {
       //  delete i_lisagent;
