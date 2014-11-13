@@ -81,21 +81,20 @@ int DataSet::BuildData(int SplitNumber)
                 cout << "empty file"<<endl;
                 exit(0);
             }
-            if((Line % FILE_LINE) == 0)
+            if((Lines % FILE_LINE) == 0)
             {
-                MachineNumber = Line / 500;
+                MachineNumber = Lines / 500;
             }
             else
-                MachineNumber = Line / 500 + 1;
-            MasterAgent = new S_Agent();
-            BC -> ApplyResource();
+                MachineNumber = Lines / 500 + 1;
+            BC -> ApplyResource(MachineNumber);
             //S_Agent* s_agent = new S_Agent(this);
-            if((MasterAgent -> connect_server(MASTERIP)) < 0)
+            /*if((MasterAgent -> connect_server(MASTERIP)) < 0)
             {
                  cerr <<"connect_server error"<<errno<<endl;
                  delete s_agent;
                  return -1;
-            }
+            }*/
             
             //struct mesg_head head;
             //head.NewOpcode = MAPOP;
@@ -105,7 +104,6 @@ int DataSet::BuildData(int SplitNumber)
     }
 }
 
-int DataSet::
 int DataSet::CaculateSize()
 {
    fstream ReadFile;  

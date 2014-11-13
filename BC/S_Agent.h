@@ -41,7 +41,7 @@ class S_Agent: public Agent
         class Epoll *m_epoll;
 
         int setnonblocking(int);
-        int connect_server(char*);
+        int connect_server(char*,int);
         int readagent();
         int writeagent();
 

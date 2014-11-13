@@ -28,7 +28,7 @@ S_Agent::S_Agent(Epoll *epoll)
 
 S_Agent::~S_Agent()
 {
-    if(m_epoll.epoll_delete(this) < 0)
+    if(m_epoll->epoll_delete(this) < 0)
     {
         cout << "epoll_delete error"<<endl;
     }
@@ -56,13 +56,13 @@ int S_Agent::setnonblocking(int fd)
     return 0;
 }
 
-int S_Agent::connect_server(char* IPaddr)
+int S_Agent::connect_server(char* IPaddr,int port)
 {
     struct sockaddr_in servaddr;
     int sockfd;
     bzero(&servaddr,sizeof(servaddr));
     servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(SERV_PORT);
+    servaddr.sin_port = htons(port);
     if(inet_pton(AF_INET,IPaddr,&servaddr.sin_addr) <= 0)
     {
         cout << "inet_pton error"<<endl;
@@ -87,7 +87,7 @@ int S_Agent::connect_server(char* IPaddr)
         cout << "setnonblocking error"<<endl;
         return -1;
     }
-    if(m_epoll.epoll_registe(EPOLLIN,this) < 0)
+    if(m_epoll->epoll_registe(EPOLLIN,this) < 0)
     {
         cout <<"epoll_registe error"<<endl;
         return -1;
@@ -118,14 +118,14 @@ int S_Agent::readagent()
     }
     else if(ret == READ_SUCCESS)
     {
-        if(exec() < 0)
+     /*     if(exec() < 0)
         {
             cout << "exec error"<<endl;
             return -1;
-        }
+        }*/
         if(Writebuff.buff_length != 0)
         {
-            if(m_epoll.epoll_modify(EPOLLOUT,this) < 0)
+            if(m_epoll->epoll_modify(EPOLLOUT,this) < 0)
             {
                 cout << "epoll_modify error"<<endl;
                 delete this;
@@ -137,7 +137,7 @@ int S_Agent::readagent()
     
 
 }
-int exec()
+/*  int exec()
 {
     memcpy(&message_head,s_agent->Readbuff.bufferptr,MESG_HEAD_LEN);
     if(message_head.length == 0)
@@ -154,7 +154,7 @@ int exec()
         return 0;
     }
 }
-    
+    */
 int S_Agent::writeagent()
 {
     int ret;
@@ -167,7 +167,7 @@ int S_Agent::writeagent()
     }
     else if(ret == WRITE_BLOCK)
     {
-        if(m_epoll.epoll_modify(EPOLLIN,this) < 0)
+        if(m_epoll->epoll_modify(EPOLLIN,this) < 0)
         {
             cout << "epoll_modify error"<<endl;
             return -1;
@@ -177,7 +177,7 @@ int S_Agent::writeagent()
     }
     else if(ret == WRITE_SUCCESS)
     {
-        if(m_epoll.epoll_modify(EPOLLIN,this) < 0)
+        if(m_epoll->epoll_modify(EPOLLIN,this) < 0)
         {
             cout << "epoll_modify error"<<endl;
             return -1;

@@ -30,12 +30,14 @@ public:
         class DataSet* Original_DataSet;
         class Tool tool;
         vector<string> Container;//申请到的资源
-        vector<S_Agent*> BCAgentList;
-        S_Agent* MasterAgent;
+        vector<class S_Agent*> BCAgentList;
+        class S_Agent* MasterAgent;
         class Epoll m_epoll;
         string InstanceID;
         DataSet* InitialDataSet(string);
         string IntToString(int);
+        int ApplyResource(int);
+        char MasterIP[];
 };
 
 
