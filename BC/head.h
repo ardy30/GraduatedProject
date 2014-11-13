@@ -36,6 +36,9 @@
 #include <sstream>
 #include <fstream>
 
+#include "protobuff/bc_eu.protocol.pb.h"
+#include "protobuff/bc_master.protocol.pb.h"
+
 using namespace std;
 
 #define MAXEPOLL 100
@@ -46,7 +49,9 @@ using namespace std;
 #define BLOCK_SIZE 512
 #define SERV_PORT 32600
 #define FILE_LINE 500
-/*  
+
+#define MASTERIP "192.168.9.111"
+ 
 //read return value
 #define READ_ERROR -1
 #define READ_END    0
@@ -57,7 +62,7 @@ using namespace std;
 #define WRITE_ERROR -1
 #define WRITE_BLOCK  1
 #define WRITE_SUCCESS 2
-*/
+
 
 
 struct mesg_head{

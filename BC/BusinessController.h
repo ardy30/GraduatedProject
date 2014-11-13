@@ -20,14 +20,19 @@
 #include "head.h"
 #include "DataSet.h"
 #include "Tool.h"
+#include "Epoll.h"
+#include "S_Agent.h"
 class BusinessController
 {
 public:
-        int DataNumber;
+        int DataNumber;//用于给DataSet编号
         BusinessController(string In_ID);
         class DataSet* Original_DataSet;
         class Tool tool;
         vector<string> Container;//申请到的资源
+        vector<S_Agent*> BCAgentList;
+        S_Agent* MasterAgent;
+        class Epoll m_epoll;
         string InstanceID;
         DataSet* InitialDataSet(string);
         string IntToString(int);

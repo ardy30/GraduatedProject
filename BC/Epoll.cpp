@@ -82,8 +82,6 @@ int Epoll::epoll_modify(uint32_t e_event,Agent* agent)
 int Epoll::epollwait()
 {
     int numfd;
-    for(;;)
-    {
         if((numfd = epoll_wait(nfd,m_event,MAXEPOLL,-1)) < 0)
         {
             cout<<"epoll_wait error\n"<<endl;
@@ -128,7 +126,6 @@ int Epoll::epollwait()
                 }
             }
         }
-    }
 
 }
 
@@ -138,5 +135,5 @@ Epoll::~Epoll()
     delete []m_event;    
 }
 
-class Epoll m_epoll;
+//class Epoll m_epoll;
 

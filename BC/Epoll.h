@@ -38,5 +38,5 @@ class Epoll
         struct  epoll_event*      m_event;
         struct  epoll_event      ev;
 };
-extern class Epoll m_epoll;
+//extern class Epoll m_epoll;
 #endif

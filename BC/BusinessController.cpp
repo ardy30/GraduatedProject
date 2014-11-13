@@ -17,8 +17,11 @@
  */
 #include "BusinessController.h"
 #include "DataSet.h"
+
 BusinessController::BusinessController(string In_ID)
 {
+    m_epoll.epoll_init();
+    //m_epoll.epoll_wait();
     this -> InstanceID = In_ID;
     DataNumber = 0;
 }

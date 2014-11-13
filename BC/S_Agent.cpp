@@ -17,9 +17,13 @@
  */
 #include "S_Agent.h"
 
-S_Agent::S_Agent()
+S_Agent::S_Agent(Epoll *epoll)
 {
 //    s_manager_agent.s_agent = this;
+      //this -> BC = BC;
+      this -> m_epoll = epoll;
+      error = 0;
+      finish = 0;
 }
 
 S_Agent::~S_Agent()
@@ -98,22 +102,23 @@ int S_Agent::readagent()
     if(ret == READ_ERROR)
     {
         cout <<"read_socket error"<<endl;
-        delete this;
+        error = 1;
         return -1;
     }
     else if(ret == READ_END)
     {
         cout << "TCP disconnect"<< endl;
-        delete this;
-        return 0;
+        error = 1;
+        return -1;
     }
     else if(ret == READ_BLOCK)
     {
+        cout << "READ_BLOCK"<< endl;
         return 0;
     }
     else if(ret == READ_SUCCESS)
     {
-       // if(s_manager_agent.exec() < 0)
+        if(exec() < 0)
         {
             cout << "exec error"<<endl;
             return -1;
@@ -131,6 +136,23 @@ int S_Agent::readagent()
     }
     
 
+}
+int exec()
+{
+    memcpy(&message_head,s_agent->Readbuff.bufferptr,MESG_HEAD_LEN);
+    if(message_head.length == 0)
+    {
+        finish = 1;
+        return 0;
+    }
+    else
+    {
+        Readbuff.front_truncation(MESG_HEAD_LEN);
+        string temp(Readbuff.bufferptr,mesg_head.length);
+        load = temp;
+        finish = 1;
+        return 0;
+    }
 }
     
 int S_Agent::writeagent()
