@@ -110,7 +110,7 @@ int main(int argc, char **argv)
             response_ptr.cmd = MSG_BC_MASTER_APPLY_SOURCE_ACK;
             bc_master::pb_MSG_BC_MASTER_APPLY_ACK mesg_body;
             string IP1 = "192.168.9.111";
-            string IP2 = "192.168.10.128";
+            string IP2 = "192.168.9.112";
             mesg_body.add_ip(IP1);
             mesg_body.add_ip(IP2);
             string temp;
