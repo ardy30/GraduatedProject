@@ -42,6 +42,10 @@ int main(int argc, char **argv)
     }*/
     int fd;
     struct sockaddr_in servaddr;
+    int connfd;
+    vector<int> connfdcontainer;
+    int flag;
+    int ret;
     bzero(&servaddr,sizeof(servaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -56,26 +60,30 @@ int main(int argc, char **argv)
         cerr<<"bind error:"<<strerror(errno)<<"\n"<<endl;
         return -1; 
     }   
+    if((flag = fcntl(fd, F_GETFL, 0)) < 0)
+    {   
+        cerr<<"fcntl error:"<<"\n"<<endl;
+        return -1; 
+    }   
+    if(fcntl(fd,F_SETFL,flag|O_NONBLOCK) < 0)
+     {   
+        cerr<<"fcntl error:"<<"\n"<<endl;
+        return -1; 
+     }   
     if(listen(fd,200) < 0)
     {   
         cerr<<"listen error:"<<strerror(errno)<<"\n"<<endl;
         return -1; 
     }
 
-    int connfd;
-    int flag;
-    int ret;
     socklen_t clilen;
     sockaddr_in cliaddr;
     clilen = sizeof(cliaddr);
    while(1)
    { 
-    if((connfd = accept(fd, (SA *)&cliaddr,&clilen)) < 0)
+    if((connfd = accept(fd, (SA *)&cliaddr,&clilen)) > 0)
     {
-        cerr<<"accept error"<<strerror(errno)<<endl;
-        return -1;
-    }
-    int n;
+    
     if((flag = fcntl(connfd, F_GETFL, 0)) < 0)
     {   
         cerr<<"fcntl error:"<<"\n"<<endl;
@@ -86,10 +94,13 @@ int main(int argc, char **argv)
         cerr<<"fcntl error:"<<"\n"<<endl;
         return -1; 
      }   
-    while(1)
+        connfdcontainer.push_back(connfd);
+    }
+    for(int i = 0 ; i < connfdcontainer.size(); i++)
     { 
     struct mesg_head ptr;
-    if((n = read(connfd, &ptr,20)) < 0)
+    int n;
+    if((n = read(connfdcontainer.at(i), &ptr,20)) < 0)
     {   
        // cout << "read error"<< endl;
     }   
@@ -98,7 +109,9 @@ int main(int argc, char **argv)
     else if(n == 0)
     {   
         cout << "FIN"<< endl;
-        break;
+        connfdcontainer.erase(connfdcontainer.begin()+i);
+        continue;
+
        // return READ_END;
     }
     else if(n > 0)

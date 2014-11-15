@@ -126,7 +126,7 @@ int S_Agent::readagent()
         else
         {
             memcpy(&message_head,Readbuff.bufferptr,MESG_HEAD_LEN);
-            if(Readbuff.buff_length< MESG_HEAD_LEN)
+            if(Readbuff.buff_length< MESG_HEAD_LEN+message_head.length)
             {
                 cout <<"read not enough"<< endl;
                 return 0;

@@ -106,6 +106,7 @@ int DataSet::BuildData(int SplitNumber)
                       
         }
             BuildInitialDataMsg(SplitNumber);
+            return 0;
             //若无指定的分片，给所有分片发送初始化请求，如果失败，换机器重新发送，如果成功，修改next的IsInitial的值和分片数据
             //若有指定分片，重新初始化指定的分片，同上
     }
@@ -162,18 +163,97 @@ int DataSet::BuildInitialDataMsg(int SplitNumber)
                         
             }
         }
-        if(CheckFaild() < 0)
+        int ret = 0;
+        if((ret = CheckInitFaild()) < 0)
         {
+            for(int i = BC -> BCAgentList.size(); i > 0;i --)
+            {
+                delete BC -> BCAgentList.at(i - 1);
+                BC -> BCAgentList.at(i -1) = NULL;
+                BC-> BCAgentList.pop_back();
+            }
+            return 0;
+        }
+        else 
+        {
+            for(int i = BC -> BCAgentList.size(); i > 0;i --)
+            {
+                delete BC -> BCAgentList.at(i - 1);
+                BC -> BCAgentList.at(i -1) = NULL;
+                BC-> BCAgentList.pop_back();
+                BuildData(ret);
+            }
             return 0;
         }
 
-        
+    }
+    else
+    {
+        string OldIP = Data.at(SplitNumber).IP;
+        string NewIP;
+        for(int i = 0 ; i < BC -> Container.size(); i ++)
+        {
+            NewIP = BC -> Container.at(i);
+            if(NewIP == OldIP)
+                continue;
+            else
+                break;
+        }
+        Data.at(SplitNumber).IP = NewIP;
+        S_Agent *TempAgent = new S_Agent(&(BC -> m_epoll)) ;
+        BC -> BCAgentList.push_back(TempAgent);
+        if(TempAgent -> connect_server((char*)(Data.at(SplitNumber).IP).c_str(), EU_PORT) < 0)
+        {
+            cout << "reconnect EU error"<<endl;
+            cout << "fatal error"<< endl;
+            exit(0);
+        }
+        struct mesg_head SendInitmsghead;
+        SendInitmsghead.cmd = MSG_BC_EU_INIT_DATA;
 
+        bc_eu::pb_MSG_BC_EU_INIT_DATA mesg_body;
+        mesg_body.set_instanceid(BC -> InstanceID);
+        mesg_body.set_path(path);
+        mesg_body.set_splitname(name);
+        mesg_body.set_splitnumber(SplitNumber);
+        mesg_body.set_starline(SplitNumber*FILE_LINE + 1);
+        if(SplitNumber == Data.size() -1)
+            mesg_body.set_endline(Lines);
+        else
+            mesg_body.set_endline(SplitNumber* FILE_LINE + FILE_LINE);
+        string temp;
+        mesg_body.SerializeToString(&temp);
 
+        SendInitmsghead.length = temp.length();
+        TempAgent ->Writebuff.add_buff(&SendInitmsghead,sizeof(SendInitmsghead));
+        char* body = new char[temp.size()];
+        memcpy(body,temp.c_str(),temp.length());
+
+        TempAgent -> Writebuff.add_buff(body,temp.length());
+        while(TempAgent -> finish ==0 && TempAgent -> error == 0)
+        {
+            if((BC -> m_epoll.epollwait()) < 0)
+            {
+                cout << "reconnect epollwaiteeror"<< endl;
+                exit(0);
+            }
+        }
+        if(TempAgent -> error == 1)
+        {
+            cout << "reconnect error"<< endl;
+            exit(0);
+        }
+        else if(TempAgent -> finish == 1)
+        {
+            delete TempAgent;
+            BC -> BCAgentList.pop_back();
+            (next -> Data).at(SplitNumber).IP = (this -> Data).at(SplitNumber).IP;
+            return 0;
+        }
     }
 }
 
-int DataSet::CheckSuccess()
+int DataSet::CheckInitFaild()
 {
     for(int i = 0; i < BC -> BCAgentList.size();i ++)
     {
@@ -192,6 +272,8 @@ int DataSet::CheckFinish()
     }
     return 0;
 }
+
+
 int DataSet::CaculateSize()
 {
    fstream ReadFile;  

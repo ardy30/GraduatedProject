@@ -37,7 +37,7 @@ class S_Agent: public Agent
         struct mesg_head message_head;
         string load;
 
-        int error;
+//        int error;
         int finish;
         //class BusinessController *BC;
         class Epoll *m_epoll;

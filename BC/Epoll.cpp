@@ -127,6 +127,7 @@ int Epoll::epollwait()
                 }
             }
         }
+        return 0;
 
 }
 

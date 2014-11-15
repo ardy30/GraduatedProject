@@ -25,5 +25,6 @@ class Agent
         virtual int writeagent(){return 0;}
         virtual int getfd(){return -1;}
         int fd;
+        int error;
 };
 #endif
