@@ -132,6 +132,11 @@ int S_Agent::readagent()
                 return 0;
             }
             Readbuff.front_truncation(MESG_HEAD_LEN);
+            if(message_head.length == 0)
+            {
+                finish = 1;
+                return 0;
+            }
             char *temp = new char[message_head.length+1];
             memset(temp,message_head.length+1,0);
             memcpy(temp,Readbuff.bufferptr,message_head.length);

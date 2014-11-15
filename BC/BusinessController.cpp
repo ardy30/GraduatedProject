@@ -81,7 +81,7 @@ int BusinessController::ApplyResource(int number)
     ApplyResourceResponce.ParseFromString(MasterAgent->load);
     for(int i = 0 ;i < ApplyResourceResponce.ip_size(); i++)
     {
-        string IP = ApplyResourceResponce.ip(0);
+        string IP = ApplyResourceResponce.ip(i);
         Container.push_back(IP);
 
     }

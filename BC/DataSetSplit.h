@@ -19,6 +19,7 @@
 #define _DATASETSPLIT_H_
 class DataSetSplit
 {
+    public:
     string IP;
     int SequenceNumber;//是DataSet的第几片
     int State;//  标识状态

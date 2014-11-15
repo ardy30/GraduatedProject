@@ -17,6 +17,7 @@
  */
 #include "head.h"
 #include "./protobuff/bc_master.protocol.pb.h"
+#include "./protobuff/bc_eu.protocol.pb.h"
 
 static void sighandler(int sig_no)
 {
@@ -44,7 +45,7 @@ int main(int argc, char **argv)
     bzero(&servaddr,sizeof(servaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    servaddr.sin_port = htons(32601);
+    servaddr.sin_port = htons(32600);
     if((fd = socket(AF_INET,SOCK_STREAM,0)) < 0)
     {   
         cerr<<"socket error:"<<strerror(errno)<<"\n"<<endl;
@@ -67,7 +68,8 @@ int main(int argc, char **argv)
     socklen_t clilen;
     sockaddr_in cliaddr;
     clilen = sizeof(cliaddr);
-    
+   while(1)
+   { 
     if((connfd = accept(fd, (SA *)&cliaddr,&clilen)) < 0)
     {
         cerr<<"accept error"<<strerror(errno)<<endl;
@@ -89,23 +91,28 @@ int main(int argc, char **argv)
     struct mesg_head ptr;
     if((n = read(connfd, &ptr,20)) < 0)
     {   
-        cout << "read error"<< endl;
+       // cout << "read error"<< endl;
     }   
     
 
     else if(n == 0)
     {   
         cout << "FIN"<< endl;
+        break;
        // return READ_END;
     }
     else if(n > 0)
     {
-        if(ptr.cmd == MSG_BC_MASTER_APPLY_SOURCE)
+        if(ptr.cmd == MSG_BC_EU_INIT_DATA)
         {
-            
+            cout << "MSG TYPE: INIT DATA, LENGTH:"<< ptr.length<< endl;
+            char * temp;
+            read(connfd,temp, ptr.length);
             struct mesg_head response_ptr;
-            response_ptr.cmd = MSG_BC_MASTER_APPLY_SOURCE_ACK;
-            bc_master::pb_MSG_BC_MASTER_APPLY_ACK mesg_body;
+            response_ptr.cmd = MSG_BC_EU_INIT_DATA_ACK;
+            response_ptr.error = 0;
+            response_ptr.length = 0;
+            /*  bc_master::pb_MSG_BC_MASTER_APPLY_ACK mesg_body;
             string IP1 = "192.168.9.111";
             string IP2 = "192.168.10.128";
             mesg_body.add_ip(IP1);
@@ -114,15 +121,15 @@ int main(int argc, char **argv)
             mesg_body.SerializeToString(&temp);
             response_ptr.length = temp.length();
             char* body = new char(temp.size());
-            memcpy(body,temp.c_str(),temp.length());
+            memcpy(body,temp.c_str(),temp.length());*/
             write(connfd,&response_ptr,20);
-            write(connfd,body,temp.size());
-            cout << "MAPOP"<< endl;
+            //write(connfd,body,temp.size());
+            //cout << "MAPOP"<< endl;
         }
     }
        
 }
-
+}
   /*    if((m_epoll.epollwait()) < 0)
     {
       //  delete i_lisagent;

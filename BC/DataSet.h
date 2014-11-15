@@ -21,6 +21,7 @@
 #include "BusinessController.h"
 #include "DataSetSplit.h"
 #include "Tool.h"
+#include "S_Agent.h"
 class DataSet
 {
      public:   
@@ -36,6 +37,7 @@ class DataSet
         int ReferCount;
         int IsInitial;//是否申请到资源
         int State;
+        int Lines;
         class BusinessController  *BC;
         class Tool tool;
         DataSet();
@@ -44,7 +46,9 @@ class DataSet
         vector<string> reduce();
         int BuildData(int);
         int CaculateSize();
-
+        int BuildInitialDataMsg(int);
+        int CheckFinish();
+        int CheckFaild();
     
 };
 

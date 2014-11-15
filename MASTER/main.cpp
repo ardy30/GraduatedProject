@@ -91,6 +91,7 @@ int main(int argc, char **argv)
     if((n = read(connfd, &ptr,20)) < 0)
     {   
      //   cout << "read error"<< endl;
+     continue;
     }   
     
 

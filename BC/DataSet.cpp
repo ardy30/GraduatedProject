@@ -50,7 +50,7 @@ vector<string> DataSet::reduce()
 {
    if(this ->IsInitial == UNINIT ) 
    {
-         prev-> BuildData(-1);
+         BuildData(-1);
    }
    vector<string> temp;
     return temp; 
@@ -64,17 +64,23 @@ int DataSet::BuildData(int SplitNumber)
         {
             prev->BuildData(-1);
         }
-        else
-        {
-            /* 发送请求 */
+        
+        
+            /* 若无指定分片
+             * 发送请求  
+             * 如果成功 修改下一片的IsInitial的值和数据分片情况
+             * 如果失败
+             * map
+             * 1.全部都是不存在，或者其中有连接失败 pre-> BuildData(-1)
+             * 2.部分成功，一个连接失败，pre->BuildData(splitnumber)*/
+               
             return 0; 
-        }
+        
     }
     else
     {
         if(this -> IsInitial == UNINIT)
         {
-            int Lines;
             int MachineNumber;
             if((Lines = CaculateSize()) < 0)
             {
@@ -88,22 +94,104 @@ int DataSet::BuildData(int SplitNumber)
             else
                 MachineNumber = Lines / 500 + 1;
             BC -> ApplyResource(MachineNumber);
-            //S_Agent* s_agent = new S_Agent(this);
-            /*if((MasterAgent -> connect_server(MASTERIP)) < 0)
+            for(int i = 0; i < BC->Container.size();i++)
             {
-                 cerr <<"connect_server error"<<errno<<endl;
-                 delete s_agent;
-                 return -1;
-            }*/
-            
-            //struct mesg_head head;
-            //head.NewOpcode = MAPOP;
-            //s_agent->Writebuff.add_buff(&head,sizeof(mesg_head));
+                class DataSetSplit temp;
+                temp.IP = BC -> Container.at(i);
+                temp.SequenceNumber = i;
+                Data.push_back(temp);
+            }
+            IsInitial = INIT;
+            //修改该分片数据，修改INIT
                       
         }
+            BuildInitialDataMsg(SplitNumber);
+            //若无指定的分片，给所有分片发送初始化请求，如果失败，换机器重新发送，如果成功，修改next的IsInitial的值和分片数据
+            //若有指定分片，重新初始化指定的分片，同上
     }
 }
 
+int DataSet::BuildInitialDataMsg(int SplitNumber)
+{
+    if(SplitNumber == -1)
+    {
+        int size = Data.size();
+        for(int i = 0; i< size; i ++)
+        {
+            S_Agent *TempAgent = new S_Agent(&(BC->m_epoll));
+            BC->BCAgentList.push_back(TempAgent);
+            if((TempAgent -> connect_server((char*)(Data.at(i).IP).c_str(),EU_PORT)) < 0)
+            {   
+                cout << "connect EU error";
+                TempAgent -> error =1;
+                continue;
+            }   
+            struct mesg_head SendInitmsghead;
+            SendInitmsghead.cmd = MSG_BC_EU_INIT_DATA;//初始化头部
+
+            bc_eu::pb_MSG_BC_EU_INIT_DATA mesg_body;
+            mesg_body.set_instanceid(BC-> InstanceID);
+            mesg_body.set_path(path);
+            mesg_body.set_splitname(name);
+            mesg_body.set_splitnumber(i);
+            mesg_body.set_starline(i*FILE_LINE+1);
+            if(i == size - 1)
+                mesg_body.set_endline(Lines);
+            else
+                mesg_body.set_endline(i*FILE_LINE + FILE_LINE);
+            string temp;
+            mesg_body.SerializeToString(&temp);//使用protobuff序列化负载
+
+            SendInitmsghead.length = temp.length();//初始化头部长度字段
+
+            TempAgent->Writebuff.add_buff(&SendInitmsghead,sizeof(SendInitmsghead));
+            char* body = new char[temp.size()];
+            memcpy(body,temp.c_str(),temp.length());//将负载信息转换为char*类型
+
+            TempAgent -> Writebuff.add_buff(body,temp.length());
+            delete body;
+            TempAgent -> m_epoll -> epoll_modify(EPOLLOUT,TempAgent);        
+        }
+        while(CheckFinish() < 0)
+        {
+            if((BC->m_epoll.epollwait()) < 0)
+            {
+                //  delete s_agent;
+                cout << "epollwaiterror"<< endl;
+                return -1;
+                        
+            }
+        }
+        if(CheckFaild() < 0)
+        {
+            return 0;
+        }
+
+        
+
+
+    }
+}
+
+int DataSet::CheckSuccess()
+{
+    for(int i = 0; i < BC -> BCAgentList.size();i ++)
+    {
+        if(BC -> BCAgentList.at(i)-> error = 1)
+            return i;
+    }
+    return -1;
+}
+
+int DataSet::CheckFinish()
+{
+    for(int i = 0; i < BC ->BCAgentList.size(); i++)
+    {
+        if(BC->BCAgentList.at(i)->error == 0 && BC-> BCAgentList.at(i)->finish == 0)
+            return -1;
+    }
+    return 0;
+}
 int DataSet::CaculateSize()
 {
    fstream ReadFile;  

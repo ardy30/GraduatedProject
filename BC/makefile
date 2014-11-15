@@ -1,4 +1,4 @@
-OBJ :=main.o Buffermanager.o Epoll.o S_Agent.o ReadAgent.o WriteAgent.o BusinessController.o DataSet.o Tool.o bc_master.protocol.pb.o 
+OBJ :=main.o Buffermanager.o Epoll.o S_Agent.o ReadAgent.o WriteAgent.o BusinessController.o DataSet.o Tool.o bc_master.protocol.pb.o bc_eu.protocol.pb.o
 
 storage:$(OBJ)
 	g++ $(OBJ) -o BC -g -I./protobuff -I/usr/local/protobuf/include -L/usr/local/lib -lprotobuf
@@ -21,6 +21,8 @@ BusinessController.o:BusinessController.cpp
 	g++ -c -g BusinessController.cpp
 bc_master.protocol.pb.o:./protobuff/bc_master.protocol.pb.cc
 	g++ -c -g ./protobuff/bc_master.protocol.pb.cc
+bc_eu.protocol.pb.o:./protobuff/bc_eu.protocol.pb.cc
+	g++ -c -g ./protobuff/bc_eu.protocol.pb.cc
 DataSet.o:DataSet.cpp
 	g++ -c -g DataSet.cpp
 Tool.o:Tool.cpp

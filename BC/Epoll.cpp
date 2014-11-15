@@ -92,8 +92,8 @@ int Epoll::epollwait()
             Agent *agent = static_cast<Agent*>(m_event[i].data.ptr);
             if(m_event[i].events&(EPOLLERR|EPOLLHUP))
             {
-              //  cout<<"epollerr or epollhup"<<endl;
-                delete agent;
+                cout<<"epollerr or epollhup"<<endl;
+                agent -> error =1;
             }
             else if(m_event[i].events&EPOLLIN)
             {
@@ -122,6 +122,7 @@ int Epoll::epollwait()
             {
                 if(agent->writeagent() < 0)
                 {
+                    agent -> error = 1;
                     cout<<"write error\n"<<endl;
                 }
             }
