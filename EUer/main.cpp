@@ -120,7 +120,7 @@ int main(int argc, char **argv)
         {
             cout << "MSG TYPE: INIT DATA, LENGTH:"<< ptr.length<< endl;
             char * temp;
-            read(connfd,temp, ptr.length);
+            read(connfdcontainer.at(i),temp, ptr.length);
             struct mesg_head response_ptr;
             response_ptr.cmd = MSG_BC_EU_INIT_DATA_ACK;
             response_ptr.error = 0;
@@ -135,7 +135,7 @@ int main(int argc, char **argv)
             response_ptr.length = temp.length();
             char* body = new char(temp.size());
             memcpy(body,temp.c_str(),temp.length());*/
-            write(connfd,&response_ptr,20);
+            write(connfdcontainer.at(i),&response_ptr,20);
             //write(connfd,body,temp.size());
             //cout << "MAPOP"<< endl;
         }

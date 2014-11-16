@@ -114,12 +114,18 @@ int DataSet::BuildData(int SplitNumber)
 
 int DataSet::BuildInitialDataMsg(int SplitNumber)
 {
+    S_Agent *TempAgent = NULL;
+    struct mesg_head SendInitmsghead;
+    bc_eu::pb_MSG_BC_EU_INIT_DATA mesg_body;
+    string temp;
+    char* body = NULL;
+    int ret = 0;
     if(SplitNumber == -1)
     {
         int size = Data.size();
         for(int i = 0; i< size; i ++)
         {
-            S_Agent *TempAgent = new S_Agent(&(BC->m_epoll));
+            TempAgent = new S_Agent(&(BC->m_epoll));
             BC->BCAgentList.push_back(TempAgent);
             if((TempAgent -> connect_server((char*)(Data.at(i).IP).c_str(),EU_PORT)) < 0)
             {   
@@ -127,7 +133,7 @@ int DataSet::BuildInitialDataMsg(int SplitNumber)
                 TempAgent -> error =1;
                 continue;
             }   
-            struct mesg_head SendInitmsghead;
+            mesg_head SendInitmsghead;
             SendInitmsghead.cmd = MSG_BC_EU_INIT_DATA;//初始化头部
 
             bc_eu::pb_MSG_BC_EU_INIT_DATA mesg_body;
@@ -140,17 +146,18 @@ int DataSet::BuildInitialDataMsg(int SplitNumber)
                 mesg_body.set_endline(Lines);
             else
                 mesg_body.set_endline(i*FILE_LINE + FILE_LINE);
-            string temp;
+            
             mesg_body.SerializeToString(&temp);//使用protobuff序列化负载
 
             SendInitmsghead.length = temp.length();//初始化头部长度字段
 
             TempAgent->Writebuff.add_buff(&SendInitmsghead,sizeof(SendInitmsghead));
-            char* body = new char[temp.size()];
+            body = new char[temp.size()];
             memcpy(body,temp.c_str(),temp.length());//将负载信息转换为char*类型
 
             TempAgent -> Writebuff.add_buff(body,temp.length());
             delete body;
+            body = NULL;
             TempAgent -> m_epoll -> epoll_modify(EPOLLOUT,TempAgent);        
         }
         while(CheckFinish() < 0)
@@ -163,7 +170,7 @@ int DataSet::BuildInitialDataMsg(int SplitNumber)
                         
             }
         }
-        int ret = 0;
+        
         if((ret = CheckInitFaild()) < 0)
         {
             for(int i = BC -> BCAgentList.size(); i > 0;i --)
@@ -200,7 +207,9 @@ int DataSet::BuildInitialDataMsg(int SplitNumber)
                 break;
         }
         Data.at(SplitNumber).IP = NewIP;
-        S_Agent *TempAgent = new S_Agent(&(BC -> m_epoll)) ;
+        TempAgent = new S_Agent(&(BC->m_epoll));
+        //new BusinessController("asdf");
+        //class S_Agent TempAgent1(&(BC -> m_epoll));
         BC -> BCAgentList.push_back(TempAgent);
         if(TempAgent -> connect_server((char*)(Data.at(SplitNumber).IP).c_str(), EU_PORT) < 0)
         {
@@ -208,7 +217,7 @@ int DataSet::BuildInitialDataMsg(int SplitNumber)
             cout << "fatal error"<< endl;
             exit(0);
         }
-        struct mesg_head SendInitmsghead;
+        mesg_head SendInitmsghead;
         SendInitmsghead.cmd = MSG_BC_EU_INIT_DATA;
 
         bc_eu::pb_MSG_BC_EU_INIT_DATA mesg_body;
@@ -221,15 +230,17 @@ int DataSet::BuildInitialDataMsg(int SplitNumber)
             mesg_body.set_endline(Lines);
         else
             mesg_body.set_endline(SplitNumber* FILE_LINE + FILE_LINE);
-        string temp;
+        
         mesg_body.SerializeToString(&temp);
 
         SendInitmsghead.length = temp.length();
         TempAgent ->Writebuff.add_buff(&SendInitmsghead,sizeof(SendInitmsghead));
-        char* body = new char[temp.size()];
+        body = new char[temp.size()];
         memcpy(body,temp.c_str(),temp.length());
 
         TempAgent -> Writebuff.add_buff(body,temp.length());
+
+        TempAgent -> m_epoll -> epoll_modify(EPOLLOUT,TempAgent);        
         while(TempAgent -> finish ==0 && TempAgent -> error == 0)
         {
             if((BC -> m_epoll.epollwait()) < 0)
@@ -247,7 +258,7 @@ int DataSet::BuildInitialDataMsg(int SplitNumber)
         {
             delete TempAgent;
             BC -> BCAgentList.pop_back();
-            (next -> Data).at(SplitNumber).IP = (this -> Data).at(SplitNumber).IP;
+       -----     (next -> Data).at(SplitNumber).IP = (this -> Data).at(SplitNumber).IP;
             return 0;
         }
     }

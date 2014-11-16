@@ -66,20 +66,23 @@ int S_Agent::connect_server(char* IPaddr,int port)
     if(inet_pton(AF_INET,IPaddr,&servaddr.sin_addr) <= 0)
     {
         cout << "inet_pton error"<<endl;
-        delete this;
+        //delete this;
+        error =1;
         return -1;
     }
     if((sockfd = socket(AF_INET,SOCK_STREAM,0)) < 0)
     {
         cout << "socket error"<<endl;
-        delete this;
+        //delete this;
+        error = 1;
         return -1;
     }
     this ->fd = sockfd;
     if(connect(sockfd,(SA*)&servaddr,sizeof(servaddr)) < 0)
     {
         cout << "connect error";
-        delete this;
+        //delete this;
+        error = 1;
         return -1;
     }
     if(setnonblocking(sockfd) < 0)
@@ -140,6 +143,7 @@ int S_Agent::readagent()
             char *temp = new char[message_head.length+1];
             memset(temp,message_head.length+1,0);
             memcpy(temp,Readbuff.bufferptr,message_head.length);
+            Readbuff.front_truncation(message_head.length);
             load = temp;
             finish = 1;
             return 0;
