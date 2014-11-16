@@ -23,24 +23,24 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* pb_MSG_BC_EU_MAP_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   pb_MSG_BC_EU_MAP_reflection_ = NULL;
-const ::google::protobuf::Descriptor* pb_BC_EU_SHUFFLE_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_SHUFFLE_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  pb_BC_EU_SHUFFLE_reflection_ = NULL;
-const ::google::protobuf::Descriptor* pb_BC_EU_SHUFFLE_IP_info_descriptor_ = NULL;
+  pb_MSG_BC_EU_SHUFFLE_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_SHUFFLE_IP_info_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  pb_BC_EU_SHUFFLE_IP_info_reflection_ = NULL;
-const ::google::protobuf::Descriptor* pb_BC_EU_REDUCE_descriptor_ = NULL;
+  pb_MSG_BC_EU_SHUFFLE_IP_info_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_REDUCE_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  pb_BC_EU_REDUCE_reflection_ = NULL;
-const ::google::protobuf::Descriptor* pb_BC_EU_REDUCE_ACK_descriptor_ = NULL;
+  pb_MSG_BC_EU_REDUCE_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_REDUCE_ACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  pb_BC_EU_REDUCE_ACK_reflection_ = NULL;
-const ::google::protobuf::Descriptor* pb_BC_EU_REDUCE_ACK_result_descriptor_ = NULL;
+  pb_MSG_BC_EU_REDUCE_ACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_REDUCE_ACK_result_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  pb_BC_EU_REDUCE_ACK_result_reflection_ = NULL;
-const ::google::protobuf::Descriptor* pb_BC_EU_DELETE_DATA_descriptor_ = NULL;
+  pb_MSG_BC_EU_REDUCE_ACK_result_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_DELETE_DATA_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  pb_BC_EU_DELETE_DATA_reflection_ = NULL;
+  pb_MSG_BC_EU_DELETE_DATA_reflection_ = NULL;
 
 }  // namespace
 
@@ -92,108 +92,108 @@ void protobuf_AssignDesc_bc_5feu_2eprotocol_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pb_MSG_BC_EU_MAP));
-  pb_BC_EU_SHUFFLE_descriptor_ = file->message_type(2);
-  static const int pb_BC_EU_SHUFFLE_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE, instanceid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE, sourcesplitname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE, sourcesplitnumber_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE, destsplitname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE, destsplitnummber_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE, mo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE, ip_info_list_),
+  pb_MSG_BC_EU_SHUFFLE_descriptor_ = file->message_type(2);
+  static const int pb_MSG_BC_EU_SHUFFLE_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, instanceid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, sourcesplitname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, sourcesplitnumber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, destsplitname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, destsplitnummber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, mo_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, ip_info_list_),
   };
-  pb_BC_EU_SHUFFLE_reflection_ =
+  pb_MSG_BC_EU_SHUFFLE_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      pb_BC_EU_SHUFFLE_descriptor_,
-      pb_BC_EU_SHUFFLE::default_instance_,
-      pb_BC_EU_SHUFFLE_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE, _unknown_fields_),
+      pb_MSG_BC_EU_SHUFFLE_descriptor_,
+      pb_MSG_BC_EU_SHUFFLE::default_instance_,
+      pb_MSG_BC_EU_SHUFFLE_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(pb_BC_EU_SHUFFLE));
-  pb_BC_EU_SHUFFLE_IP_info_descriptor_ = pb_BC_EU_SHUFFLE_descriptor_->nested_type(0);
-  static const int pb_BC_EU_SHUFFLE_IP_info_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE_IP_info, key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE_IP_info, ip_),
+      sizeof(pb_MSG_BC_EU_SHUFFLE));
+  pb_MSG_BC_EU_SHUFFLE_IP_info_descriptor_ = pb_MSG_BC_EU_SHUFFLE_descriptor_->nested_type(0);
+  static const int pb_MSG_BC_EU_SHUFFLE_IP_info_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE_IP_info, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE_IP_info, ip_),
   };
-  pb_BC_EU_SHUFFLE_IP_info_reflection_ =
+  pb_MSG_BC_EU_SHUFFLE_IP_info_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      pb_BC_EU_SHUFFLE_IP_info_descriptor_,
-      pb_BC_EU_SHUFFLE_IP_info::default_instance_,
-      pb_BC_EU_SHUFFLE_IP_info_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE_IP_info, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_SHUFFLE_IP_info, _unknown_fields_),
+      pb_MSG_BC_EU_SHUFFLE_IP_info_descriptor_,
+      pb_MSG_BC_EU_SHUFFLE_IP_info::default_instance_,
+      pb_MSG_BC_EU_SHUFFLE_IP_info_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE_IP_info, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE_IP_info, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(pb_BC_EU_SHUFFLE_IP_info));
-  pb_BC_EU_REDUCE_descriptor_ = file->message_type(3);
-  static const int pb_BC_EU_REDUCE_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE, instanceid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE, sourcesplitname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE, sourcesplitnumber_),
+      sizeof(pb_MSG_BC_EU_SHUFFLE_IP_info));
+  pb_MSG_BC_EU_REDUCE_descriptor_ = file->message_type(3);
+  static const int pb_MSG_BC_EU_REDUCE_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE, instanceid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE, sourcesplitname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE, sourcesplitnumber_),
   };
-  pb_BC_EU_REDUCE_reflection_ =
+  pb_MSG_BC_EU_REDUCE_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      pb_BC_EU_REDUCE_descriptor_,
-      pb_BC_EU_REDUCE::default_instance_,
-      pb_BC_EU_REDUCE_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE, _unknown_fields_),
+      pb_MSG_BC_EU_REDUCE_descriptor_,
+      pb_MSG_BC_EU_REDUCE::default_instance_,
+      pb_MSG_BC_EU_REDUCE_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(pb_BC_EU_REDUCE));
-  pb_BC_EU_REDUCE_ACK_descriptor_ = file->message_type(4);
-  static const int pb_BC_EU_REDUCE_ACK_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE_ACK, result_list_),
+      sizeof(pb_MSG_BC_EU_REDUCE));
+  pb_MSG_BC_EU_REDUCE_ACK_descriptor_ = file->message_type(4);
+  static const int pb_MSG_BC_EU_REDUCE_ACK_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE_ACK, result_list_),
   };
-  pb_BC_EU_REDUCE_ACK_reflection_ =
+  pb_MSG_BC_EU_REDUCE_ACK_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      pb_BC_EU_REDUCE_ACK_descriptor_,
-      pb_BC_EU_REDUCE_ACK::default_instance_,
-      pb_BC_EU_REDUCE_ACK_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE_ACK, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE_ACK, _unknown_fields_),
+      pb_MSG_BC_EU_REDUCE_ACK_descriptor_,
+      pb_MSG_BC_EU_REDUCE_ACK::default_instance_,
+      pb_MSG_BC_EU_REDUCE_ACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE_ACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE_ACK, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(pb_BC_EU_REDUCE_ACK));
-  pb_BC_EU_REDUCE_ACK_result_descriptor_ = pb_BC_EU_REDUCE_ACK_descriptor_->nested_type(0);
-  static const int pb_BC_EU_REDUCE_ACK_result_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE_ACK_result, key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE_ACK_result, value_),
+      sizeof(pb_MSG_BC_EU_REDUCE_ACK));
+  pb_MSG_BC_EU_REDUCE_ACK_result_descriptor_ = pb_MSG_BC_EU_REDUCE_ACK_descriptor_->nested_type(0);
+  static const int pb_MSG_BC_EU_REDUCE_ACK_result_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE_ACK_result, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE_ACK_result, value_),
   };
-  pb_BC_EU_REDUCE_ACK_result_reflection_ =
+  pb_MSG_BC_EU_REDUCE_ACK_result_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      pb_BC_EU_REDUCE_ACK_result_descriptor_,
-      pb_BC_EU_REDUCE_ACK_result::default_instance_,
-      pb_BC_EU_REDUCE_ACK_result_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE_ACK_result, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_REDUCE_ACK_result, _unknown_fields_),
+      pb_MSG_BC_EU_REDUCE_ACK_result_descriptor_,
+      pb_MSG_BC_EU_REDUCE_ACK_result::default_instance_,
+      pb_MSG_BC_EU_REDUCE_ACK_result_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE_ACK_result, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_REDUCE_ACK_result, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(pb_BC_EU_REDUCE_ACK_result));
-  pb_BC_EU_DELETE_DATA_descriptor_ = file->message_type(5);
-  static const int pb_BC_EU_DELETE_DATA_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_DELETE_DATA, instanceid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_DELETE_DATA, sourcesplitname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_DELETE_DATA, sourcesplitnumber_),
+      sizeof(pb_MSG_BC_EU_REDUCE_ACK_result));
+  pb_MSG_BC_EU_DELETE_DATA_descriptor_ = file->message_type(5);
+  static const int pb_MSG_BC_EU_DELETE_DATA_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_DELETE_DATA, instanceid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_DELETE_DATA, sourcesplitname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_DELETE_DATA, sourcesplitnumber_),
   };
-  pb_BC_EU_DELETE_DATA_reflection_ =
+  pb_MSG_BC_EU_DELETE_DATA_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      pb_BC_EU_DELETE_DATA_descriptor_,
-      pb_BC_EU_DELETE_DATA::default_instance_,
-      pb_BC_EU_DELETE_DATA_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_DELETE_DATA, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_BC_EU_DELETE_DATA, _unknown_fields_),
+      pb_MSG_BC_EU_DELETE_DATA_descriptor_,
+      pb_MSG_BC_EU_DELETE_DATA::default_instance_,
+      pb_MSG_BC_EU_DELETE_DATA_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_DELETE_DATA, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_DELETE_DATA, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(pb_BC_EU_DELETE_DATA));
+      sizeof(pb_MSG_BC_EU_DELETE_DATA));
 }
 
 namespace {
@@ -211,17 +211,17 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pb_MSG_BC_EU_MAP_descriptor_, &pb_MSG_BC_EU_MAP::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    pb_BC_EU_SHUFFLE_descriptor_, &pb_BC_EU_SHUFFLE::default_instance());
+    pb_MSG_BC_EU_SHUFFLE_descriptor_, &pb_MSG_BC_EU_SHUFFLE::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    pb_BC_EU_SHUFFLE_IP_info_descriptor_, &pb_BC_EU_SHUFFLE_IP_info::default_instance());
+    pb_MSG_BC_EU_SHUFFLE_IP_info_descriptor_, &pb_MSG_BC_EU_SHUFFLE_IP_info::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    pb_BC_EU_REDUCE_descriptor_, &pb_BC_EU_REDUCE::default_instance());
+    pb_MSG_BC_EU_REDUCE_descriptor_, &pb_MSG_BC_EU_REDUCE::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    pb_BC_EU_REDUCE_ACK_descriptor_, &pb_BC_EU_REDUCE_ACK::default_instance());
+    pb_MSG_BC_EU_REDUCE_ACK_descriptor_, &pb_MSG_BC_EU_REDUCE_ACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    pb_BC_EU_REDUCE_ACK_result_descriptor_, &pb_BC_EU_REDUCE_ACK_result::default_instance());
+    pb_MSG_BC_EU_REDUCE_ACK_result_descriptor_, &pb_MSG_BC_EU_REDUCE_ACK_result::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    pb_BC_EU_DELETE_DATA_descriptor_, &pb_BC_EU_DELETE_DATA::default_instance());
+    pb_MSG_BC_EU_DELETE_DATA_descriptor_, &pb_MSG_BC_EU_DELETE_DATA::default_instance());
 }
 
 }  // namespace
@@ -231,18 +231,18 @@ void protobuf_ShutdownFile_bc_5feu_2eprotocol_2eproto() {
   delete pb_MSG_BC_EU_INIT_DATA_reflection_;
   delete pb_MSG_BC_EU_MAP::default_instance_;
   delete pb_MSG_BC_EU_MAP_reflection_;
-  delete pb_BC_EU_SHUFFLE::default_instance_;
-  delete pb_BC_EU_SHUFFLE_reflection_;
-  delete pb_BC_EU_SHUFFLE_IP_info::default_instance_;
-  delete pb_BC_EU_SHUFFLE_IP_info_reflection_;
-  delete pb_BC_EU_REDUCE::default_instance_;
-  delete pb_BC_EU_REDUCE_reflection_;
-  delete pb_BC_EU_REDUCE_ACK::default_instance_;
-  delete pb_BC_EU_REDUCE_ACK_reflection_;
-  delete pb_BC_EU_REDUCE_ACK_result::default_instance_;
-  delete pb_BC_EU_REDUCE_ACK_result_reflection_;
-  delete pb_BC_EU_DELETE_DATA::default_instance_;
-  delete pb_BC_EU_DELETE_DATA_reflection_;
+  delete pb_MSG_BC_EU_SHUFFLE::default_instance_;
+  delete pb_MSG_BC_EU_SHUFFLE_reflection_;
+  delete pb_MSG_BC_EU_SHUFFLE_IP_info::default_instance_;
+  delete pb_MSG_BC_EU_SHUFFLE_IP_info_reflection_;
+  delete pb_MSG_BC_EU_REDUCE::default_instance_;
+  delete pb_MSG_BC_EU_REDUCE_reflection_;
+  delete pb_MSG_BC_EU_REDUCE_ACK::default_instance_;
+  delete pb_MSG_BC_EU_REDUCE_ACK_reflection_;
+  delete pb_MSG_BC_EU_REDUCE_ACK_result::default_instance_;
+  delete pb_MSG_BC_EU_REDUCE_ACK_result_reflection_;
+  delete pb_MSG_BC_EU_DELETE_DATA::default_instance_;
+  delete pb_MSG_BC_EU_DELETE_DATA_reflection_;
 }
 
 void protobuf_AddDesc_bc_5feu_2eprotocol_2eproto() {
@@ -260,39 +260,39 @@ void protobuf_AddDesc_bc_5feu_2eprotocol_2eproto() {
     "\014\n\004Para\030\002 \003(\t\022\022\n\nInstanceID\030\003 \002(\t\022\027\n\017Sou"
     "rceSplitName\030\004 \002(\t\022\031\n\021SourceSplitNumber\030"
     "\005 \002(\005\022\025\n\rDestSplitName\030\006 \002(\t\022\027\n\017DestSpli"
-    "tNumber\030\007 \002(\005\"\362\001\n\020pb_BC_EU_SHUFFLE\022\022\n\nIn"
+    "tNumber\030\007 \002(\005\"\372\001\n\024pb_MSG_BC_EU_SHUFFLE\022\022"
+    "\n\nInstanceID\030\001 \002(\t\022\027\n\017SourceSplitName\030\002 "
+    "\002(\t\022\031\n\021SourceSplitNumber\030\003 \002(\005\022\025\n\rDestSp"
+    "litName\030\004 \002(\t\022\030\n\020DestSplitNummber\030\005 \002(\005\022"
+    "\n\n\002MO\030\006 \002(\005\0229\n\014IP_info_List\030\007 \003(\0132#.bc_e"
+    "u.pb_MSG_BC_EU_SHUFFLE.IP_info\032\"\n\007IP_inf"
+    "o\022\013\n\003key\030\001 \002(\005\022\n\n\002IP\030\002 \002(\t\"]\n\023pb_MSG_BC_"
+    "EU_REDUCE\022\022\n\nInstanceID\030\001 \002(\t\022\027\n\017SourceS"
+    "plitName\030\002 \002(\t\022\031\n\021SourcesplitNumber\030\003 \002("
+    "\005\"{\n\027pb_MSG_BC_EU_REDUCE_ACK\022:\n\013result_l"
+    "ist\030\001 \003(\0132%.bc_eu.pb_MSG_BC_EU_REDUCE_AC"
+    "K.result\032$\n\006result\022\013\n\003key\030\001 \002(\t\022\r\n\005value"
+    "\030\002 \002(\t\"b\n\030pb_MSG_BC_EU_DELETE_DATA\022\022\n\nIn"
     "stanceID\030\001 \002(\t\022\027\n\017SourceSplitName\030\002 \002(\t\022"
-    "\031\n\021SourceSplitNumber\030\003 \002(\005\022\025\n\rDestSplitN"
-    "ame\030\004 \002(\t\022\030\n\020DestSplitNummber\030\005 \002(\005\022\n\n\002M"
-    "O\030\006 \002(\005\0225\n\014IP_info_List\030\007 \003(\0132\037.bc_eu.pb"
-    "_BC_EU_SHUFFLE.IP_info\032\"\n\007IP_info\022\013\n\003key"
-    "\030\001 \002(\005\022\n\n\002IP\030\002 \002(\t\"Y\n\017pb_BC_EU_REDUCE\022\022\n"
-    "\nInstanceID\030\001 \002(\t\022\027\n\017SourceSplitName\030\002 \002"
-    "(\t\022\031\n\021SourcesplitNumber\030\003 \002(\005\"s\n\023pb_BC_E"
-    "U_REDUCE_ACK\0226\n\013result_list\030\001 \003(\0132!.bc_e"
-    "u.pb_BC_EU_REDUCE_ACK.result\032$\n\006result\022\013"
-    "\n\003key\030\001 \002(\t\022\r\n\005value\030\002 \002(\t\"^\n\024pb_BC_EU_D"
-    "ELETE_DATA\022\022\n\nInstanceID\030\001 \002(\t\022\027\n\017Source"
-    "SplitName\030\002 \002(\t\022\031\n\021SourceSplitNumber\030\003 \002"
-    "(\005", 882);
+    "\031\n\021SourceSplitNumber\030\003 \002(\005", 906);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "bc_eu.protocol.proto", &protobuf_RegisterTypes);
   pb_MSG_BC_EU_INIT_DATA::default_instance_ = new pb_MSG_BC_EU_INIT_DATA();
   pb_MSG_BC_EU_MAP::default_instance_ = new pb_MSG_BC_EU_MAP();
-  pb_BC_EU_SHUFFLE::default_instance_ = new pb_BC_EU_SHUFFLE();
-  pb_BC_EU_SHUFFLE_IP_info::default_instance_ = new pb_BC_EU_SHUFFLE_IP_info();
-  pb_BC_EU_REDUCE::default_instance_ = new pb_BC_EU_REDUCE();
-  pb_BC_EU_REDUCE_ACK::default_instance_ = new pb_BC_EU_REDUCE_ACK();
-  pb_BC_EU_REDUCE_ACK_result::default_instance_ = new pb_BC_EU_REDUCE_ACK_result();
-  pb_BC_EU_DELETE_DATA::default_instance_ = new pb_BC_EU_DELETE_DATA();
+  pb_MSG_BC_EU_SHUFFLE::default_instance_ = new pb_MSG_BC_EU_SHUFFLE();
+  pb_MSG_BC_EU_SHUFFLE_IP_info::default_instance_ = new pb_MSG_BC_EU_SHUFFLE_IP_info();
+  pb_MSG_BC_EU_REDUCE::default_instance_ = new pb_MSG_BC_EU_REDUCE();
+  pb_MSG_BC_EU_REDUCE_ACK::default_instance_ = new pb_MSG_BC_EU_REDUCE_ACK();
+  pb_MSG_BC_EU_REDUCE_ACK_result::default_instance_ = new pb_MSG_BC_EU_REDUCE_ACK_result();
+  pb_MSG_BC_EU_DELETE_DATA::default_instance_ = new pb_MSG_BC_EU_DELETE_DATA();
   pb_MSG_BC_EU_INIT_DATA::default_instance_->InitAsDefaultInstance();
   pb_MSG_BC_EU_MAP::default_instance_->InitAsDefaultInstance();
-  pb_BC_EU_SHUFFLE::default_instance_->InitAsDefaultInstance();
-  pb_BC_EU_SHUFFLE_IP_info::default_instance_->InitAsDefaultInstance();
-  pb_BC_EU_REDUCE::default_instance_->InitAsDefaultInstance();
-  pb_BC_EU_REDUCE_ACK::default_instance_->InitAsDefaultInstance();
-  pb_BC_EU_REDUCE_ACK_result::default_instance_->InitAsDefaultInstance();
-  pb_BC_EU_DELETE_DATA::default_instance_->InitAsDefaultInstance();
+  pb_MSG_BC_EU_SHUFFLE::default_instance_->InitAsDefaultInstance();
+  pb_MSG_BC_EU_SHUFFLE_IP_info::default_instance_->InitAsDefaultInstance();
+  pb_MSG_BC_EU_REDUCE::default_instance_->InitAsDefaultInstance();
+  pb_MSG_BC_EU_REDUCE_ACK::default_instance_->InitAsDefaultInstance();
+  pb_MSG_BC_EU_REDUCE_ACK_result::default_instance_->InitAsDefaultInstance();
+  pb_MSG_BC_EU_DELETE_DATA::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_bc_5feu_2eprotocol_2eproto);
 }
 
@@ -1289,36 +1289,36 @@ void pb_MSG_BC_EU_MAP::Swap(pb_MSG_BC_EU_MAP* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int pb_BC_EU_SHUFFLE_IP_info::kKeyFieldNumber;
-const int pb_BC_EU_SHUFFLE_IP_info::kIPFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE_IP_info::kKeyFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE_IP_info::kIPFieldNumber;
 #endif  // !_MSC_VER
 
-pb_BC_EU_SHUFFLE_IP_info::pb_BC_EU_SHUFFLE_IP_info()
+pb_MSG_BC_EU_SHUFFLE_IP_info::pb_MSG_BC_EU_SHUFFLE_IP_info()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::InitAsDefaultInstance() {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::InitAsDefaultInstance() {
 }
 
-pb_BC_EU_SHUFFLE_IP_info::pb_BC_EU_SHUFFLE_IP_info(const pb_BC_EU_SHUFFLE_IP_info& from)
+pb_MSG_BC_EU_SHUFFLE_IP_info::pb_MSG_BC_EU_SHUFFLE_IP_info(const pb_MSG_BC_EU_SHUFFLE_IP_info& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::SharedCtor() {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::SharedCtor() {
   _cached_size_ = 0;
   key_ = 0;
   ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-pb_BC_EU_SHUFFLE_IP_info::~pb_BC_EU_SHUFFLE_IP_info() {
+pb_MSG_BC_EU_SHUFFLE_IP_info::~pb_MSG_BC_EU_SHUFFLE_IP_info() {
   SharedDtor();
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::SharedDtor() {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::SharedDtor() {
   if (ip_ != &::google::protobuf::internal::kEmptyString) {
     delete ip_;
   }
@@ -1326,27 +1326,27 @@ void pb_BC_EU_SHUFFLE_IP_info::SharedDtor() {
   }
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::SetCachedSize(int size) const {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* pb_BC_EU_SHUFFLE_IP_info::descriptor() {
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_SHUFFLE_IP_info::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return pb_BC_EU_SHUFFLE_IP_info_descriptor_;
+  return pb_MSG_BC_EU_SHUFFLE_IP_info_descriptor_;
 }
 
-const pb_BC_EU_SHUFFLE_IP_info& pb_BC_EU_SHUFFLE_IP_info::default_instance() {
+const pb_MSG_BC_EU_SHUFFLE_IP_info& pb_MSG_BC_EU_SHUFFLE_IP_info::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_bc_5feu_2eprotocol_2eproto();  return *default_instance_;
 }
 
-pb_BC_EU_SHUFFLE_IP_info* pb_BC_EU_SHUFFLE_IP_info::default_instance_ = NULL;
+pb_MSG_BC_EU_SHUFFLE_IP_info* pb_MSG_BC_EU_SHUFFLE_IP_info::default_instance_ = NULL;
 
-pb_BC_EU_SHUFFLE_IP_info* pb_BC_EU_SHUFFLE_IP_info::New() const {
-  return new pb_BC_EU_SHUFFLE_IP_info;
+pb_MSG_BC_EU_SHUFFLE_IP_info* pb_MSG_BC_EU_SHUFFLE_IP_info::New() const {
+  return new pb_MSG_BC_EU_SHUFFLE_IP_info;
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::Clear() {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     key_ = 0;
     if (has_ip()) {
@@ -1359,7 +1359,7 @@ void pb_BC_EU_SHUFFLE_IP_info::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool pb_BC_EU_SHUFFLE_IP_info::MergePartialFromCodedStream(
+bool pb_MSG_BC_EU_SHUFFLE_IP_info::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -1413,7 +1413,7 @@ bool pb_BC_EU_SHUFFLE_IP_info::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::SerializeWithCachedSizes(
+void pb_MSG_BC_EU_SHUFFLE_IP_info::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required int32 key = 1;
   if (has_key()) {
@@ -1435,7 +1435,7 @@ void pb_BC_EU_SHUFFLE_IP_info::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* pb_BC_EU_SHUFFLE_IP_info::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* pb_MSG_BC_EU_SHUFFLE_IP_info::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required int32 key = 1;
   if (has_key()) {
@@ -1459,7 +1459,7 @@ void pb_BC_EU_SHUFFLE_IP_info::SerializeWithCachedSizes(
   return target;
 }
 
-int pb_BC_EU_SHUFFLE_IP_info::ByteSize() const {
+int pb_MSG_BC_EU_SHUFFLE_IP_info::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1489,10 +1489,10 @@ int pb_BC_EU_SHUFFLE_IP_info::ByteSize() const {
   return total_size;
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::MergeFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const pb_BC_EU_SHUFFLE_IP_info* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const pb_BC_EU_SHUFFLE_IP_info*>(
+  const pb_MSG_BC_EU_SHUFFLE_IP_info* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pb_MSG_BC_EU_SHUFFLE_IP_info*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1501,7 +1501,7 @@ void pb_BC_EU_SHUFFLE_IP_info::MergeFrom(const ::google::protobuf::Message& from
   }
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::MergeFrom(const pb_BC_EU_SHUFFLE_IP_info& from) {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::MergeFrom(const pb_MSG_BC_EU_SHUFFLE_IP_info& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_key()) {
@@ -1514,25 +1514,25 @@ void pb_BC_EU_SHUFFLE_IP_info::MergeFrom(const pb_BC_EU_SHUFFLE_IP_info& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::CopyFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::CopyFrom(const pb_BC_EU_SHUFFLE_IP_info& from) {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::CopyFrom(const pb_MSG_BC_EU_SHUFFLE_IP_info& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool pb_BC_EU_SHUFFLE_IP_info::IsInitialized() const {
+bool pb_MSG_BC_EU_SHUFFLE_IP_info::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   
   return true;
 }
 
-void pb_BC_EU_SHUFFLE_IP_info::Swap(pb_BC_EU_SHUFFLE_IP_info* other) {
+void pb_MSG_BC_EU_SHUFFLE_IP_info::Swap(pb_MSG_BC_EU_SHUFFLE_IP_info* other) {
   if (other != this) {
     std::swap(key_, other->key_);
     std::swap(ip_, other->ip_);
@@ -1542,11 +1542,11 @@ void pb_BC_EU_SHUFFLE_IP_info::Swap(pb_BC_EU_SHUFFLE_IP_info* other) {
   }
 }
 
-::google::protobuf::Metadata pb_BC_EU_SHUFFLE_IP_info::GetMetadata() const {
+::google::protobuf::Metadata pb_MSG_BC_EU_SHUFFLE_IP_info::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = pb_BC_EU_SHUFFLE_IP_info_descriptor_;
-  metadata.reflection = pb_BC_EU_SHUFFLE_IP_info_reflection_;
+  metadata.descriptor = pb_MSG_BC_EU_SHUFFLE_IP_info_descriptor_;
+  metadata.reflection = pb_MSG_BC_EU_SHUFFLE_IP_info_reflection_;
   return metadata;
 }
 
@@ -1554,30 +1554,30 @@ void pb_BC_EU_SHUFFLE_IP_info::Swap(pb_BC_EU_SHUFFLE_IP_info* other) {
 // -------------------------------------------------------------------
 
 #ifndef _MSC_VER
-const int pb_BC_EU_SHUFFLE::kInstanceIDFieldNumber;
-const int pb_BC_EU_SHUFFLE::kSourceSplitNameFieldNumber;
-const int pb_BC_EU_SHUFFLE::kSourceSplitNumberFieldNumber;
-const int pb_BC_EU_SHUFFLE::kDestSplitNameFieldNumber;
-const int pb_BC_EU_SHUFFLE::kDestSplitNummberFieldNumber;
-const int pb_BC_EU_SHUFFLE::kMOFieldNumber;
-const int pb_BC_EU_SHUFFLE::kIPInfoListFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE::kInstanceIDFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE::kSourceSplitNameFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE::kSourceSplitNumberFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE::kDestSplitNameFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE::kDestSplitNummberFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE::kMOFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE::kIPInfoListFieldNumber;
 #endif  // !_MSC_VER
 
-pb_BC_EU_SHUFFLE::pb_BC_EU_SHUFFLE()
+pb_MSG_BC_EU_SHUFFLE::pb_MSG_BC_EU_SHUFFLE()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void pb_BC_EU_SHUFFLE::InitAsDefaultInstance() {
+void pb_MSG_BC_EU_SHUFFLE::InitAsDefaultInstance() {
 }
 
-pb_BC_EU_SHUFFLE::pb_BC_EU_SHUFFLE(const pb_BC_EU_SHUFFLE& from)
+pb_MSG_BC_EU_SHUFFLE::pb_MSG_BC_EU_SHUFFLE(const pb_MSG_BC_EU_SHUFFLE& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void pb_BC_EU_SHUFFLE::SharedCtor() {
+void pb_MSG_BC_EU_SHUFFLE::SharedCtor() {
   _cached_size_ = 0;
   instanceid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   sourcesplitname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -1588,11 +1588,11 @@ void pb_BC_EU_SHUFFLE::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-pb_BC_EU_SHUFFLE::~pb_BC_EU_SHUFFLE() {
+pb_MSG_BC_EU_SHUFFLE::~pb_MSG_BC_EU_SHUFFLE() {
   SharedDtor();
 }
 
-void pb_BC_EU_SHUFFLE::SharedDtor() {
+void pb_MSG_BC_EU_SHUFFLE::SharedDtor() {
   if (instanceid_ != &::google::protobuf::internal::kEmptyString) {
     delete instanceid_;
   }
@@ -1606,27 +1606,27 @@ void pb_BC_EU_SHUFFLE::SharedDtor() {
   }
 }
 
-void pb_BC_EU_SHUFFLE::SetCachedSize(int size) const {
+void pb_MSG_BC_EU_SHUFFLE::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* pb_BC_EU_SHUFFLE::descriptor() {
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_SHUFFLE::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return pb_BC_EU_SHUFFLE_descriptor_;
+  return pb_MSG_BC_EU_SHUFFLE_descriptor_;
 }
 
-const pb_BC_EU_SHUFFLE& pb_BC_EU_SHUFFLE::default_instance() {
+const pb_MSG_BC_EU_SHUFFLE& pb_MSG_BC_EU_SHUFFLE::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_bc_5feu_2eprotocol_2eproto();  return *default_instance_;
 }
 
-pb_BC_EU_SHUFFLE* pb_BC_EU_SHUFFLE::default_instance_ = NULL;
+pb_MSG_BC_EU_SHUFFLE* pb_MSG_BC_EU_SHUFFLE::default_instance_ = NULL;
 
-pb_BC_EU_SHUFFLE* pb_BC_EU_SHUFFLE::New() const {
-  return new pb_BC_EU_SHUFFLE;
+pb_MSG_BC_EU_SHUFFLE* pb_MSG_BC_EU_SHUFFLE::New() const {
+  return new pb_MSG_BC_EU_SHUFFLE;
 }
 
-void pb_BC_EU_SHUFFLE::Clear() {
+void pb_MSG_BC_EU_SHUFFLE::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_instanceid()) {
       if (instanceid_ != &::google::protobuf::internal::kEmptyString) {
@@ -1652,7 +1652,7 @@ void pb_BC_EU_SHUFFLE::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool pb_BC_EU_SHUFFLE::MergePartialFromCodedStream(
+bool pb_MSG_BC_EU_SHUFFLE::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -1756,7 +1756,7 @@ bool pb_BC_EU_SHUFFLE::MergePartialFromCodedStream(
         break;
       }
       
-      // repeated .bc_eu.pb_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
+      // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1787,7 +1787,7 @@ bool pb_BC_EU_SHUFFLE::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void pb_BC_EU_SHUFFLE::SerializeWithCachedSizes(
+void pb_MSG_BC_EU_SHUFFLE::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string InstanceID = 1;
   if (has_instanceid()) {
@@ -1831,7 +1831,7 @@ void pb_BC_EU_SHUFFLE::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->mo(), output);
   }
   
-  // repeated .bc_eu.pb_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
+  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
   for (int i = 0; i < this->ip_info_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, this->ip_info_list(i), output);
@@ -1843,7 +1843,7 @@ void pb_BC_EU_SHUFFLE::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* pb_BC_EU_SHUFFLE::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* pb_MSG_BC_EU_SHUFFLE::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required string InstanceID = 1;
   if (has_instanceid()) {
@@ -1890,7 +1890,7 @@ void pb_BC_EU_SHUFFLE::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->mo(), target);
   }
   
-  // repeated .bc_eu.pb_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
+  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
   for (int i = 0; i < this->ip_info_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1904,7 +1904,7 @@ void pb_BC_EU_SHUFFLE::SerializeWithCachedSizes(
   return target;
 }
 
-int pb_BC_EU_SHUFFLE::ByteSize() const {
+int pb_MSG_BC_EU_SHUFFLE::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1951,7 +1951,7 @@ int pb_BC_EU_SHUFFLE::ByteSize() const {
     }
     
   }
-  // repeated .bc_eu.pb_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
+  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
   total_size += 1 * this->ip_info_list_size();
   for (int i = 0; i < this->ip_info_list_size(); i++) {
     total_size +=
@@ -1970,10 +1970,10 @@ int pb_BC_EU_SHUFFLE::ByteSize() const {
   return total_size;
 }
 
-void pb_BC_EU_SHUFFLE::MergeFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_SHUFFLE::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const pb_BC_EU_SHUFFLE* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const pb_BC_EU_SHUFFLE*>(
+  const pb_MSG_BC_EU_SHUFFLE* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pb_MSG_BC_EU_SHUFFLE*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1982,7 +1982,7 @@ void pb_BC_EU_SHUFFLE::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void pb_BC_EU_SHUFFLE::MergeFrom(const pb_BC_EU_SHUFFLE& from) {
+void pb_MSG_BC_EU_SHUFFLE::MergeFrom(const pb_MSG_BC_EU_SHUFFLE& from) {
   GOOGLE_CHECK_NE(&from, this);
   ip_info_list_.MergeFrom(from.ip_info_list_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -2008,19 +2008,19 @@ void pb_BC_EU_SHUFFLE::MergeFrom(const pb_BC_EU_SHUFFLE& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void pb_BC_EU_SHUFFLE::CopyFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_SHUFFLE::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void pb_BC_EU_SHUFFLE::CopyFrom(const pb_BC_EU_SHUFFLE& from) {
+void pb_MSG_BC_EU_SHUFFLE::CopyFrom(const pb_MSG_BC_EU_SHUFFLE& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool pb_BC_EU_SHUFFLE::IsInitialized() const {
+bool pb_MSG_BC_EU_SHUFFLE::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
   
   for (int i = 0; i < ip_info_list_size(); i++) {
@@ -2029,7 +2029,7 @@ bool pb_BC_EU_SHUFFLE::IsInitialized() const {
   return true;
 }
 
-void pb_BC_EU_SHUFFLE::Swap(pb_BC_EU_SHUFFLE* other) {
+void pb_MSG_BC_EU_SHUFFLE::Swap(pb_MSG_BC_EU_SHUFFLE* other) {
   if (other != this) {
     std::swap(instanceid_, other->instanceid_);
     std::swap(sourcesplitname_, other->sourcesplitname_);
@@ -2044,11 +2044,11 @@ void pb_BC_EU_SHUFFLE::Swap(pb_BC_EU_SHUFFLE* other) {
   }
 }
 
-::google::protobuf::Metadata pb_BC_EU_SHUFFLE::GetMetadata() const {
+::google::protobuf::Metadata pb_MSG_BC_EU_SHUFFLE::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = pb_BC_EU_SHUFFLE_descriptor_;
-  metadata.reflection = pb_BC_EU_SHUFFLE_reflection_;
+  metadata.descriptor = pb_MSG_BC_EU_SHUFFLE_descriptor_;
+  metadata.reflection = pb_MSG_BC_EU_SHUFFLE_reflection_;
   return metadata;
 }
 
@@ -2056,26 +2056,26 @@ void pb_BC_EU_SHUFFLE::Swap(pb_BC_EU_SHUFFLE* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int pb_BC_EU_REDUCE::kInstanceIDFieldNumber;
-const int pb_BC_EU_REDUCE::kSourceSplitNameFieldNumber;
-const int pb_BC_EU_REDUCE::kSourcesplitNumberFieldNumber;
+const int pb_MSG_BC_EU_REDUCE::kInstanceIDFieldNumber;
+const int pb_MSG_BC_EU_REDUCE::kSourceSplitNameFieldNumber;
+const int pb_MSG_BC_EU_REDUCE::kSourcesplitNumberFieldNumber;
 #endif  // !_MSC_VER
 
-pb_BC_EU_REDUCE::pb_BC_EU_REDUCE()
+pb_MSG_BC_EU_REDUCE::pb_MSG_BC_EU_REDUCE()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void pb_BC_EU_REDUCE::InitAsDefaultInstance() {
+void pb_MSG_BC_EU_REDUCE::InitAsDefaultInstance() {
 }
 
-pb_BC_EU_REDUCE::pb_BC_EU_REDUCE(const pb_BC_EU_REDUCE& from)
+pb_MSG_BC_EU_REDUCE::pb_MSG_BC_EU_REDUCE(const pb_MSG_BC_EU_REDUCE& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void pb_BC_EU_REDUCE::SharedCtor() {
+void pb_MSG_BC_EU_REDUCE::SharedCtor() {
   _cached_size_ = 0;
   instanceid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   sourcesplitname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -2083,11 +2083,11 @@ void pb_BC_EU_REDUCE::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-pb_BC_EU_REDUCE::~pb_BC_EU_REDUCE() {
+pb_MSG_BC_EU_REDUCE::~pb_MSG_BC_EU_REDUCE() {
   SharedDtor();
 }
 
-void pb_BC_EU_REDUCE::SharedDtor() {
+void pb_MSG_BC_EU_REDUCE::SharedDtor() {
   if (instanceid_ != &::google::protobuf::internal::kEmptyString) {
     delete instanceid_;
   }
@@ -2098,27 +2098,27 @@ void pb_BC_EU_REDUCE::SharedDtor() {
   }
 }
 
-void pb_BC_EU_REDUCE::SetCachedSize(int size) const {
+void pb_MSG_BC_EU_REDUCE::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* pb_BC_EU_REDUCE::descriptor() {
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_REDUCE::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return pb_BC_EU_REDUCE_descriptor_;
+  return pb_MSG_BC_EU_REDUCE_descriptor_;
 }
 
-const pb_BC_EU_REDUCE& pb_BC_EU_REDUCE::default_instance() {
+const pb_MSG_BC_EU_REDUCE& pb_MSG_BC_EU_REDUCE::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_bc_5feu_2eprotocol_2eproto();  return *default_instance_;
 }
 
-pb_BC_EU_REDUCE* pb_BC_EU_REDUCE::default_instance_ = NULL;
+pb_MSG_BC_EU_REDUCE* pb_MSG_BC_EU_REDUCE::default_instance_ = NULL;
 
-pb_BC_EU_REDUCE* pb_BC_EU_REDUCE::New() const {
-  return new pb_BC_EU_REDUCE;
+pb_MSG_BC_EU_REDUCE* pb_MSG_BC_EU_REDUCE::New() const {
+  return new pb_MSG_BC_EU_REDUCE;
 }
 
-void pb_BC_EU_REDUCE::Clear() {
+void pb_MSG_BC_EU_REDUCE::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_instanceid()) {
       if (instanceid_ != &::google::protobuf::internal::kEmptyString) {
@@ -2136,7 +2136,7 @@ void pb_BC_EU_REDUCE::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool pb_BC_EU_REDUCE::MergePartialFromCodedStream(
+bool pb_MSG_BC_EU_REDUCE::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -2207,7 +2207,7 @@ bool pb_BC_EU_REDUCE::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void pb_BC_EU_REDUCE::SerializeWithCachedSizes(
+void pb_MSG_BC_EU_REDUCE::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string InstanceID = 1;
   if (has_instanceid()) {
@@ -2238,7 +2238,7 @@ void pb_BC_EU_REDUCE::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* pb_BC_EU_REDUCE::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* pb_MSG_BC_EU_REDUCE::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required string InstanceID = 1;
   if (has_instanceid()) {
@@ -2272,7 +2272,7 @@ void pb_BC_EU_REDUCE::SerializeWithCachedSizes(
   return target;
 }
 
-int pb_BC_EU_REDUCE::ByteSize() const {
+int pb_MSG_BC_EU_REDUCE::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -2309,10 +2309,10 @@ int pb_BC_EU_REDUCE::ByteSize() const {
   return total_size;
 }
 
-void pb_BC_EU_REDUCE::MergeFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_REDUCE::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const pb_BC_EU_REDUCE* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const pb_BC_EU_REDUCE*>(
+  const pb_MSG_BC_EU_REDUCE* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pb_MSG_BC_EU_REDUCE*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2321,7 +2321,7 @@ void pb_BC_EU_REDUCE::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void pb_BC_EU_REDUCE::MergeFrom(const pb_BC_EU_REDUCE& from) {
+void pb_MSG_BC_EU_REDUCE::MergeFrom(const pb_MSG_BC_EU_REDUCE& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_instanceid()) {
@@ -2337,25 +2337,25 @@ void pb_BC_EU_REDUCE::MergeFrom(const pb_BC_EU_REDUCE& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void pb_BC_EU_REDUCE::CopyFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_REDUCE::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void pb_BC_EU_REDUCE::CopyFrom(const pb_BC_EU_REDUCE& from) {
+void pb_MSG_BC_EU_REDUCE::CopyFrom(const pb_MSG_BC_EU_REDUCE& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool pb_BC_EU_REDUCE::IsInitialized() const {
+bool pb_MSG_BC_EU_REDUCE::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
   
   return true;
 }
 
-void pb_BC_EU_REDUCE::Swap(pb_BC_EU_REDUCE* other) {
+void pb_MSG_BC_EU_REDUCE::Swap(pb_MSG_BC_EU_REDUCE* other) {
   if (other != this) {
     std::swap(instanceid_, other->instanceid_);
     std::swap(sourcesplitname_, other->sourcesplitname_);
@@ -2366,11 +2366,11 @@ void pb_BC_EU_REDUCE::Swap(pb_BC_EU_REDUCE* other) {
   }
 }
 
-::google::protobuf::Metadata pb_BC_EU_REDUCE::GetMetadata() const {
+::google::protobuf::Metadata pb_MSG_BC_EU_REDUCE::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = pb_BC_EU_REDUCE_descriptor_;
-  metadata.reflection = pb_BC_EU_REDUCE_reflection_;
+  metadata.descriptor = pb_MSG_BC_EU_REDUCE_descriptor_;
+  metadata.reflection = pb_MSG_BC_EU_REDUCE_reflection_;
   return metadata;
 }
 
@@ -2378,36 +2378,36 @@ void pb_BC_EU_REDUCE::Swap(pb_BC_EU_REDUCE* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int pb_BC_EU_REDUCE_ACK_result::kKeyFieldNumber;
-const int pb_BC_EU_REDUCE_ACK_result::kValueFieldNumber;
+const int pb_MSG_BC_EU_REDUCE_ACK_result::kKeyFieldNumber;
+const int pb_MSG_BC_EU_REDUCE_ACK_result::kValueFieldNumber;
 #endif  // !_MSC_VER
 
-pb_BC_EU_REDUCE_ACK_result::pb_BC_EU_REDUCE_ACK_result()
+pb_MSG_BC_EU_REDUCE_ACK_result::pb_MSG_BC_EU_REDUCE_ACK_result()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void pb_BC_EU_REDUCE_ACK_result::InitAsDefaultInstance() {
+void pb_MSG_BC_EU_REDUCE_ACK_result::InitAsDefaultInstance() {
 }
 
-pb_BC_EU_REDUCE_ACK_result::pb_BC_EU_REDUCE_ACK_result(const pb_BC_EU_REDUCE_ACK_result& from)
+pb_MSG_BC_EU_REDUCE_ACK_result::pb_MSG_BC_EU_REDUCE_ACK_result(const pb_MSG_BC_EU_REDUCE_ACK_result& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void pb_BC_EU_REDUCE_ACK_result::SharedCtor() {
+void pb_MSG_BC_EU_REDUCE_ACK_result::SharedCtor() {
   _cached_size_ = 0;
   key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   value_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-pb_BC_EU_REDUCE_ACK_result::~pb_BC_EU_REDUCE_ACK_result() {
+pb_MSG_BC_EU_REDUCE_ACK_result::~pb_MSG_BC_EU_REDUCE_ACK_result() {
   SharedDtor();
 }
 
-void pb_BC_EU_REDUCE_ACK_result::SharedDtor() {
+void pb_MSG_BC_EU_REDUCE_ACK_result::SharedDtor() {
   if (key_ != &::google::protobuf::internal::kEmptyString) {
     delete key_;
   }
@@ -2418,27 +2418,27 @@ void pb_BC_EU_REDUCE_ACK_result::SharedDtor() {
   }
 }
 
-void pb_BC_EU_REDUCE_ACK_result::SetCachedSize(int size) const {
+void pb_MSG_BC_EU_REDUCE_ACK_result::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* pb_BC_EU_REDUCE_ACK_result::descriptor() {
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_REDUCE_ACK_result::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return pb_BC_EU_REDUCE_ACK_result_descriptor_;
+  return pb_MSG_BC_EU_REDUCE_ACK_result_descriptor_;
 }
 
-const pb_BC_EU_REDUCE_ACK_result& pb_BC_EU_REDUCE_ACK_result::default_instance() {
+const pb_MSG_BC_EU_REDUCE_ACK_result& pb_MSG_BC_EU_REDUCE_ACK_result::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_bc_5feu_2eprotocol_2eproto();  return *default_instance_;
 }
 
-pb_BC_EU_REDUCE_ACK_result* pb_BC_EU_REDUCE_ACK_result::default_instance_ = NULL;
+pb_MSG_BC_EU_REDUCE_ACK_result* pb_MSG_BC_EU_REDUCE_ACK_result::default_instance_ = NULL;
 
-pb_BC_EU_REDUCE_ACK_result* pb_BC_EU_REDUCE_ACK_result::New() const {
-  return new pb_BC_EU_REDUCE_ACK_result;
+pb_MSG_BC_EU_REDUCE_ACK_result* pb_MSG_BC_EU_REDUCE_ACK_result::New() const {
+  return new pb_MSG_BC_EU_REDUCE_ACK_result;
 }
 
-void pb_BC_EU_REDUCE_ACK_result::Clear() {
+void pb_MSG_BC_EU_REDUCE_ACK_result::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_key()) {
       if (key_ != &::google::protobuf::internal::kEmptyString) {
@@ -2455,7 +2455,7 @@ void pb_BC_EU_REDUCE_ACK_result::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool pb_BC_EU_REDUCE_ACK_result::MergePartialFromCodedStream(
+bool pb_MSG_BC_EU_REDUCE_ACK_result::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -2510,7 +2510,7 @@ bool pb_BC_EU_REDUCE_ACK_result::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void pb_BC_EU_REDUCE_ACK_result::SerializeWithCachedSizes(
+void pb_MSG_BC_EU_REDUCE_ACK_result::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string key = 1;
   if (has_key()) {
@@ -2536,7 +2536,7 @@ void pb_BC_EU_REDUCE_ACK_result::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* pb_BC_EU_REDUCE_ACK_result::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* pb_MSG_BC_EU_REDUCE_ACK_result::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required string key = 1;
   if (has_key()) {
@@ -2565,7 +2565,7 @@ void pb_BC_EU_REDUCE_ACK_result::SerializeWithCachedSizes(
   return target;
 }
 
-int pb_BC_EU_REDUCE_ACK_result::ByteSize() const {
+int pb_MSG_BC_EU_REDUCE_ACK_result::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -2595,10 +2595,10 @@ int pb_BC_EU_REDUCE_ACK_result::ByteSize() const {
   return total_size;
 }
 
-void pb_BC_EU_REDUCE_ACK_result::MergeFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_REDUCE_ACK_result::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const pb_BC_EU_REDUCE_ACK_result* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const pb_BC_EU_REDUCE_ACK_result*>(
+  const pb_MSG_BC_EU_REDUCE_ACK_result* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pb_MSG_BC_EU_REDUCE_ACK_result*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2607,7 +2607,7 @@ void pb_BC_EU_REDUCE_ACK_result::MergeFrom(const ::google::protobuf::Message& fr
   }
 }
 
-void pb_BC_EU_REDUCE_ACK_result::MergeFrom(const pb_BC_EU_REDUCE_ACK_result& from) {
+void pb_MSG_BC_EU_REDUCE_ACK_result::MergeFrom(const pb_MSG_BC_EU_REDUCE_ACK_result& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_key()) {
@@ -2620,25 +2620,25 @@ void pb_BC_EU_REDUCE_ACK_result::MergeFrom(const pb_BC_EU_REDUCE_ACK_result& fro
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void pb_BC_EU_REDUCE_ACK_result::CopyFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_REDUCE_ACK_result::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void pb_BC_EU_REDUCE_ACK_result::CopyFrom(const pb_BC_EU_REDUCE_ACK_result& from) {
+void pb_MSG_BC_EU_REDUCE_ACK_result::CopyFrom(const pb_MSG_BC_EU_REDUCE_ACK_result& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool pb_BC_EU_REDUCE_ACK_result::IsInitialized() const {
+bool pb_MSG_BC_EU_REDUCE_ACK_result::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   
   return true;
 }
 
-void pb_BC_EU_REDUCE_ACK_result::Swap(pb_BC_EU_REDUCE_ACK_result* other) {
+void pb_MSG_BC_EU_REDUCE_ACK_result::Swap(pb_MSG_BC_EU_REDUCE_ACK_result* other) {
   if (other != this) {
     std::swap(key_, other->key_);
     std::swap(value_, other->value_);
@@ -2648,11 +2648,11 @@ void pb_BC_EU_REDUCE_ACK_result::Swap(pb_BC_EU_REDUCE_ACK_result* other) {
   }
 }
 
-::google::protobuf::Metadata pb_BC_EU_REDUCE_ACK_result::GetMetadata() const {
+::google::protobuf::Metadata pb_MSG_BC_EU_REDUCE_ACK_result::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = pb_BC_EU_REDUCE_ACK_result_descriptor_;
-  metadata.reflection = pb_BC_EU_REDUCE_ACK_result_reflection_;
+  metadata.descriptor = pb_MSG_BC_EU_REDUCE_ACK_result_descriptor_;
+  metadata.reflection = pb_MSG_BC_EU_REDUCE_ACK_result_reflection_;
   return metadata;
 }
 
@@ -2660,70 +2660,70 @@ void pb_BC_EU_REDUCE_ACK_result::Swap(pb_BC_EU_REDUCE_ACK_result* other) {
 // -------------------------------------------------------------------
 
 #ifndef _MSC_VER
-const int pb_BC_EU_REDUCE_ACK::kResultListFieldNumber;
+const int pb_MSG_BC_EU_REDUCE_ACK::kResultListFieldNumber;
 #endif  // !_MSC_VER
 
-pb_BC_EU_REDUCE_ACK::pb_BC_EU_REDUCE_ACK()
+pb_MSG_BC_EU_REDUCE_ACK::pb_MSG_BC_EU_REDUCE_ACK()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void pb_BC_EU_REDUCE_ACK::InitAsDefaultInstance() {
+void pb_MSG_BC_EU_REDUCE_ACK::InitAsDefaultInstance() {
 }
 
-pb_BC_EU_REDUCE_ACK::pb_BC_EU_REDUCE_ACK(const pb_BC_EU_REDUCE_ACK& from)
+pb_MSG_BC_EU_REDUCE_ACK::pb_MSG_BC_EU_REDUCE_ACK(const pb_MSG_BC_EU_REDUCE_ACK& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void pb_BC_EU_REDUCE_ACK::SharedCtor() {
+void pb_MSG_BC_EU_REDUCE_ACK::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-pb_BC_EU_REDUCE_ACK::~pb_BC_EU_REDUCE_ACK() {
+pb_MSG_BC_EU_REDUCE_ACK::~pb_MSG_BC_EU_REDUCE_ACK() {
   SharedDtor();
 }
 
-void pb_BC_EU_REDUCE_ACK::SharedDtor() {
+void pb_MSG_BC_EU_REDUCE_ACK::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void pb_BC_EU_REDUCE_ACK::SetCachedSize(int size) const {
+void pb_MSG_BC_EU_REDUCE_ACK::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* pb_BC_EU_REDUCE_ACK::descriptor() {
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_REDUCE_ACK::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return pb_BC_EU_REDUCE_ACK_descriptor_;
+  return pb_MSG_BC_EU_REDUCE_ACK_descriptor_;
 }
 
-const pb_BC_EU_REDUCE_ACK& pb_BC_EU_REDUCE_ACK::default_instance() {
+const pb_MSG_BC_EU_REDUCE_ACK& pb_MSG_BC_EU_REDUCE_ACK::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_bc_5feu_2eprotocol_2eproto();  return *default_instance_;
 }
 
-pb_BC_EU_REDUCE_ACK* pb_BC_EU_REDUCE_ACK::default_instance_ = NULL;
+pb_MSG_BC_EU_REDUCE_ACK* pb_MSG_BC_EU_REDUCE_ACK::default_instance_ = NULL;
 
-pb_BC_EU_REDUCE_ACK* pb_BC_EU_REDUCE_ACK::New() const {
-  return new pb_BC_EU_REDUCE_ACK;
+pb_MSG_BC_EU_REDUCE_ACK* pb_MSG_BC_EU_REDUCE_ACK::New() const {
+  return new pb_MSG_BC_EU_REDUCE_ACK;
 }
 
-void pb_BC_EU_REDUCE_ACK::Clear() {
+void pb_MSG_BC_EU_REDUCE_ACK::Clear() {
   result_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool pb_BC_EU_REDUCE_ACK::MergePartialFromCodedStream(
+bool pb_MSG_BC_EU_REDUCE_ACK::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .bc_eu.pb_BC_EU_REDUCE_ACK.result result_list = 1;
+      // repeated .bc_eu.pb_MSG_BC_EU_REDUCE_ACK.result result_list = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -2754,9 +2754,9 @@ bool pb_BC_EU_REDUCE_ACK::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void pb_BC_EU_REDUCE_ACK::SerializeWithCachedSizes(
+void pb_MSG_BC_EU_REDUCE_ACK::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .bc_eu.pb_BC_EU_REDUCE_ACK.result result_list = 1;
+  // repeated .bc_eu.pb_MSG_BC_EU_REDUCE_ACK.result result_list = 1;
   for (int i = 0; i < this->result_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->result_list(i), output);
@@ -2768,9 +2768,9 @@ void pb_BC_EU_REDUCE_ACK::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* pb_BC_EU_REDUCE_ACK::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* pb_MSG_BC_EU_REDUCE_ACK::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .bc_eu.pb_BC_EU_REDUCE_ACK.result result_list = 1;
+  // repeated .bc_eu.pb_MSG_BC_EU_REDUCE_ACK.result result_list = 1;
   for (int i = 0; i < this->result_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -2784,10 +2784,10 @@ void pb_BC_EU_REDUCE_ACK::SerializeWithCachedSizes(
   return target;
 }
 
-int pb_BC_EU_REDUCE_ACK::ByteSize() const {
+int pb_MSG_BC_EU_REDUCE_ACK::ByteSize() const {
   int total_size = 0;
   
-  // repeated .bc_eu.pb_BC_EU_REDUCE_ACK.result result_list = 1;
+  // repeated .bc_eu.pb_MSG_BC_EU_REDUCE_ACK.result result_list = 1;
   total_size += 1 * this->result_list_size();
   for (int i = 0; i < this->result_list_size(); i++) {
     total_size +=
@@ -2806,10 +2806,10 @@ int pb_BC_EU_REDUCE_ACK::ByteSize() const {
   return total_size;
 }
 
-void pb_BC_EU_REDUCE_ACK::MergeFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_REDUCE_ACK::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const pb_BC_EU_REDUCE_ACK* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const pb_BC_EU_REDUCE_ACK*>(
+  const pb_MSG_BC_EU_REDUCE_ACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pb_MSG_BC_EU_REDUCE_ACK*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2818,25 +2818,25 @@ void pb_BC_EU_REDUCE_ACK::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void pb_BC_EU_REDUCE_ACK::MergeFrom(const pb_BC_EU_REDUCE_ACK& from) {
+void pb_MSG_BC_EU_REDUCE_ACK::MergeFrom(const pb_MSG_BC_EU_REDUCE_ACK& from) {
   GOOGLE_CHECK_NE(&from, this);
   result_list_.MergeFrom(from.result_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void pb_BC_EU_REDUCE_ACK::CopyFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_REDUCE_ACK::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void pb_BC_EU_REDUCE_ACK::CopyFrom(const pb_BC_EU_REDUCE_ACK& from) {
+void pb_MSG_BC_EU_REDUCE_ACK::CopyFrom(const pb_MSG_BC_EU_REDUCE_ACK& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool pb_BC_EU_REDUCE_ACK::IsInitialized() const {
+bool pb_MSG_BC_EU_REDUCE_ACK::IsInitialized() const {
   
   for (int i = 0; i < result_list_size(); i++) {
     if (!this->result_list(i).IsInitialized()) return false;
@@ -2844,7 +2844,7 @@ bool pb_BC_EU_REDUCE_ACK::IsInitialized() const {
   return true;
 }
 
-void pb_BC_EU_REDUCE_ACK::Swap(pb_BC_EU_REDUCE_ACK* other) {
+void pb_MSG_BC_EU_REDUCE_ACK::Swap(pb_MSG_BC_EU_REDUCE_ACK* other) {
   if (other != this) {
     result_list_.Swap(&other->result_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -2853,11 +2853,11 @@ void pb_BC_EU_REDUCE_ACK::Swap(pb_BC_EU_REDUCE_ACK* other) {
   }
 }
 
-::google::protobuf::Metadata pb_BC_EU_REDUCE_ACK::GetMetadata() const {
+::google::protobuf::Metadata pb_MSG_BC_EU_REDUCE_ACK::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = pb_BC_EU_REDUCE_ACK_descriptor_;
-  metadata.reflection = pb_BC_EU_REDUCE_ACK_reflection_;
+  metadata.descriptor = pb_MSG_BC_EU_REDUCE_ACK_descriptor_;
+  metadata.reflection = pb_MSG_BC_EU_REDUCE_ACK_reflection_;
   return metadata;
 }
 
@@ -2865,26 +2865,26 @@ void pb_BC_EU_REDUCE_ACK::Swap(pb_BC_EU_REDUCE_ACK* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int pb_BC_EU_DELETE_DATA::kInstanceIDFieldNumber;
-const int pb_BC_EU_DELETE_DATA::kSourceSplitNameFieldNumber;
-const int pb_BC_EU_DELETE_DATA::kSourceSplitNumberFieldNumber;
+const int pb_MSG_BC_EU_DELETE_DATA::kInstanceIDFieldNumber;
+const int pb_MSG_BC_EU_DELETE_DATA::kSourceSplitNameFieldNumber;
+const int pb_MSG_BC_EU_DELETE_DATA::kSourceSplitNumberFieldNumber;
 #endif  // !_MSC_VER
 
-pb_BC_EU_DELETE_DATA::pb_BC_EU_DELETE_DATA()
+pb_MSG_BC_EU_DELETE_DATA::pb_MSG_BC_EU_DELETE_DATA()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void pb_BC_EU_DELETE_DATA::InitAsDefaultInstance() {
+void pb_MSG_BC_EU_DELETE_DATA::InitAsDefaultInstance() {
 }
 
-pb_BC_EU_DELETE_DATA::pb_BC_EU_DELETE_DATA(const pb_BC_EU_DELETE_DATA& from)
+pb_MSG_BC_EU_DELETE_DATA::pb_MSG_BC_EU_DELETE_DATA(const pb_MSG_BC_EU_DELETE_DATA& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void pb_BC_EU_DELETE_DATA::SharedCtor() {
+void pb_MSG_BC_EU_DELETE_DATA::SharedCtor() {
   _cached_size_ = 0;
   instanceid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   sourcesplitname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -2892,11 +2892,11 @@ void pb_BC_EU_DELETE_DATA::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-pb_BC_EU_DELETE_DATA::~pb_BC_EU_DELETE_DATA() {
+pb_MSG_BC_EU_DELETE_DATA::~pb_MSG_BC_EU_DELETE_DATA() {
   SharedDtor();
 }
 
-void pb_BC_EU_DELETE_DATA::SharedDtor() {
+void pb_MSG_BC_EU_DELETE_DATA::SharedDtor() {
   if (instanceid_ != &::google::protobuf::internal::kEmptyString) {
     delete instanceid_;
   }
@@ -2907,27 +2907,27 @@ void pb_BC_EU_DELETE_DATA::SharedDtor() {
   }
 }
 
-void pb_BC_EU_DELETE_DATA::SetCachedSize(int size) const {
+void pb_MSG_BC_EU_DELETE_DATA::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* pb_BC_EU_DELETE_DATA::descriptor() {
+const ::google::protobuf::Descriptor* pb_MSG_BC_EU_DELETE_DATA::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return pb_BC_EU_DELETE_DATA_descriptor_;
+  return pb_MSG_BC_EU_DELETE_DATA_descriptor_;
 }
 
-const pb_BC_EU_DELETE_DATA& pb_BC_EU_DELETE_DATA::default_instance() {
+const pb_MSG_BC_EU_DELETE_DATA& pb_MSG_BC_EU_DELETE_DATA::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_bc_5feu_2eprotocol_2eproto();  return *default_instance_;
 }
 
-pb_BC_EU_DELETE_DATA* pb_BC_EU_DELETE_DATA::default_instance_ = NULL;
+pb_MSG_BC_EU_DELETE_DATA* pb_MSG_BC_EU_DELETE_DATA::default_instance_ = NULL;
 
-pb_BC_EU_DELETE_DATA* pb_BC_EU_DELETE_DATA::New() const {
-  return new pb_BC_EU_DELETE_DATA;
+pb_MSG_BC_EU_DELETE_DATA* pb_MSG_BC_EU_DELETE_DATA::New() const {
+  return new pb_MSG_BC_EU_DELETE_DATA;
 }
 
-void pb_BC_EU_DELETE_DATA::Clear() {
+void pb_MSG_BC_EU_DELETE_DATA::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_instanceid()) {
       if (instanceid_ != &::google::protobuf::internal::kEmptyString) {
@@ -2945,7 +2945,7 @@ void pb_BC_EU_DELETE_DATA::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool pb_BC_EU_DELETE_DATA::MergePartialFromCodedStream(
+bool pb_MSG_BC_EU_DELETE_DATA::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -3016,7 +3016,7 @@ bool pb_BC_EU_DELETE_DATA::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void pb_BC_EU_DELETE_DATA::SerializeWithCachedSizes(
+void pb_MSG_BC_EU_DELETE_DATA::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string InstanceID = 1;
   if (has_instanceid()) {
@@ -3047,7 +3047,7 @@ void pb_BC_EU_DELETE_DATA::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* pb_BC_EU_DELETE_DATA::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* pb_MSG_BC_EU_DELETE_DATA::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required string InstanceID = 1;
   if (has_instanceid()) {
@@ -3081,7 +3081,7 @@ void pb_BC_EU_DELETE_DATA::SerializeWithCachedSizes(
   return target;
 }
 
-int pb_BC_EU_DELETE_DATA::ByteSize() const {
+int pb_MSG_BC_EU_DELETE_DATA::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -3118,10 +3118,10 @@ int pb_BC_EU_DELETE_DATA::ByteSize() const {
   return total_size;
 }
 
-void pb_BC_EU_DELETE_DATA::MergeFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_DELETE_DATA::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const pb_BC_EU_DELETE_DATA* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const pb_BC_EU_DELETE_DATA*>(
+  const pb_MSG_BC_EU_DELETE_DATA* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pb_MSG_BC_EU_DELETE_DATA*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -3130,7 +3130,7 @@ void pb_BC_EU_DELETE_DATA::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void pb_BC_EU_DELETE_DATA::MergeFrom(const pb_BC_EU_DELETE_DATA& from) {
+void pb_MSG_BC_EU_DELETE_DATA::MergeFrom(const pb_MSG_BC_EU_DELETE_DATA& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_instanceid()) {
@@ -3146,25 +3146,25 @@ void pb_BC_EU_DELETE_DATA::MergeFrom(const pb_BC_EU_DELETE_DATA& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void pb_BC_EU_DELETE_DATA::CopyFrom(const ::google::protobuf::Message& from) {
+void pb_MSG_BC_EU_DELETE_DATA::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void pb_BC_EU_DELETE_DATA::CopyFrom(const pb_BC_EU_DELETE_DATA& from) {
+void pb_MSG_BC_EU_DELETE_DATA::CopyFrom(const pb_MSG_BC_EU_DELETE_DATA& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool pb_BC_EU_DELETE_DATA::IsInitialized() const {
+bool pb_MSG_BC_EU_DELETE_DATA::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
   
   return true;
 }
 
-void pb_BC_EU_DELETE_DATA::Swap(pb_BC_EU_DELETE_DATA* other) {
+void pb_MSG_BC_EU_DELETE_DATA::Swap(pb_MSG_BC_EU_DELETE_DATA* other) {
   if (other != this) {
     std::swap(instanceid_, other->instanceid_);
     std::swap(sourcesplitname_, other->sourcesplitname_);
@@ -3175,11 +3175,11 @@ void pb_BC_EU_DELETE_DATA::Swap(pb_BC_EU_DELETE_DATA* other) {
   }
 }
 
-::google::protobuf::Metadata pb_BC_EU_DELETE_DATA::GetMetadata() const {
+::google::protobuf::Metadata pb_MSG_BC_EU_DELETE_DATA::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = pb_BC_EU_DELETE_DATA_descriptor_;
-  metadata.reflection = pb_BC_EU_DELETE_DATA_reflection_;
+  metadata.descriptor = pb_MSG_BC_EU_DELETE_DATA_descriptor_;
+  metadata.reflection = pb_MSG_BC_EU_DELETE_DATA_reflection_;
   return metadata;
 }
 

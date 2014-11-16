@@ -22,7 +22,7 @@ message pb_MSG_BC_EU_MAP
 	required int32 DestSplitNumber = 7;
 }
 
-message pb_BC_EU_SHUFFLE
+message pb_MSG_BC_EU_SHUFFLE
 {
 	message IP_info{
 		required int32 key = 1;
@@ -38,14 +38,14 @@ message pb_BC_EU_SHUFFLE
 	
 }
 
-message pb_BC_EU_REDUCE
+message pb_MSG_BC_EU_REDUCE
 {
 	required string InstanceID = 1;
 	required string SourceSplitName = 2;
 	required int32 SourcesplitNumber = 3;
 }
 
-message pb_BC_EU_REDUCE_ACK
+message pb_MSG_BC_EU_REDUCE_ACK
 {
 	message result{
 		required string key = 1;
@@ -54,7 +54,7 @@ message pb_BC_EU_REDUCE_ACK
 	repeated result result_list = 1;
 }
 
-message pb_BC_EU_DELETE_DATA
+message pb_MSG_BC_EU_DELETE_DATA
 {
 	required string InstanceID = 1;
 	required string SourceSplitName = 2;

@@ -126,7 +126,7 @@ int DataSet::BuildData(int SplitNumber)
 
 int DataSet::BuildMapData(int SplitNumber)
 {
-    S_Agent * Tempagent = NULL;
+    S_Agent * TempAgent = NULL;
     struct mesg_head SendInitmsghead;
     bc_eu::pb_MSG_BC_EU_MAP mesg_body;
     string temp;
@@ -161,10 +161,10 @@ int DataSet::BuildMapData(int SplitNumber)
             mesg_body.SerializeToString(&temp);
             SendInitmsghead.length = temp.length();
             TempAgent->Writebuff.add_buff(&SendInitmsghead,sizeof(SendInitmsghead));
-            body = new char[temo.size()];
-            memcpy(body,temp,c_str(),temp.length());
+            body = new char[temp.size()];
+            memcpy(body,temp.c_str(),temp.length());
             
-            TempAgent -> WriteBuff.add_buff(body,temp.length());
+            TempAgent -> Writebuff.add_buff(body,temp.length());
             delete body;
             body = NULL;
             TempAgent -> m_epoll -> epoll_modify(EPOLLOUT,TempAgent);
@@ -177,12 +177,12 @@ int DataSet::BuildMapData(int SplitNumber)
                 return -1;
             }
         }
-        ret = CheckMapFaild()
+        ret = CheckMapFaild();
         
-        for(int i = BC -> BCAgentList.size();i > 0; i --)
+        for(int j = BC -> BCAgentList.size();j > 0; j --)
         {
-            delete BC -> BCAgentList.at(i - 1);
-            BC -> BCAgentList.at(i-1) = NULL;
+            delete BC -> BCAgentList.at(j - 1);
+            BC -> BCAgentList.at(j-1) = NULL;
             BC -> BCAgentList.pop_back();
         }
         if(ret == -2)
@@ -193,9 +193,9 @@ int DataSet::BuildMapData(int SplitNumber)
                 {
                     for(int i = 0;i < Data.size();i ++) 
                     {
-                        class DatasetSplit temp;
+                        class DataSetSplit temp;
                         temp.IP = Data.at(i).IP;
-                        temp.SequeceNumber = i;
+                        temp.SequenceNumber = i;
                         next -> Data.push_back(temp) ;   
                     }
                     next -> IsInitial = INIT;
@@ -215,7 +215,7 @@ int DataSet::BuildMapData(int SplitNumber)
                         continue;
                     }
                     mesg_head SendInitmsghead;
-                    SendInitmsghead.cmd = MSG_BC_EU_INIT_DATA;
+                    SendInitmsghead.cmd = MSG_BC_EU_DELETE_DATA;
                     bc_eu::pb_MSG_BC_EU_DELETE_DATA mesg_body;
                     mesg_body.set_instanceid(BC -> InstanceID);
                     mesg_body.set_sourcesplitname(prev-> name);
@@ -225,13 +225,13 @@ int DataSet::BuildMapData(int SplitNumber)
                     TempAgent -> Writebuff.add_buff(&SendInitmsghead,sizeof(SendInitmsghead));
                     body = new char[temp.size()];
                     memcpy(body,temp.c_str(),temp.length());
-                    TempAgent -> WriteBuff.add_buff(body,temp.length());
+                    TempAgent -> Writebuff.add_buff(body,temp.length());
                     delete body;
                     body=NULL;
                     TempAgent-> m_epoll ->epoll_modify(EPOLLOUT,TempAgent);
 
                 }
-                while((checkFinish) < 0)
+                while((CheckFinish()) < 0)
                 {
                     if((BC -> m_epoll.epollwait()) < 0)
                     {
@@ -239,14 +239,13 @@ int DataSet::BuildMapData(int SplitNumber)
                         return -1;
                     }
                 }
-                for(int i = BC -> BCAgentList.size());i > 0; i--
+                for(int i = BC -> BCAgentList.size();i > 0; i--)
                 {
                     delete BC -> BCAgentList.at(i -1);
                     BC -> BCAgentList.at(i-1) = NULL;
                     BC -> BCAgentList.pop_back();
                 }
             }
-            //检查数据是否需要删除
         }
         else if(ret == -1)
         {
@@ -260,8 +259,15 @@ int DataSet::BuildMapData(int SplitNumber)
         }
         return 0;
     }
+    if(SplitNumber != -1)
+    {
+        
+    }
 }
-
+int DataSet::BuildShuffleData(int SplitNuber)
+{
+    return 0;
+}
 int DataSet::BuildInitialDataMsg(int SplitNumber)
 {
     S_Agent *TempAgent = NULL;
@@ -338,8 +344,8 @@ int DataSet::BuildInitialDataMsg(int SplitNumber)
                 delete BC -> BCAgentList.at(i - 1);
                 BC -> BCAgentList.at(i -1) = NULL;
                 BC-> BCAgentList.pop_back();
-                BuildData(ret);
             }
+                BuildData(ret);
         }
         if(next -> IsInitial == UNINIT)
         {
@@ -431,7 +437,7 @@ int DataSet::CheckInitFaild()
 {
     for(int i = 0; i < BC -> BCAgentList.size();i ++)
     {
-        if(BC -> BCAgentList.at(i)-> error = 1)
+        if(BC -> BCAgentList.at(i)-> error == 1)
             return i;
     }
     return -1;
@@ -441,11 +447,11 @@ int DataSet::CheckMapFaild()//单个片出错返回序号，-1无数据源重做
     int check = -1;
     for(int i = 0;i < BC -> BCAgentList.size();i ++)
     {
-        if(BC -> BCAgentList.at(i)->error = 1)
+        if((BC -> BCAgentList.at(i)->error) == 1)
         {
             check  = i;
         }
-        if(BC -> BCAgentList.at(i) -> message_head = -1)
+        if(((BC -> BCAgentList.at(i) -> message_head).error) == -1)
         {
             return -1;//无数据源
         }
