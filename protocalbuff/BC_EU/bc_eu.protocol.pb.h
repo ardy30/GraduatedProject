@@ -308,16 +308,12 @@ class pb_MSG_BC_EU_MAP : public ::google::protobuf::Message {
   inline ::std::string* mutable_destsplitname();
   inline ::std::string* release_destsplitname();
   
-  // required string DestSplitNumber = 7;
+  // required int32 DestSplitNumber = 7;
   inline bool has_destsplitnumber() const;
   inline void clear_destsplitnumber();
   static const int kDestSplitNumberFieldNumber = 7;
-  inline const ::std::string& destsplitnumber() const;
-  inline void set_destsplitnumber(const ::std::string& value);
-  inline void set_destsplitnumber(const char* value);
-  inline void set_destsplitnumber(const char* value, size_t size);
-  inline ::std::string* mutable_destsplitnumber();
-  inline ::std::string* release_destsplitnumber();
+  inline ::google::protobuf::int32 destsplitnumber() const;
+  inline void set_destsplitnumber(::google::protobuf::int32 value);
   
   // @@protoc_insertion_point(class_scope:bc_eu.pb_MSG_BC_EU_MAP)
  private:
@@ -341,8 +337,8 @@ class pb_MSG_BC_EU_MAP : public ::google::protobuf::Message {
   ::std::string* instanceid_;
   ::std::string* sourcesplitname_;
   ::std::string* destsplitname_;
-  ::std::string* destsplitnumber_;
   ::google::protobuf::int32 sourcesplitnumber_;
+  ::google::protobuf::int32 destsplitnumber_;
   
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
@@ -1565,7 +1561,7 @@ inline ::std::string* pb_MSG_BC_EU_MAP::release_destsplitname() {
   }
 }
 
-// required string DestSplitNumber = 7;
+// required int32 DestSplitNumber = 7;
 inline bool pb_MSG_BC_EU_MAP::has_destsplitnumber() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1576,51 +1572,15 @@ inline void pb_MSG_BC_EU_MAP::clear_has_destsplitnumber() {
   _has_bits_[0] &= ~0x00000040u;
 }
 inline void pb_MSG_BC_EU_MAP::clear_destsplitnumber() {
-  if (destsplitnumber_ != &::google::protobuf::internal::kEmptyString) {
-    destsplitnumber_->clear();
-  }
+  destsplitnumber_ = 0;
   clear_has_destsplitnumber();
 }
-inline const ::std::string& pb_MSG_BC_EU_MAP::destsplitnumber() const {
-  return *destsplitnumber_;
-}
-inline void pb_MSG_BC_EU_MAP::set_destsplitnumber(const ::std::string& value) {
-  set_has_destsplitnumber();
-  if (destsplitnumber_ == &::google::protobuf::internal::kEmptyString) {
-    destsplitnumber_ = new ::std::string;
-  }
-  destsplitnumber_->assign(value);
-}
-inline void pb_MSG_BC_EU_MAP::set_destsplitnumber(const char* value) {
-  set_has_destsplitnumber();
-  if (destsplitnumber_ == &::google::protobuf::internal::kEmptyString) {
-    destsplitnumber_ = new ::std::string;
-  }
-  destsplitnumber_->assign(value);
-}
-inline void pb_MSG_BC_EU_MAP::set_destsplitnumber(const char* value, size_t size) {
-  set_has_destsplitnumber();
-  if (destsplitnumber_ == &::google::protobuf::internal::kEmptyString) {
-    destsplitnumber_ = new ::std::string;
-  }
-  destsplitnumber_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* pb_MSG_BC_EU_MAP::mutable_destsplitnumber() {
-  set_has_destsplitnumber();
-  if (destsplitnumber_ == &::google::protobuf::internal::kEmptyString) {
-    destsplitnumber_ = new ::std::string;
-  }
+inline ::google::protobuf::int32 pb_MSG_BC_EU_MAP::destsplitnumber() const {
   return destsplitnumber_;
 }
-inline ::std::string* pb_MSG_BC_EU_MAP::release_destsplitnumber() {
-  clear_has_destsplitnumber();
-  if (destsplitnumber_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = destsplitnumber_;
-    destsplitnumber_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
+inline void pb_MSG_BC_EU_MAP::set_destsplitnumber(::google::protobuf::int32 value) {
+  set_has_destsplitnumber();
+  destsplitnumber_ = value;
 }
 
 // -------------------------------------------------------------------

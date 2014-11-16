@@ -158,7 +158,8 @@ int S_Agent::readagent()
             if(m_epoll->epoll_modify(EPOLLOUT,this) < 0)
             {
                 cout << "epoll_modify error"<<endl;
-                delete this;
+                //delete this;
+                error = 1;
                 return -1;
             }
         }
@@ -192,7 +193,9 @@ int S_Agent::writeagent()
     if(ret == WRITE_ERROR)
     {
         cout << "write_socket error"<< endl;
-        delete this;
+        //delete this;
+        error = 1;
+
         return -1;
     }
     else if(ret == WRITE_BLOCK)

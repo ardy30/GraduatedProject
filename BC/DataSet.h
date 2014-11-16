@@ -37,6 +37,7 @@ class DataSet
         int ReferCount;
         int IsInitial;//是否申请到资源
         int State;
+        int caching;
         int Lines;
         class BusinessController  *BC;
         class Tool tool;
@@ -47,6 +48,8 @@ class DataSet
         int BuildData(int);
         int CaculateSize();
         int BuildInitialDataMsg(int);
+        int BuildMapData(int);
+        int BuildshuffleData(int);
         int CheckFinish();
         int CheckInitFaild();//返回大于等于0为第几个数据片出错，返回-1为成功，不考虑出现源数据不存在情况，而且只考虑一次一个节点出错所以只会有一个数返回
     

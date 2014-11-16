@@ -19,7 +19,7 @@ message pb_MSG_BC_EU_MAP
 	required string SourceSplitName = 4;
 	required int32 SourceSplitNumber = 5;
 	required string DestSplitName = 6;
-	required string DestSplitNumber = 7;
+	required int32 DestSplitNumber = 7;
 }
 
 message pb_BC_EU_SHUFFLE

@@ -260,7 +260,7 @@ void protobuf_AddDesc_bc_5feu_2eprotocol_2eproto() {
     "\014\n\004Para\030\002 \003(\t\022\022\n\nInstanceID\030\003 \002(\t\022\027\n\017Sou"
     "rceSplitName\030\004 \002(\t\022\031\n\021SourceSplitNumber\030"
     "\005 \002(\005\022\025\n\rDestSplitName\030\006 \002(\t\022\027\n\017DestSpli"
-    "tNumber\030\007 \002(\t\"\362\001\n\020pb_BC_EU_SHUFFLE\022\022\n\nIn"
+    "tNumber\030\007 \002(\005\"\362\001\n\020pb_BC_EU_SHUFFLE\022\022\n\nIn"
     "stanceID\030\001 \002(\t\022\027\n\017SourceSplitName\030\002 \002(\t\022"
     "\031\n\021SourceSplitNumber\030\003 \002(\005\022\025\n\rDestSplitN"
     "ame\030\004 \002(\t\022\030\n\020DestSplitNummber\030\005 \002(\005\022\n\n\002M"
@@ -796,7 +796,7 @@ void pb_MSG_BC_EU_MAP::SharedCtor() {
   sourcesplitname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   sourcesplitnumber_ = 0;
   destsplitname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  destsplitnumber_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  destsplitnumber_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -816,9 +816,6 @@ void pb_MSG_BC_EU_MAP::SharedDtor() {
   }
   if (destsplitname_ != &::google::protobuf::internal::kEmptyString) {
     delete destsplitname_;
-  }
-  if (destsplitnumber_ != &::google::protobuf::internal::kEmptyString) {
-    delete destsplitnumber_;
   }
   if (this != default_instance_) {
   }
@@ -867,11 +864,7 @@ void pb_MSG_BC_EU_MAP::Clear() {
         destsplitname_->clear();
       }
     }
-    if (has_destsplitnumber()) {
-      if (destsplitnumber_ != &::google::protobuf::internal::kEmptyString) {
-        destsplitnumber_->clear();
-      }
-    }
+    destsplitnumber_ = 0;
   }
   para_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -981,20 +974,19 @@ bool pb_MSG_BC_EU_MAP::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_DestSplitNumber;
+        if (input->ExpectTag(56)) goto parse_DestSplitNumber;
         break;
       }
       
-      // required string DestSplitNumber = 7;
+      // required int32 DestSplitNumber = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_DestSplitNumber:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_destsplitnumber()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->destsplitnumber().data(), this->destsplitnumber().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destsplitnumber_)));
+          set_has_destsplitnumber();
         } else {
           goto handle_uninterpreted;
         }
@@ -1070,13 +1062,9 @@ void pb_MSG_BC_EU_MAP::SerializeWithCachedSizes(
       6, this->destsplitname(), output);
   }
   
-  // required string DestSplitNumber = 7;
+  // required int32 DestSplitNumber = 7;
   if (has_destsplitnumber()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->destsplitnumber().data(), this->destsplitnumber().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      7, this->destsplitnumber(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->destsplitnumber(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -1141,14 +1129,9 @@ void pb_MSG_BC_EU_MAP::SerializeWithCachedSizes(
         6, this->destsplitname(), target);
   }
   
-  // required string DestSplitNumber = 7;
+  // required int32 DestSplitNumber = 7;
   if (has_destsplitnumber()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->destsplitnumber().data(), this->destsplitnumber().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->destsplitnumber(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->destsplitnumber(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -1197,10 +1180,10 @@ int pb_MSG_BC_EU_MAP::ByteSize() const {
           this->destsplitname());
     }
     
-    // required string DestSplitNumber = 7;
+    // required int32 DestSplitNumber = 7;
     if (has_destsplitnumber()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->destsplitnumber());
     }
     
