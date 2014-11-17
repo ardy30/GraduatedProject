@@ -145,8 +145,8 @@ int DataSet::BuildMapData(int SplitNumber)
                 TempAgent -> error = 1;
                 continue;
             }
-            mesg_head SendInitmsghead;
-            SendInitmsghead.cmd = MSG_BC_EU_MAP;
+            mesg_head SendMapmsghead;
+            SendMapmsghead.cmd = MSG_BC_EU_MAP;
 
             bc_eu::pb_MSG_BC_EU_MAP mesg_body;
             mesg_body.set_cmd(lib);
@@ -159,8 +159,8 @@ int DataSet::BuildMapData(int SplitNumber)
             mesg_body.set_destsplitnumber(i);
 
             mesg_body.SerializeToString(&temp);
-            SendInitmsghead.length = temp.length();
-            TempAgent->Writebuff.add_buff(&SendInitmsghead,sizeof(SendInitmsghead));
+            SendMapmsghead.length = temp.length();
+            TempAgent->Writebuff.add_buff(&SendMapmsghead,sizeof(SendMapmsghead));
             body = new char[temp.size()];
             memcpy(body,temp.c_str(),temp.length());
             
@@ -201,6 +201,17 @@ int DataSet::BuildMapData(int SplitNumber)
                     next -> IsInitial = INIT;
                 }
             }
+        }
+        else if(ret == -1)
+        {
+            prev->BuildData(-1);
+            BuildMapData(-1);
+            return 0;
+        }
+        else
+        {
+            BuildMapData(ret);
+        }
             if(prev -> caching == 0)
             {
                 int size = Data.size();
@@ -214,15 +225,16 @@ int DataSet::BuildMapData(int SplitNumber)
                         TempAgent -> error =1;
                         continue;
                     }
-                    mesg_head SendInitmsghead;
-                    SendInitmsghead.cmd = MSG_BC_EU_DELETE_DATA;
+                    mesg_head SendDeletemsghead;
+                    SendDeletemsghead.cmd = MSG_BC_EU_DELETE_DATA;
                     bc_eu::pb_MSG_BC_EU_DELETE_DATA mesg_body;
                     mesg_body.set_instanceid(BC -> InstanceID);
                     mesg_body.set_sourcesplitname(prev-> name);
                     mesg_body.set_sourcesplitnumber(i);
 
-                    SendInitmsghead.length = temp.length();
-                    TempAgent -> Writebuff.add_buff(&SendInitmsghead,sizeof(SendInitmsghead));
+                    mesg_body.SerializeToString(&temp);
+                    SendDeletemsghead.length = temp.length();
+                    TempAgent -> Writebuff.add_buff(&SendDeletemsghead,sizeof(SendDeletemsghead));
                     body = new char[temp.size()];
                     memcpy(body,temp.c_str(),temp.length());
                     TempAgent -> Writebuff.add_buff(body,temp.length());
@@ -246,22 +258,104 @@ int DataSet::BuildMapData(int SplitNumber)
                     BC -> BCAgentList.pop_back();
                 }
             }
-        }
-        else if(ret == -1)
-        {
-            prev->BuildData(-1);
-            BuildMapData(-1);
-        }
-        else
-        {
-            prev -> BuildData(ret);
-            BuildMapData(ret);
-        }
         return 0;
     }
     if(SplitNumber != -1)
     {
-        
+        prev -> BuildData(ret);
+        TempAgent = new S_Agent(&(BC -> m_epoll));
+        BC -> BCAgentList.push_back(TempAgent);
+        if(TempAgent -> connect_server((char*)(Data.at(SplitNumber).IP).c_str(),EU_PORT) < 0)
+        {
+            cout << "reconnect EU error" << endl;
+            cout << "fatal error"<< endl;
+            exit(0);
+        }
+        mesg_head SendMapmsghead;
+        SendMapmsghead.cmd = MSG_BC_EU_MAP;
+       
+        bc_eu::pb_MSG_BC_EU_MAP mesg_body;
+        mesg_body.set_cmd(lib);
+        for(int i = 0; i < arg.size(); i++)
+            mesg_body.add_para(arg.at(i));
+        mesg_body.set_instanceid(BC -> InstanceID);
+        mesg_body.set_sourcesplitname(prev -> name);
+        mesg_body.set_sourcesplitnumber(SplitNumber);
+        mesg_body.set_destsplitname(name);
+        mesg_body.set_destsplitnumber(SplitNumber);
+
+        mesg_body.SerializeToString(&temp);
+        SendMapmsghead.length = temp.length();
+        TempAgent -> Writebuff.add_buff(&SendMapmsghead,sizeof(SendMapmsghead));
+        body = new char[temp.size()];
+        memcpy(body,temp.c_str(),temp.length());
+
+        TempAgent -> Writebuff.add_buff(body,temp.length());
+        delete body;
+        body = NULL;
+        TempAgent -> m_epoll -> epoll_modify(EPOLLOUT,TempAgent);
+        while(TempAgent -> finish == 0 && TempAgent -> error == 0)
+        {
+            if((BC -> m_epoll.epollwait())< 0)
+            {
+                cout << "map reconnect epollwaiterror"<< endl;
+                exit(0);
+            }
+        }
+        if(TempAgent -> error == 1)
+        {
+            cout << "reconnect error map"<< endl;
+            exit(0);
+        }
+        else if(TempAgent -> finish == 1)
+        {
+            delete TempAgent;
+            BC -> BCAgentList.pop_back();
+            if(next -> IsInitial == INIT)
+                (next -> Data).at(SplitNumber).IP = (this -> Data).at(SplitNumber).IP;
+            /*  if(prev -> caching == 0)
+            {
+                TempAgent = new S_Agent(&(BC -> m_epoll));
+                BC -> BCAgentList.push_back(TempAgent);
+                if(TempAgent -> connect_server((char*)(Data.at(SplitNumber).IP).c_str(),EU_PORT) < 0)
+                {
+                    cout << "rebuild delete data error should not happen"<< endl;
+                    exit(0);
+                }
+                mesg_head SendDeletemsghead;
+                SendDeletemsghead.cmd = MSG_BC_EU_DELETE_DATA;
+                bc_eu::pb_MSG_BC_EU_DELETE_DATA mesg_body;
+                mesg_body.set_instanceid(BC -> InstanceID);
+                mesg_body.set_sourcesplitname(prev -> name);
+                mesg_body.set_sourcesplitnumber(SplitNumber);
+            
+                mesg_body.SerializeToString(&temp);
+                SendDeletemsghead.length = temp.length();
+                TempAgent -> Writebuff.add_buff(&SendDeletemsghead,sizeof(SendDeletemsghead));
+                body = new char[temp.size()];
+                memcpy(body,temp.c_str(),temp.length());
+                TempAgent -> Writebuff.add_buff(body,temp.length());
+                delete body;
+                body = NULL;
+                TempAgent -> m_epoll -> epoll_modify(EPOLLOUT,TempAgent);
+                
+                while((CheckFinish()) < 0)
+                {
+                    if((BC -> m_epoll.epollwait()) < 0)
+                    {
+                        cout << "epollwaiterror in map rebuild"<< endl;
+                        exit(1);
+                    }
+                }
+                for(int i = BC -> BCAgentList.size(); i > 0;i--)
+                {
+                    delete BC -> BCAgentList.at(i -1);
+                    BC -> BCAgentList.at(i -1) = NULL;
+                    BC -> BCAgentList.pop_back();
+                }
+            }*/
+               return 0;
+        }
     }
 }
 int DataSet::BuildShuffleData(int SplitNuber)

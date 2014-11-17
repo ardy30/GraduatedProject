@@ -220,7 +220,7 @@ int main(int argc, char **argv)
             {
                 number = read(connfdcontainer.at(i),temp,ptr.length);
             }
-            if(number = ptr.length)
+            if(number != ptr.length)
             {
                 cout << "read error"<< endl;
             }
