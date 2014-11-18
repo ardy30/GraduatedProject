@@ -98,9 +98,9 @@ void protobuf_AssignDesc_bc_5feu_2eprotocol_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, sourcesplitname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, sourcesplitnumber_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, destsplitname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, destsplitnummber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, destsplitnumber_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, mo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, ip_info_list_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pb_MSG_BC_EU_SHUFFLE, ipinfolist_),
   };
   pb_MSG_BC_EU_SHUFFLE_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -260,21 +260,21 @@ void protobuf_AddDesc_bc_5feu_2eprotocol_2eproto() {
     "\014\n\004Para\030\002 \003(\t\022\022\n\nInstanceID\030\003 \002(\t\022\027\n\017Sou"
     "rceSplitName\030\004 \002(\t\022\031\n\021SourceSplitNumber\030"
     "\005 \002(\005\022\025\n\rDestSplitName\030\006 \002(\t\022\027\n\017DestSpli"
-    "tNumber\030\007 \002(\005\"\372\001\n\024pb_MSG_BC_EU_SHUFFLE\022\022"
+    "tNumber\030\007 \002(\005\"\367\001\n\024pb_MSG_BC_EU_SHUFFLE\022\022"
     "\n\nInstanceID\030\001 \002(\t\022\027\n\017SourceSplitName\030\002 "
     "\002(\t\022\031\n\021SourceSplitNumber\030\003 \002(\005\022\025\n\rDestSp"
-    "litName\030\004 \002(\t\022\030\n\020DestSplitNummber\030\005 \002(\005\022"
-    "\n\n\002MO\030\006 \002(\005\0229\n\014IP_info_List\030\007 \003(\0132#.bc_e"
-    "u.pb_MSG_BC_EU_SHUFFLE.IP_info\032\"\n\007IP_inf"
-    "o\022\013\n\003key\030\001 \002(\005\022\n\n\002IP\030\002 \002(\t\"]\n\023pb_MSG_BC_"
-    "EU_REDUCE\022\022\n\nInstanceID\030\001 \002(\t\022\027\n\017SourceS"
-    "plitName\030\002 \002(\t\022\031\n\021SourcesplitNumber\030\003 \002("
-    "\005\"{\n\027pb_MSG_BC_EU_REDUCE_ACK\022:\n\013result_l"
-    "ist\030\001 \003(\0132%.bc_eu.pb_MSG_BC_EU_REDUCE_AC"
-    "K.result\032$\n\006result\022\013\n\003key\030\001 \002(\t\022\r\n\005value"
-    "\030\002 \002(\t\"b\n\030pb_MSG_BC_EU_DELETE_DATA\022\022\n\nIn"
-    "stanceID\030\001 \002(\t\022\027\n\017SourceSplitName\030\002 \002(\t\022"
-    "\031\n\021SourceSplitNumber\030\003 \002(\005", 906);
+    "litName\030\004 \002(\t\022\027\n\017DestSplitNumber\030\005 \002(\005\022\n"
+    "\n\002MO\030\006 \002(\005\0227\n\nIPInfoList\030\007 \003(\0132#.bc_eu.p"
+    "b_MSG_BC_EU_SHUFFLE.IP_info\032\"\n\007IP_info\022\013"
+    "\n\003key\030\001 \002(\005\022\n\n\002IP\030\002 \002(\t\"]\n\023pb_MSG_BC_EU_"
+    "REDUCE\022\022\n\nInstanceID\030\001 \002(\t\022\027\n\017SourceSpli"
+    "tName\030\002 \002(\t\022\031\n\021SourcesplitNumber\030\003 \002(\005\"{"
+    "\n\027pb_MSG_BC_EU_REDUCE_ACK\022:\n\013result_list"
+    "\030\001 \003(\0132%.bc_eu.pb_MSG_BC_EU_REDUCE_ACK.r"
+    "esult\032$\n\006result\022\013\n\003key\030\001 \002(\t\022\r\n\005value\030\002 "
+    "\002(\t\"b\n\030pb_MSG_BC_EU_DELETE_DATA\022\022\n\nInsta"
+    "nceID\030\001 \002(\t\022\027\n\017SourceSplitName\030\002 \002(\t\022\031\n\021"
+    "SourceSplitNumber\030\003 \002(\005", 903);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "bc_eu.protocol.proto", &protobuf_RegisterTypes);
   pb_MSG_BC_EU_INIT_DATA::default_instance_ = new pb_MSG_BC_EU_INIT_DATA();
@@ -1558,7 +1558,7 @@ const int pb_MSG_BC_EU_SHUFFLE::kInstanceIDFieldNumber;
 const int pb_MSG_BC_EU_SHUFFLE::kSourceSplitNameFieldNumber;
 const int pb_MSG_BC_EU_SHUFFLE::kSourceSplitNumberFieldNumber;
 const int pb_MSG_BC_EU_SHUFFLE::kDestSplitNameFieldNumber;
-const int pb_MSG_BC_EU_SHUFFLE::kDestSplitNummberFieldNumber;
+const int pb_MSG_BC_EU_SHUFFLE::kDestSplitNumberFieldNumber;
 const int pb_MSG_BC_EU_SHUFFLE::kMOFieldNumber;
 const int pb_MSG_BC_EU_SHUFFLE::kIPInfoListFieldNumber;
 #endif  // !_MSC_VER
@@ -1583,7 +1583,7 @@ void pb_MSG_BC_EU_SHUFFLE::SharedCtor() {
   sourcesplitname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   sourcesplitnumber_ = 0;
   destsplitname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  destsplitnummber_ = 0;
+  destsplitnumber_ = 0;
   mo_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1644,10 +1644,10 @@ void pb_MSG_BC_EU_SHUFFLE::Clear() {
         destsplitname_->clear();
       }
     }
-    destsplitnummber_ = 0;
+    destsplitnumber_ = 0;
     mo_ = 0;
   }
-  ip_info_list_.Clear();
+  ipinfolist_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1720,19 +1720,19 @@ bool pb_MSG_BC_EU_SHUFFLE::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_DestSplitNummber;
+        if (input->ExpectTag(40)) goto parse_DestSplitNumber;
         break;
       }
       
-      // required int32 DestSplitNummber = 5;
+      // required int32 DestSplitNumber = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_DestSplitNummber:
+         parse_DestSplitNumber:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &destsplitnummber_)));
-          set_has_destsplitnummber();
+                 input, &destsplitnumber_)));
+          set_has_destsplitnumber();
         } else {
           goto handle_uninterpreted;
         }
@@ -1752,21 +1752,21 @@ bool pb_MSG_BC_EU_SHUFFLE::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_IP_info_List;
+        if (input->ExpectTag(58)) goto parse_IPInfoList;
         break;
       }
       
-      // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
+      // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IPInfoList = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_IP_info_List:
+         parse_IPInfoList:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_ip_info_list()));
+                input, add_ipinfolist()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_IP_info_List;
+        if (input->ExpectTag(58)) goto parse_IPInfoList;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1821,9 +1821,9 @@ void pb_MSG_BC_EU_SHUFFLE::SerializeWithCachedSizes(
       4, this->destsplitname(), output);
   }
   
-  // required int32 DestSplitNummber = 5;
-  if (has_destsplitnummber()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->destsplitnummber(), output);
+  // required int32 DestSplitNumber = 5;
+  if (has_destsplitnumber()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->destsplitnumber(), output);
   }
   
   // required int32 MO = 6;
@@ -1831,10 +1831,10 @@ void pb_MSG_BC_EU_SHUFFLE::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->mo(), output);
   }
   
-  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
-  for (int i = 0; i < this->ip_info_list_size(); i++) {
+  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IPInfoList = 7;
+  for (int i = 0; i < this->ipinfolist_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, this->ip_info_list(i), output);
+      7, this->ipinfolist(i), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -1880,9 +1880,9 @@ void pb_MSG_BC_EU_SHUFFLE::SerializeWithCachedSizes(
         4, this->destsplitname(), target);
   }
   
-  // required int32 DestSplitNummber = 5;
-  if (has_destsplitnummber()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->destsplitnummber(), target);
+  // required int32 DestSplitNumber = 5;
+  if (has_destsplitnumber()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->destsplitnumber(), target);
   }
   
   // required int32 MO = 6;
@@ -1890,11 +1890,11 @@ void pb_MSG_BC_EU_SHUFFLE::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->mo(), target);
   }
   
-  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
-  for (int i = 0; i < this->ip_info_list_size(); i++) {
+  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IPInfoList = 7;
+  for (int i = 0; i < this->ipinfolist_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        7, this->ip_info_list(i), target);
+        7, this->ipinfolist(i), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -1936,11 +1936,11 @@ int pb_MSG_BC_EU_SHUFFLE::ByteSize() const {
           this->destsplitname());
     }
     
-    // required int32 DestSplitNummber = 5;
-    if (has_destsplitnummber()) {
+    // required int32 DestSplitNumber = 5;
+    if (has_destsplitnumber()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->destsplitnummber());
+          this->destsplitnumber());
     }
     
     // required int32 MO = 6;
@@ -1951,12 +1951,12 @@ int pb_MSG_BC_EU_SHUFFLE::ByteSize() const {
     }
     
   }
-  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
-  total_size += 1 * this->ip_info_list_size();
-  for (int i = 0; i < this->ip_info_list_size(); i++) {
+  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IPInfoList = 7;
+  total_size += 1 * this->ipinfolist_size();
+  for (int i = 0; i < this->ipinfolist_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->ip_info_list(i));
+        this->ipinfolist(i));
   }
   
   if (!unknown_fields().empty()) {
@@ -1984,7 +1984,7 @@ void pb_MSG_BC_EU_SHUFFLE::MergeFrom(const ::google::protobuf::Message& from) {
 
 void pb_MSG_BC_EU_SHUFFLE::MergeFrom(const pb_MSG_BC_EU_SHUFFLE& from) {
   GOOGLE_CHECK_NE(&from, this);
-  ip_info_list_.MergeFrom(from.ip_info_list_);
+  ipinfolist_.MergeFrom(from.ipinfolist_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_instanceid()) {
       set_instanceid(from.instanceid());
@@ -1998,8 +1998,8 @@ void pb_MSG_BC_EU_SHUFFLE::MergeFrom(const pb_MSG_BC_EU_SHUFFLE& from) {
     if (from.has_destsplitname()) {
       set_destsplitname(from.destsplitname());
     }
-    if (from.has_destsplitnummber()) {
-      set_destsplitnummber(from.destsplitnummber());
+    if (from.has_destsplitnumber()) {
+      set_destsplitnumber(from.destsplitnumber());
     }
     if (from.has_mo()) {
       set_mo(from.mo());
@@ -2023,8 +2023,8 @@ void pb_MSG_BC_EU_SHUFFLE::CopyFrom(const pb_MSG_BC_EU_SHUFFLE& from) {
 bool pb_MSG_BC_EU_SHUFFLE::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
   
-  for (int i = 0; i < ip_info_list_size(); i++) {
-    if (!this->ip_info_list(i).IsInitialized()) return false;
+  for (int i = 0; i < ipinfolist_size(); i++) {
+    if (!this->ipinfolist(i).IsInitialized()) return false;
   }
   return true;
 }
@@ -2035,9 +2035,9 @@ void pb_MSG_BC_EU_SHUFFLE::Swap(pb_MSG_BC_EU_SHUFFLE* other) {
     std::swap(sourcesplitname_, other->sourcesplitname_);
     std::swap(sourcesplitnumber_, other->sourcesplitnumber_);
     std::swap(destsplitname_, other->destsplitname_);
-    std::swap(destsplitnummber_, other->destsplitnummber_);
+    std::swap(destsplitnumber_, other->destsplitnumber_);
     std::swap(mo_, other->mo_);
-    ip_info_list_.Swap(&other->ip_info_list_);
+    ipinfolist_.Swap(&other->ipinfolist_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

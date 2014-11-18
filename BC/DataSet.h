@@ -54,6 +54,7 @@ class DataSet
         int CheckInitFaild();//返回大于等于0为第几个数据片出错，返回-1为成功，不考虑出现源数据不存在情况，而且只考虑一次一个节点出错所以只会有一个数返回
    
        int CheckMapFaild(); 
+       int CheckShuffleFaild();
 };
 
 

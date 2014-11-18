@@ -32,9 +32,9 @@ message pb_MSG_BC_EU_SHUFFLE
 	required string SourceSplitName = 2;
 	required int32 SourceSplitNumber = 3;
 	required string DestSplitName = 4;
-	required int32 DestSplitNummber = 5;
+	required int32 DestSplitNumber = 5;
 	required int32 MO = 6;
-	repeated IP_info IP_info_List = 7;
+	repeated IP_info IPInfoList = 7;
 	
 }
 

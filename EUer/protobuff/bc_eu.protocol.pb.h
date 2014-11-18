@@ -544,12 +544,12 @@ class pb_MSG_BC_EU_SHUFFLE : public ::google::protobuf::Message {
   inline ::std::string* mutable_destsplitname();
   inline ::std::string* release_destsplitname();
   
-  // required int32 DestSplitNummber = 5;
-  inline bool has_destsplitnummber() const;
-  inline void clear_destsplitnummber();
-  static const int kDestSplitNummberFieldNumber = 5;
-  inline ::google::protobuf::int32 destsplitnummber() const;
-  inline void set_destsplitnummber(::google::protobuf::int32 value);
+  // required int32 DestSplitNumber = 5;
+  inline bool has_destsplitnumber() const;
+  inline void clear_destsplitnumber();
+  static const int kDestSplitNumberFieldNumber = 5;
+  inline ::google::protobuf::int32 destsplitnumber() const;
+  inline void set_destsplitnumber(::google::protobuf::int32 value);
   
   // required int32 MO = 6;
   inline bool has_mo() const;
@@ -558,17 +558,17 @@ class pb_MSG_BC_EU_SHUFFLE : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 mo() const;
   inline void set_mo(::google::protobuf::int32 value);
   
-  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
-  inline int ip_info_list_size() const;
-  inline void clear_ip_info_list();
+  // repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IPInfoList = 7;
+  inline int ipinfolist_size() const;
+  inline void clear_ipinfolist();
   static const int kIPInfoListFieldNumber = 7;
-  inline const ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info& ip_info_list(int index) const;
-  inline ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info* mutable_ip_info_list(int index);
-  inline ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info* add_ip_info_list();
+  inline const ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info& ipinfolist(int index) const;
+  inline ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info* mutable_ipinfolist(int index);
+  inline ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info* add_ipinfolist();
   inline const ::google::protobuf::RepeatedPtrField< ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info >&
-      ip_info_list() const;
+      ipinfolist() const;
   inline ::google::protobuf::RepeatedPtrField< ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info >*
-      mutable_ip_info_list();
+      mutable_ipinfolist();
   
   // @@protoc_insertion_point(class_scope:bc_eu.pb_MSG_BC_EU_SHUFFLE)
  private:
@@ -580,8 +580,8 @@ class pb_MSG_BC_EU_SHUFFLE : public ::google::protobuf::Message {
   inline void clear_has_sourcesplitnumber();
   inline void set_has_destsplitname();
   inline void clear_has_destsplitname();
-  inline void set_has_destsplitnummber();
-  inline void clear_has_destsplitnummber();
+  inline void set_has_destsplitnumber();
+  inline void clear_has_destsplitnumber();
   inline void set_has_mo();
   inline void clear_has_mo();
   
@@ -591,8 +591,8 @@ class pb_MSG_BC_EU_SHUFFLE : public ::google::protobuf::Message {
   ::std::string* sourcesplitname_;
   ::std::string* destsplitname_;
   ::google::protobuf::int32 sourcesplitnumber_;
-  ::google::protobuf::int32 destsplitnummber_;
-  ::google::protobuf::RepeatedPtrField< ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info > ip_info_list_;
+  ::google::protobuf::int32 destsplitnumber_;
+  ::google::protobuf::RepeatedPtrField< ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info > ipinfolist_;
   ::google::protobuf::int32 mo_;
   
   mutable int _cached_size_;
@@ -1867,26 +1867,26 @@ inline ::std::string* pb_MSG_BC_EU_SHUFFLE::release_destsplitname() {
   }
 }
 
-// required int32 DestSplitNummber = 5;
-inline bool pb_MSG_BC_EU_SHUFFLE::has_destsplitnummber() const {
+// required int32 DestSplitNumber = 5;
+inline bool pb_MSG_BC_EU_SHUFFLE::has_destsplitnumber() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void pb_MSG_BC_EU_SHUFFLE::set_has_destsplitnummber() {
+inline void pb_MSG_BC_EU_SHUFFLE::set_has_destsplitnumber() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void pb_MSG_BC_EU_SHUFFLE::clear_has_destsplitnummber() {
+inline void pb_MSG_BC_EU_SHUFFLE::clear_has_destsplitnumber() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void pb_MSG_BC_EU_SHUFFLE::clear_destsplitnummber() {
-  destsplitnummber_ = 0;
-  clear_has_destsplitnummber();
+inline void pb_MSG_BC_EU_SHUFFLE::clear_destsplitnumber() {
+  destsplitnumber_ = 0;
+  clear_has_destsplitnumber();
 }
-inline ::google::protobuf::int32 pb_MSG_BC_EU_SHUFFLE::destsplitnummber() const {
-  return destsplitnummber_;
+inline ::google::protobuf::int32 pb_MSG_BC_EU_SHUFFLE::destsplitnumber() const {
+  return destsplitnumber_;
 }
-inline void pb_MSG_BC_EU_SHUFFLE::set_destsplitnummber(::google::protobuf::int32 value) {
-  set_has_destsplitnummber();
-  destsplitnummber_ = value;
+inline void pb_MSG_BC_EU_SHUFFLE::set_destsplitnumber(::google::protobuf::int32 value) {
+  set_has_destsplitnumber();
+  destsplitnumber_ = value;
 }
 
 // required int32 MO = 6;
@@ -1911,29 +1911,29 @@ inline void pb_MSG_BC_EU_SHUFFLE::set_mo(::google::protobuf::int32 value) {
   mo_ = value;
 }
 
-// repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IP_info_List = 7;
-inline int pb_MSG_BC_EU_SHUFFLE::ip_info_list_size() const {
-  return ip_info_list_.size();
+// repeated .bc_eu.pb_MSG_BC_EU_SHUFFLE.IP_info IPInfoList = 7;
+inline int pb_MSG_BC_EU_SHUFFLE::ipinfolist_size() const {
+  return ipinfolist_.size();
 }
-inline void pb_MSG_BC_EU_SHUFFLE::clear_ip_info_list() {
-  ip_info_list_.Clear();
+inline void pb_MSG_BC_EU_SHUFFLE::clear_ipinfolist() {
+  ipinfolist_.Clear();
 }
-inline const ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info& pb_MSG_BC_EU_SHUFFLE::ip_info_list(int index) const {
-  return ip_info_list_.Get(index);
+inline const ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info& pb_MSG_BC_EU_SHUFFLE::ipinfolist(int index) const {
+  return ipinfolist_.Get(index);
 }
-inline ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info* pb_MSG_BC_EU_SHUFFLE::mutable_ip_info_list(int index) {
-  return ip_info_list_.Mutable(index);
+inline ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info* pb_MSG_BC_EU_SHUFFLE::mutable_ipinfolist(int index) {
+  return ipinfolist_.Mutable(index);
 }
-inline ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info* pb_MSG_BC_EU_SHUFFLE::add_ip_info_list() {
-  return ip_info_list_.Add();
+inline ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info* pb_MSG_BC_EU_SHUFFLE::add_ipinfolist() {
+  return ipinfolist_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info >&
-pb_MSG_BC_EU_SHUFFLE::ip_info_list() const {
-  return ip_info_list_;
+pb_MSG_BC_EU_SHUFFLE::ipinfolist() const {
+  return ipinfolist_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info >*
-pb_MSG_BC_EU_SHUFFLE::mutable_ip_info_list() {
-  return &ip_info_list_;
+pb_MSG_BC_EU_SHUFFLE::mutable_ipinfolist() {
+  return &ipinfolist_;
 }
 
 // -------------------------------------------------------------------

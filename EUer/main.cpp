@@ -245,6 +245,62 @@ int main(int argc, char **argv)
             write(connfdcontainer.at(i),&responsedelete_ptr,20);
             delete temp;
         }
+        if(ptr.cmd == MSG_BC_EU_SHUFFLE)
+        {
+            cout << "MSG TYPE: SHUFFLE,LENGTH:"<< ptr.length<< endl;
+            char* temp = new char[ptr.length];
+            number = read(connfdcontainer.at(i),temp,ptr.length);
+            while(number < 0)
+            {
+                number = read(connfdcontainer.at(i),temp,ptr.length);
+            }
+            if(number != ptr.length)
+            {
+                cout <<"read error"<< endl;
+            }
+            number = -1;
+            bc_eu::pb_MSG_BC_EU_SHUFFLE Shuffleoperation;
+            string load(temp,ptr.length);
+            Shuffleoperation.ParseFromString(load);
+
+            string sourcedata = Shuffleoperation.sourcesplitname();
+            int    sourcedatanumber = Shuffleoperation.sourcesplitnumber();
+           
+
+            string destdata = Shuffleoperation.destsplitname();
+            int    destnumber = Shuffleoperation.destsplitnumber();
+            string destdataid;
+            string localIP = LOCALIP;
+            for(int i = 0; i < Shuffleoperation.ipinfolist_size();i ++)
+            {
+                string IP = Shuffleoperation.ipinfolist(i).ip();
+                int key = (int)(Shuffleoperation.ipinfolist(i).key());
+                if(IP == localIP)
+                {
+                    destdataid = destdata + IntToString(key);
+                    break;
+                }
+            }
+            string sourcedataid = sourcedata + IntToString(sourcedatanumber);
+            cout << sourcedataid << endl;
+            cout << destdataid << endl;
+            struct mesg_head responseshuffle_ptr;
+            responseshuffle_ptr.cmd = MSG_BC_EU_SHUFLLE_ACK;
+            responseshuffle_ptr.error = -2;
+            responseshuffle_ptr.length = 0;
+            for(int j = 0; j < datacontainer.size(); j ++)
+            {
+                if(sourcedataid == datacontainer.at(j))
+                {
+                    responseshuffle_ptr.error = -1;
+                    datacontainer.push_back(destdataid);
+                    break;
+
+                }
+            }
+            write(connfdcontainer.at(i),&responseshuffle_ptr,20);
+            delete temp;
+        }
     }
        
 }

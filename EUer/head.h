@@ -53,7 +53,7 @@ using namespace std;
 #define MASTER_PORT 32601
 
 #define MASTERIP "192.168.9.111"
- 
+#define LOCALIP "192.168.9.111" 
 //read return value
 #define READ_ERROR -1
 #define READ_END    0
