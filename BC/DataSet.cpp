@@ -151,8 +151,8 @@ int DataSet::BuildMapData(int SplitNumber)
 
             bc_eu::pb_MSG_BC_EU_MAP mesg_body;
             mesg_body.set_cmd(lib);
-            for(int i = 0; i < arg.size();i ++)
-                mesg_body.add_para(arg.at(i));
+            for(int j = 0; j < arg.size();j ++)
+                mesg_body.add_para(arg.at(j));
             mesg_body.set_instanceid(BC -> InstanceID);
             mesg_body.set_sourcesplitname(prev -> name);
             mesg_body.set_sourcesplitnumber(i);
@@ -315,7 +315,7 @@ int DataSet::BuildMapData(int SplitNumber)
             BC -> BCAgentList.pop_back();
             if(next -> IsInitial == INIT)
                 (next -> Data).at(SplitNumber).IP = (this -> Data).at(SplitNumber).IP;
-            /*  if(prev -> caching == 0)
+              if(prev -> caching == 0)
             {
                 TempAgent = new S_Agent(&(BC -> m_epoll));
                 BC -> BCAgentList.push_back(TempAgent);
@@ -355,7 +355,7 @@ int DataSet::BuildMapData(int SplitNumber)
                     BC -> BCAgentList.at(i -1) = NULL;
                     BC -> BCAgentList.pop_back();
                 }
-            }*/
+            }
                return 0;
         }
     }
@@ -391,14 +391,14 @@ int DataSet::BuildShuffleData(int SplitNumber)
             mesg_body.set_destsplitname(name);
             mesg_body.set_destsplitnumber(i);
             mesg_body.set_mo(size);
-            for(int i = 0; i < size; i ++)
+            for(int j = 0; j < size; j ++)
             {
                 bc_eu::pb_MSG_BC_EU_SHUFFLE_IP_info *info;
                 //info.set_key(i);
                 //info.set_ip(Data.at(i).IP);
                 info = mesg_body.add_ipinfolist();
-                info -> set_key(i);
-                info -> set_ip(Data.at(i).IP);
+                info -> set_key(j);
+                info -> set_ip(Data.at(j).IP);
             }
 
             mesg_body.SerializeToString(&temp);
@@ -504,7 +504,53 @@ int DataSet::BuildShuffleData(int SplitNumber)
     }
     if(SplitNumber != -1)
     {
-    
+        int size = Data.size();
+        for(int i = 0;i < size;i ++)
+        {
+            if(SplitNumber == i)
+                continue;
+            TempAgent = new S_Agent(&(BC -> m_epoll));
+            BC -> BCAgentList.push_back(TempAgent);
+            if((TempAgent -> connect_server((char*)(Data.at(i).IP).c_str(),EU_PORT)) < 0)
+            {
+                cout << "connect EU error";
+                TempAgent -> error = 1;
+                continue;
+            }
+            mesg_head SendDeletemsghead;
+            SendDeletemsghead.cmd = MSG_BC_EU_DELETE_DATA;
+            bc_eu::pb_MSG_BC_EU_DELETE_DATA mesg_body;
+            mesg_body.set_instanceid(BC-> InstanceID);
+            mesg_body.set_sourcesplitname(name);
+            mesg_body.set_sourcesplitnumber(i);
+
+            mesg_body.SerializeToString(&temp);
+            SendDeletemsghead.length = temp.length();
+            TempAgent -> Writebuff.add_buff(&SendDeletemsghead,sizeof(SendDeletemsghead));
+            body = new char[temp.size()];
+            memcpy(body,temp.c_str(),temp.length());
+            TempAgent -> Writebuff.add_buff(body,temp.length());
+            delete body;
+            body = NULL;
+            TempAgent -> m_epoll -> epoll_modify(EPOLLOUT,TempAgent);
+        }
+        while((CheckFinish()) < 0)
+        {
+            if((BC -> m_epoll.epollwait()) < 0)
+            {
+                cout << "in shuffle recover delete original epollwaiterror"<< endl;
+                return -1;
+            }
+        }
+        for(int i = BC -> BCAgentList.size();i > 0;i--)
+        {
+            delete BC -> BCAgentList.at(i -1);
+            BC -> BCAgentList.at(i -1) = NULL;
+            BC -> BCAgentList.pop_back();
+        }
+        prev -> BuildData(ret);
+        BuildShuffleData(-1);
+        return 0;
     }
 }
 int DataSet::BuildInitialDataMsg(int SplitNumber)
@@ -689,14 +735,16 @@ int DataSet::CheckShuffleFaild()//-2未出错 -1无源数据 其他为出错的�
         if((BC -> BCAgentList.at(i) -> error) == 1)
         {
             check = i;
+            return check;
         }
-        if(((BC -> BCAgentList.at(i) -> message_head).error) == -2)
+        if((int)((BC -> BCAgentList.at(i) -> message_head).error) == -2)
         {
             return -1;//无数据源
         }
-        if(((BC -> BCAgentList.at(i) -> message_head).error) >= 0)
+        if((int)((BC -> BCAgentList.at(i) -> message_head).error) >= 0)
         {
             check = (BC -> BCAgentList.at(i) -> message_head).error;
+            return check;
         }
     }
     if(check >= 0)
@@ -715,7 +763,7 @@ int DataSet::CheckMapFaild()//单个片出错返回序号，-1无数据源重做
         {
             check  = i;
         }
-        if(((BC -> BCAgentList.at(i) -> message_head).error) == -1)
+        if((int)((BC -> BCAgentList.at(i) -> message_head).error) == -1)
         {
             return -1;//无数据源
         }

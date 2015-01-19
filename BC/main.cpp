@@ -31,6 +31,7 @@ int main(int argc, char **argv)
     vector<string> result;
     class BusinessController *BC = new BusinessController(InstanceID);
     class DataSet *DataSet1 = BC -> InitialDataSet(data_path);
+    DataSet1 -> caching = 1;
     DataSet *DataSet2 = DataSet1->map(lib1,para1);
     DataSet *DataSet3 = DataSet2->shuffle();
     DataSet *DataSet4 = DataSet3 -> map(lib2,para2);

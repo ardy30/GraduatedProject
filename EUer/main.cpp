@@ -35,6 +35,17 @@ int err_sys(const char * str)
     fprintf(stderr,"%s\n",str);
     exit(1);
 } 
+int see_datacontainer(set<string> C)
+{
+    cout << "=======in container========"<< endl;
+    set<string>::iterator it;
+    for(it = C.begin();it!= C.end();it ++)
+    {
+        cout <<  *it<<  endl;
+    }
+        cout << "==========================="<< endl;
+}
+       
 
 int main(int argc, char **argv)
 {
@@ -45,7 +56,7 @@ int main(int argc, char **argv)
     int flag;
     int ret;
     int i;
-    vector<string> datacontainer;
+    set<string> datacontainer;
     bzero(&servaddr,sizeof(servaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -142,7 +153,7 @@ int main(int argc, char **argv)
             int    splitnumber = Initoperation.splitnumber();
 
             string splitid = splitname + IntToString(splitnumber);
-            datacontainer.push_back(splitid);
+            datacontainer.insert(splitid);
             cout << splitname << endl;
             cout << splitnumber<<endl;
             cout << splitid << endl;
@@ -165,6 +176,7 @@ int main(int argc, char **argv)
             //write(connfd,body,temp.size());
             //cout << "MAPOP"<< endl;
             delete temp;
+            see_datacontainer(datacontainer);
         }
         if(ptr.cmd == MSG_BC_EU_MAP)
         {
@@ -193,13 +205,13 @@ int main(int argc, char **argv)
             string sourcedataid = sourcedata+ IntToString(sourcedatasplitnumber) ;
             string destdataid   = destdata + IntToString(destdatasplitnumber);   
 
-            cout << sourcedataid<< endl;
-            cout << destdataid << endl;
+            cout << "sourcedataid"<<sourcedataid<< endl;
+            cout << "destdataid" <<destdataid << endl;
             struct mesg_head responsemap_ptr;
             responsemap_ptr.cmd = MSG_BC_EU_MAP_ACK;
             responsemap_ptr.error = -1;
             responsemap_ptr.length = 0;
-            for(int j = 0; j < datacontainer.size(); j++)
+            /*  for(int j = 0; j < datacontainer.size(); j++)
             {
                 if(sourcedataid == datacontainer.at(j))
                 {
@@ -207,9 +219,16 @@ int main(int argc, char **argv)
                     datacontainer.push_back(destdataid);
                     break;
                 }
+            }*/
+            set<string>::iterator tempit;
+            if((tempit = datacontainer.find(sourcedataid)) != datacontainer.end())
+            {
+                responsemap_ptr.error = 0;
+                datacontainer.insert(destdataid);
             }
             write(connfdcontainer.at(i),&responsemap_ptr,20);           
             delete temp;
+            see_datacontainer(datacontainer);
         }
         if(ptr.cmd == MSG_BC_EU_DELETE_DATA)
         {
@@ -232,11 +251,12 @@ int main(int argc, char **argv)
             string deletesourcedata = Deleteoperation.sourcesplitname();
             int deletesourcedatanumber = Deleteoperation.sourcesplitnumber();
             string deletedataid = deletesourcedata + IntToString(deletesourcedatanumber);
-            for(int j = 0 ;j < datacontainer.size();j ++)
+            /* /for(int j = 0 ;j < datacontainer.size();j ++)
             {
-                if(deletedataid == datacontainer.at(i))
-                    datacontainer.erase(datacontainer.begin()+i);
-            }
+                if(deletedataid == datacontainer.at(j))
+                    datacontainer.erase(datacontainer.begin()+j);
+            }*/
+            datacontainer.erase(datacontainer.find(deletedataid));
             cout << deletedataid<< endl;
             struct mesg_head responsedelete_ptr;
             responsedelete_ptr.cmd = MSG_BC_EU_MAP_ACK;
@@ -244,6 +264,7 @@ int main(int argc, char **argv)
             responsedelete_ptr.length = 0;
             write(connfdcontainer.at(i),&responsedelete_ptr,20);
             delete temp;
+            see_datacontainer(datacontainer);
         }
         if(ptr.cmd == MSG_BC_EU_SHUFFLE)
         {
@@ -271,35 +292,36 @@ int main(int argc, char **argv)
             int    destnumber = Shuffleoperation.destsplitnumber();
             string destdataid;
             string localIP = LOCALIP;
-            for(int i = 0; i < Shuffleoperation.ipinfolist_size();i ++)
-            {
-                string IP = Shuffleoperation.ipinfolist(i).ip();
-                int key = (int)(Shuffleoperation.ipinfolist(i).key());
-                if(IP == localIP)
-                {
-                    destdataid = destdata + IntToString(key);
-                    break;
-                }
-            }
             string sourcedataid = sourcedata + IntToString(sourcedatanumber);
-            cout << sourcedataid << endl;
-            cout << destdataid << endl;
+            cout <<"sourcedataid" <<sourcedataid << endl;
+            //cout << "destdataid"<<destdataid << endl;
             struct mesg_head responseshuffle_ptr;
             responseshuffle_ptr.cmd = MSG_BC_EU_SHUFLLE_ACK;
             responseshuffle_ptr.error = -2;
             responseshuffle_ptr.length = 0;
             for(int j = 0; j < datacontainer.size(); j ++)
             {
-                if(sourcedataid == datacontainer.at(j))
+                //if(sourcedataid == datacontainer.at(j))
+                if(datacontainer.find(sourcedataid) != datacontainer.end())
                 {
                     responseshuffle_ptr.error = -1;
-                    datacontainer.push_back(destdataid);
+                    for(int i = 0; i < Shuffleoperation.ipinfolist_size();i ++)
+                    {
+                        string IP = Shuffleoperation.ipinfolist(i).ip();
+                        int key = (int)(Shuffleoperation.ipinfolist(i).key());
+                        if(IP == localIP)
+                        {
+                            destdataid = destdata + IntToString(key);
+                        }
+                        datacontainer.insert(destdataid);
+                    }
                     break;
 
                 }
             }
             write(connfdcontainer.at(i),&responseshuffle_ptr,20);
             delete temp;
+            see_datacontainer(datacontainer);
         }
     }
        
