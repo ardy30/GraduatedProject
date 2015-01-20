@@ -161,6 +161,9 @@ vector<string> DataSet::reduce()
 
             mesg_body.SerializeToString(&temp);
             SendDeletemsghead.length = temp.length();
+            TempAgent -> Writebuff.add_buff(&SendDeletemsghead,sizeof(SendDeletemsghead));
+            body = new char[temp.size()];
+            memcpy(body,temp.c_str(),temp.length());
             TempAgent -> Writebuff.add_buff(body,temp.length());
             delete body;
             body = NULL;

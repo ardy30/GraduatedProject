@@ -1,0 +1,685 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+AHS	head.h	70;"	d
+ALL_BLOCK	head.h	615;"	d
+ALL_PAGE	head.h	122;"	d
+Agent	Agent.h	/^class Agent$/;"	c
+BHS	head.h	69;"	d
+BHS_LEN	head.h	65;"	d
+BHSbuff	I_Manager_Agent.h	/^        class Buffermanager BHSbuff;$/;"	m	class:I_Manager_Agent	typeref:class:I_Manager_Agent::Buffermanager
+BLOCK_SIZE	head.h	58;"	d
+Buffermanager	Buffermanager.cpp	/^Buffermanager::Buffermanager()$/;"	f	class:Buffermanager
+Buffermanager	Buffermanager.cpp	/^Buffermanager::Buffermanager(int len)$/;"	f	class:Buffermanager
+Buffermanager	Buffermanager.h	/^class Buffermanager$/;"	c
+CACHING_PAGE	head.h	126;"	d
+CMND_SIZE	head.h	45;"	d
+CONTROL_PAGE	head.h	127;"	d
+DATA	head.h	71;"	d
+DATA_OUT_CMND	head.h	595;"	d
+DATA_OUT_RESPONSE_FAILD	head.h	600;"	d
+DATA_OUT_RESPONSE_SUCCESS	head.h	599;"	d
+DISCONNECT_RECONNECT_PAGE	head.h	123;"	d
+DISCOVERY	head.h	62;"	d
+DISK_BLOCK_NUMBER	head.h	57;"	d
+DISK_cmnd	D_Manager_Agent.h	/^struct DISK_cmnd{$/;"	s
+D_Agent	D_Agent.cpp	/^D_Agent::D_Agent(int D_fd)$/;"	f	class:D_Agent
+D_Agent	D_Agent.h	/^class D_Agent: public Agent$/;"	c
+D_Listenagent	D_Listenagent.cpp	/^D_Listenagent::D_Listenagent()$/;"	f	class:D_Listenagent
+D_Listenagent	D_Listenagent.h	/^class D_Listenagent :public Agent$/;"	c
+D_Manager_Agent	D_Manager_Agent.cpp	/^D_Manager_Agent::D_Manager_Agent()$/;"	f	class:D_Manager_Agent
+D_Manager_Agent	D_Manager_Agent.h	/^class D_Manager_Agent $/;"	c
+D_read	D_Agent.h	/^        class ReadAgent D_read;$/;"	m	class:D_Agent	typeref:class:D_Agent::ReadAgent
+D_write	D_Agent.h	/^        class WriteAgent D_write;$/;"	m	class:D_Agent	typeref:class:D_Agent::WriteAgent
+Data	head.h	/^    void *Data;$/;"	m	struct:PDU
+Databuff	D_Manager_Agent.h	/^        class Buffermanager Databuff;$/;"	m	class:D_Manager_Agent	typeref:class:D_Manager_Agent::Buffermanager
+Databuff	I_Manager_Agent.h	/^        class Buffermanager Databuff;$/;"	m	class:I_Manager_Agent	typeref:class:I_Manager_Agent::Buffermanager
+Datasize	head.h	/^    unsigned int Datasize;$/;"	m	struct:PDU
+EVEN_BLOCK	head.h	614;"	d
+EXCEPTION_CONTROL_MODE_PAGE	head.h	128;"	d
+Epoll	Epoll.cpp	/^Epoll::Epoll()$/;"	f	class:Epoll
+Epoll	Epoll.h	/^class Epoll$/;"	c
+FORMAT_DEVICE_MODE_PAGE	head.h	124;"	d
+ISCSI_FLG_CSG_LOGIN	head.h	118;"	d
+ISCSI_FLG_CSG_MASK	head.h	117;"	d
+ISCSI_FLG_CSG_SECURITY	head.h	119;"	d
+ISCSI_OPCODE_MASK	head.h	96;"	d
+ISCSI_OP_DATAIN_RSP	head.h	103;"	d
+ISCSI_OP_DATAOUT_CMD	head.h	95;"	d
+ISCSI_OP_LOGIN_CMD	head.h	92;"	d
+ISCSI_OP_LOGIN_RSP	head.h	101;"	d
+ISCSI_OP_LOGOUT_CMD	head.h	94;"	d
+ISCSI_OP_LOGOUT_RSP	head.h	104;"	d
+ISCSI_OP_NOP_IN	head.h	99;"	d
+ISCSI_OP_NOP_OUT	head.h	90;"	d
+ISCSI_OP_R2T_RSP	head.h	105;"	d
+ISCSI_OP_SCSI_CMD	head.h	91;"	d
+ISCSI_OP_SCSI_RSP	head.h	100;"	d
+ISCSI_OP_TEXT_CMD	head.h	93;"	d
+ISCSI_OP_TEXT_RSP	head.h	102;"	d
+I_Agent	I_Agent.cpp	/^I_Agent::I_Agent(int I_fd)$/;"	f	class:I_Agent
+I_Agent	I_Agent.h	/^class I_Agent:public Agent$/;"	c
+I_Listenagent	I_Listenagent.cpp	/^I_Listenagent::I_Listenagent()$/;"	f	class:I_Listenagent
+I_Listenagent	I_Listenagent.h	/^class I_Listenagent :public Agent$/;"	c
+I_Manager_Agent	I_Manager_Agent.cpp	/^I_Manager_Agent::I_Manager_Agent()$/;"	f	class:I_Manager_Agent
+I_Manager_Agent	I_Manager_Agent.h	/^class I_Manager_Agent $/;"	c
+I_read	I_Agent.h	/^        class ReadAgent I_read;$/;"	m	class:I_Agent	typeref:class:I_Agent::ReadAgent
+I_write	I_Agent.h	/^        class WriteAgent I_write;$/;"	m	class:I_Agent	typeref:class:I_Agent::WriteAgent
+LISTENQ	head.h	42;"	d
+MAXEPOLL	head.h	41;"	d
+MAX_TRANSFER_BLOCK_NUMBER	head.h	59;"	d
+MESG_HEAD_LEN	head.h	585;"	d
+MESGbuff	D_Manager_Agent.h	/^        class Buffermanager MESGbuff;$/;"	m	class:D_Manager_Agent	typeref:class:D_Manager_Agent::Buffermanager
+NORMAL	head.h	61;"	d
+NO_BLOCK	head.h	612;"	d
+OBJ	makefile	/^OBJ := main.o I_Listenagent.o D_Listenagent.o Socket_I_O_Buff.o Buffermanager.o Epoll.o D_Manager_Agent.o I_Manager_Agent.o D_Agent.o I_Agent.o ReadAgent.o WriteAgent.o $/;"	m
+ODD_BLOCK	head.h	613;"	d
+PDU	head.h	/^struct PDU{$/;"	s
+READ_BHS	head.h	73;"	d
+READ_BLOCK	head.h	81;"	d
+READ_DATA	head.h	74;"	d
+READ_DISK	head.h	588;"	d
+READ_DONE	head.h	75;"	d
+READ_END	head.h	80;"	d
+READ_ERROR	head.h	79;"	d
+READ_MESGHEAD	head.h	77;"	d
+READ_SUCCESS	head.h	82;"	d
+RESPONSE_READ	head.h	590;"	d
+RESPONSE_WRITE	head.h	591;"	d
+RIGID_DISK_GEOMETRY_MODE_PAGE	head.h	125;"	d
+ReadAgent	ReadAgent.cpp	/^ReadAgent::ReadAgent()$/;"	f	class:ReadAgent
+ReadAgent	ReadAgent.h	/^class ReadAgent$/;"	c
+Readbuff	D_Agent.h	/^        class Buffermanager* Readbuff;$/;"	m	class:D_Agent	typeref:class:D_Agent::Buffermanager
+Readbuff	I_Agent.h	/^        class Buffermanager* Readbuff;$/;"	m	class:I_Agent	typeref:class:I_Agent::Buffermanager
+Readbuff_data	D_Agent.h	/^        class Buffermanager Readbuff_data;$/;"	m	class:D_Agent	typeref:class:D_Agent::Buffermanager
+Readbuff_data	I_Agent.h	/^        class Buffermanager Readbuff_data;$/;"	m	class:I_Agent	typeref:class:I_Agent::Buffermanager
+Readbuff_head	D_Agent.h	/^        class Buffermanager Readbuff_head;$/;"	m	class:D_Agent	typeref:class:D_Agent::Buffermanager
+Readbuff_head	I_Agent.h	/^        class Buffermanager Readbuff_head;$/;"	m	class:I_Agent	typeref:class:I_Agent::Buffermanager
+SA	head.h	43;"	d
+SCSI_OP_INQUIRY_LUN	head.h	109;"	d
+SCSI_OP_MODE_SENSE	head.h	111;"	d
+SCSI_OP_READ10	head.h	112;"	d
+SCSI_OP_READ_CAPACITY	head.h	110;"	d
+SCSI_OP_REPORT_LUN	head.h	108;"	d
+SCSI_OP_TEST	head.h	114;"	d
+SCSI_OP_WRITE10	head.h	113;"	d
+STATE_DISCOVER	head.h	54;"	d
+STATE_FREE	head.h	48;"	d
+STATE_LOGIN	head.h	51;"	d
+STATE_LOGIN_FULL	head.h	52;"	d
+STATE_NORMAL	head.h	53;"	d
+STATE_SECURITY	head.h	49;"	d
+STATE_SECURITY_LOGIN	head.h	50;"	d
+Socket_I_O_Buff	Socket_I_O_Buff.cpp	/^Socket_I_O_Buff::Socket_I_O_Buff()$/;"	f	class:Socket_I_O_Buff
+Socket_I_O_Buff	Socket_I_O_Buff.h	/^class Socket_I_O_Buff$/;"	c
+TCP_SOCKET_SIZE	head.h	66;"	d
+WRITE_BLOCK	head.h	86;"	d
+WRITE_CMND	head.h	594;"	d
+WRITE_DISK	head.h	589;"	d
+WRITE_ERROR	head.h	85;"	d
+WRITE_RESPONSE_FAILD	head.h	598;"	d
+WRITE_RESPONSE_SUCESS	head.h	597;"	d
+WRITE_SUCCESS	head.h	87;"	d
+WriteAgent	WriteAgent.cpp	/^WriteAgent::WriteAgent()$/;"	f	class:WriteAgent
+WriteAgent	WriteAgent.h	/^class WriteAgent$/;"	c
+Writebuff	D_Agent.h	/^        class Socket_I_O_Buff Writebuff;$/;"	m	class:D_Agent	typeref:class:D_Agent::Socket_I_O_Buff
+Writebuff	I_Agent.h	/^        class Socket_I_O_Buff Writebuff;$/;"	m	class:I_Agent	typeref:class:I_Agent::Socket_I_O_Buff
+_AGENT_H_	Agent.h	19;"	d
+_BUFFERMANAGER_H	Buffermanager.h	19;"	d
+_D_AGENT_H_	D_Agent.h	19;"	d
+_D_LISTENAGENT_H	D_Listenagent.h	19;"	d
+_D_MANAGER_AGENT_CPP	D_Manager_Agent.cpp	19;"	d	file:
+_D_MANAGER_AGENT_H	D_Manager_Agent.h	19;"	d
+_EPOLL_H	Epoll.h	19;"	d
+_HEADER_H	head.h	19;"	d
+_I_AGENT_H_	I_Agent.h	19;"	d
+_I_LISTENAGENT_H	I_Listenagent.h	19;"	d
+_I_MANAGER_AGENT_H	I_Manager_Agent.h	19;"	d
+_READAGENT_H	ReadAgent.h	19;"	d
+_Socket_I_O_Buff_H	Socket_I_O_Buff.h	19;"	d
+_WRITEAGENT_H	WriteAgent.h	19;"	d
+active_version	head.h	/^    unsigned char active_version;$/;"	m	struct:iscsi_login_rsp_hdr
+add_buff	Buffermanager.cpp	/^int Buffermanager::add_buff(int offset,void* ptr,int len)$/;"	f	class:Buffermanager
+add_buff	Buffermanager.cpp	/^int Buffermanager::add_buff(void* ptr ,int len)$/;"	f	class:Buffermanager
+add_buff	Socket_I_O_Buff.cpp	/^int Socket_I_O_Buff::add_buff(void * ptr,int len)$/;"	f	class:Socket_I_O_Buff
+add_d_agent	D_Manager_Agent.cpp	/^int D_Manager_Agent::add_d_agent(class D_Agent* register_d_agent)$/;"	f	class:D_Manager_Agent
+additional_length	head.h	/^    unsigned char additional_length;$/;"	m	struct:responseall_inquirylun
+addr	head.h	/^    unsigned int addr;$/;"	m	struct:mesg_head
+ahs	head.h	/^    void *ahs;$/;"	m	struct:PDU
+ahsize	head.h	/^    unsigned int ahsize;$/;"	m	struct:PDU
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_data_in_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_data_out_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_login_req_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_login_rsp_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_logout_req_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_logout_rsp_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_nop_in_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_nop_out_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_r2t_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_scsi_cmd_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_scsi_rsp_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_text_req_hdr
+ahslength	head.h	/^    unsigned char ahslength;$/;"	m	struct:iscsi_text_rsp_hdr
+allocation_length	head.h	/^    unsigned char allocation_length;$/;"	m	struct:scsi_inquirylun
+allocation_length	head.h	/^    unsigned char allocation_length;$/;"	m	struct:scsi_modesense
+allocation_length	head.h	/^    unsigned int  allocation_length;$/;"	m	struct:scsi_reportlun
+alternate_sectors_per_zone	head.h	/^    unsigned short alternate_sectors_per_zone;$/;"	m	struct:format_device_mode_page
+alternate_tracks_per_logical_unit	head.h	/^    unsigned short alternate_tracks_per_logical_unit;$/;"	m	struct:format_device_mode_page
+alternate_tracks_per_zone	head.h	/^    unsigned short alternate_tracks_per_zone;$/;"	m	struct:format_device_mode_page
+bhs	head.h	/^    struct iscsi_hdr* bhs;$/;"	m	struct:PDU	typeref:struct:PDU::iscsi_hdr
+bi_residual_count	head.h	/^    unsigned int bi_residual_count;$/;"	m	struct:iscsi_scsi_rsp_hdr
+block_descriptor_length	head.h	/^    unsigned char block_descriptor_length;$/;"	m	struct:mode_parameter_header
+block_length	head.h	/^    unsigned int block_length;$/;"	m	struct:mode_parameter_header
+block_length_in_byte	head.h	/^    unsigned int block_length_in_byte;$/;"	m	struct:response_readcapacity
+buff_catenate	Buffermanager.cpp	/^int Buffermanager::buff_catenate(class Buffermanager* buff1, class Buffermanager* buff2)$/;"	f	class:Buffermanager
+buff_length	Buffermanager.h	/^        int buff_length;$/;"	m	class:Buffermanager
+buffer_empty_ratio	head.h	/^    unsigned char buffer_empty_ratio;$/;"	m	struct:dis_reconnect_page
+buffer_full_ratio	head.h	/^    unsigned char buffer_full_ratio;$/;"	m	struct:dis_reconnect_page
+buffer_offset	head.h	/^    unsigned int buffer_offset;$/;"	m	struct:iscsi_data_in_hdr
+buffer_offset	head.h	/^    unsigned int buffer_offset;$/;"	m	struct:iscsi_data_out_hdr
+buffer_offset	head.h	/^    unsigned int buffer_offset;$/;"	m	struct:iscsi_r2t_hdr
+bufferptr	Buffermanager.h	/^        unsigned char* bufferptr;$/;"	m	class:Buffermanager
+bus_inactivity_limit	head.h	/^    unsigned short bus_inactivity_limit;$/;"	m	struct:dis_reconnect_page
+busy_timeout_period	head.h	/^    unsigned short busy_timeout_period;$/;"	m	struct:control_mode_page
+cache_segment_size	head.h	/^    unsigned short cache_segment_size;$/;"	m	struct:caching_mode_page
+caching_mode_page	head.h	/^struct caching_mode_page{$/;"	s
+caching_mode_page_rsp	I_Manager_Agent.h	/^        struct caching_mode_page              caching_mode_page_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::caching_mode_page
+cid	head.h	/^    unsigned short cid;$/;"	m	struct:iscsi_login_req_hdr
+cid	head.h	/^    unsigned short cid;$/;"	m	struct:iscsi_logout_req_hdr
+cmd_sn	head.h	/^    unsigned int cmd_sn;$/;"	m	struct:iscsi_login_req_hdr
+cmd_sn	head.h	/^    unsigned int cmd_sn;$/;"	m	struct:iscsi_logout_req_hdr
+cmd_sn	head.h	/^    unsigned int cmd_sn;$/;"	m	struct:iscsi_nop_out_hdr
+cmd_sn	head.h	/^    unsigned int cmd_sn;$/;"	m	struct:iscsi_scsi_cmd_hdr
+cmd_sn	head.h	/^    unsigned int cmd_sn;$/;"	m	struct:iscsi_text_req_hdr
+cmd_status	head.h	/^    unsigned char cmd_status;$/;"	m	struct:iscsi_data_in_hdr
+cmd_status	head.h	/^    unsigned char cmd_status;$/;"	m	struct:iscsi_scsi_rsp_hdr
+cmnd_addr	D_Manager_Agent.h	/^     unsigned int cmnd_addr;$/;"	m	struct:DISK_cmnd
+cmnd_exec	I_Manager_Agent.cpp	/^int I_Manager_Agent::cmnd_exec()$/;"	f	class:I_Manager_Agent
+cmnd_exec_dataout	I_Manager_Agent.cpp	/^int I_Manager_Agent::cmnd_exec_dataout()$/;"	f	class:I_Manager_Agent
+cmnd_exec_login	I_Manager_Agent.cpp	/^int I_Manager_Agent::cmnd_exec_login()$/;"	f	class:I_Manager_Agent
+cmnd_exec_logout	I_Manager_Agent.cpp	/^int I_Manager_Agent::cmnd_exec_logout()$/;"	f	class:I_Manager_Agent
+cmnd_exec_nop_out	I_Manager_Agent.cpp	/^int I_Manager_Agent::cmnd_exec_nop_out()$/;"	f	class:I_Manager_Agent
+cmnd_exec_scsi	I_Manager_Agent.cpp	/^int I_Manager_Agent::cmnd_exec_scsi()$/;"	f	class:I_Manager_Agent
+cmnd_exec_text	I_Manager_Agent.cpp	/^int I_Manager_Agent::cmnd_exec_text()$/;"	f	class:I_Manager_Agent
+cmnd_len	D_Manager_Agent.h	/^     unsigned short cmnd_len;$/;"	m	struct:DISK_cmnd
+connect_time_limit	head.h	/^    unsigned short connect_time_limit;$/;"	m	struct:dis_reconnect_page
+continue_data_in	I_Manager_Agent.cpp	/^int I_Manager_Agent::continue_data_in()$/;"	f	class:I_Manager_Agent
+control	head.h	/^    unsigned char control;$/;"	m	struct:scsi_inquirylun
+control	head.h	/^    unsigned char control;$/;"	m	struct:scsi_modesense
+control	head.h	/^    unsigned char control;$/;"	m	struct:scsi_read
+control	head.h	/^    unsigned char control;$/;"	m	struct:scsi_readcapacity
+control	head.h	/^    unsigned char control;$/;"	m	struct:scsi_reportlun
+control	head.h	/^    unsigned char control;$/;"	m	struct:scsi_write
+control_mode_page	head.h	/^struct control_mode_page{$/;"	s
+control_mode_page_rsp	I_Manager_Agent.h	/^        struct control_mode_page              control_mode_page_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::control_mode_page
+cylinder_skew_factor	head.h	/^    unsigned short cylinder_skew_factor;$/;"	m	struct:format_device_mode_page
+d_agent_num	D_Manager_Agent.h	/^        int d_agent_num;$/;"	m	class:D_Manager_Agent
+d_agents	D_Manager_Agent.h	/^        class D_Agent* d_agents[10];$/;"	m	class:D_Manager_Agent	typeref:class:D_Manager_Agent::D_Agent
+d_manager_agent	D_Manager_Agent.cpp	/^class D_Manager_Agent d_manager_agent;$/;"	v	typeref:class:D_Manager_Agent
+d_port	D_Listenagent.h	/^        int d_port;$/;"	m	class:D_Listenagent
+data_bytes_per_physical_sector	head.h	/^    unsigned short data_bytes_per_physical_sector;$/;"	m	struct:format_device_mode_page
+data_in_hdr	D_Manager_Agent.h	/^        struct iscsi_data_in_hdr data_in_hdr;$/;"	m	class:D_Manager_Agent	typeref:struct:D_Manager_Agent::iscsi_data_in_hdr
+data_in_hdr	I_Manager_Agent.h	/^        struct iscsi_data_in_hdr    data_in_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_data_in_hdr
+data_length	head.h	/^    unsigned int data_length;$/;"	m	struct:iscsi_r2t_hdr
+data_length	head.h	/^    unsigned int data_length;$/;"	m	struct:iscsi_scsi_cmd_hdr
+data_list	head.h	/^struct data_list$/;"	s
+data_out_addr	I_Manager_Agent.h	/^        unsigned int data_out_addr;$/;"	m	class:I_Manager_Agent
+data_out_cmnd	D_Manager_Agent.cpp	/^int D_Manager_Agent::data_out_cmnd(struct iscsi_data_out_hdr* data_out_pdu,class Buffermanager* databuff)$/;"	f	class:D_Manager_Agent
+data_out_hdr	I_Manager_Agent.h	/^        struct iscsi_data_out_hdr*   data_out_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_data_out_hdr
+data_out_len	I_Manager_Agent.h	/^        unsigned short data_out_len;$/;"	m	class:I_Manager_Agent
+data_sn	head.h	/^    unsigned int data_sn;$/;"	m	struct:iscsi_data_in_hdr
+data_sn	head.h	/^    unsigned int data_sn;$/;"	m	struct:iscsi_data_out_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_data_in_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_data_out_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_login_req_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_login_rsp_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_logout_req_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_logout_rsp_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_nop_in_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_nop_out_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_r2t_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_scsi_cmd_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_scsi_rsp_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_text_req_hdr
+datalength	head.h	/^    unsigned char datalength[3];$/;"	m	struct:iscsi_text_rsp_hdr
+delete_buff	Buffermanager.cpp	/^int Buffermanager::delete_buff()$/;"	f	class:Buffermanager
+delete_buff	Socket_I_O_Buff.cpp	/^int Socket_I_O_Buff::delete_buff()$/;"	f	class:Socket_I_O_Buff
+device_specific_parameter	head.h	/^    unsigned char device_specific_parameter;$/;"	m	struct:mode_parameter_header
+device_step_rate	head.h	/^    unsigned short device_step_rate;$/;"	m	struct:rigid_disk_geometry_mode_page
+dis_reconnect_page	head.h	/^struct dis_reconnect_page{$/;"	s
+dis_reconnect_page_rsp	I_Manager_Agent.h	/^        struct dis_reconnect_page             dis_reconnect_page_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::dis_reconnect_page
+disable_pre_fetch_transfer_length	head.h	/^    unsigned short disable_pre_fetch_transfer_length;$/;"	m	struct:caching_mode_page
+disconnect_time_limit	head.h	/^    unsigned short disconnect_time_limit;$/;"	m	struct:dis_reconnect_page
+disk_cmnd	D_Manager_Agent.h	/^        struct DISK_cmnd disk_cmnd;$/;"	m	class:D_Manager_Agent	typeref:struct:D_Manager_Agent::DISK_cmnd
+epoll_delete	Epoll.cpp	/^int Epoll::epoll_delete( Agent* agent)$/;"	f	class:Epoll
+epoll_init	Epoll.cpp	/^int Epoll::epoll_init()$/;"	f	class:Epoll
+epoll_modify	Epoll.cpp	/^int Epoll::epoll_modify(uint32_t e_event,Agent* agent)$/;"	f	class:Epoll
+epoll_registe	Epoll.cpp	/^int Epoll::epoll_registe(uint32_t e_event, Agent* agent)$/;"	f	class:Epoll
+epollwait	Epoll.cpp	/^int Epoll::epollwait()$/;"	f	class:Epoll
+ev	Epoll.h	/^        struct  epoll_event      ev;$/;"	m	class:Epoll	typeref:struct:Epoll::epoll_event
+exec	D_Manager_Agent.cpp	/^int D_Manager_Agent::exec(class D_Agent* d_agent)$/;"	f	class:D_Manager_Agent
+exec	I_Manager_Agent.cpp	/^int I_Manager_Agent::exec()$/;"	f	class:I_Manager_Agent
+exeptions_control_mode_page	head.h	/^struct exeptions_control_mode_page{$/;"	s
+exeptions_control_mode_page_rsp	I_Manager_Agent.h	/^        struct exeptions_control_mode_page    exeptions_control_mode_page_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::exeptions_control_mode_page
+exp_cmd_sn	head.h	/^    unsigned int exp_cmd_sn;$/;"	m	struct:iscsi_data_in_hdr
+exp_cmd_sn	head.h	/^    unsigned int exp_cmd_sn;$/;"	m	struct:iscsi_login_rsp_hdr
+exp_cmd_sn	head.h	/^    unsigned int exp_cmd_sn;$/;"	m	struct:iscsi_logout_rsp_hdr
+exp_cmd_sn	head.h	/^    unsigned int exp_cmd_sn;$/;"	m	struct:iscsi_nop_in_hdr
+exp_cmd_sn	head.h	/^    unsigned int exp_cmd_sn;$/;"	m	struct:iscsi_r2t_hdr
+exp_cmd_sn	head.h	/^    unsigned int exp_cmd_sn;$/;"	m	struct:iscsi_scsi_rsp_hdr
+exp_cmd_sn	head.h	/^    unsigned int exp_cmd_sn;$/;"	m	struct:iscsi_text_rsp_hdr
+exp_data_sn	head.h	/^    unsigned int exp_data_sn;$/;"	m	struct:iscsi_scsi_rsp_hdr
+exp_sn	head.h	/^    unsigned int exp_sn;$/;"	m	struct:iscsi_hdr
+exp_stat_sn	head.h	/^    unsigned int exp_stat_sn;$/;"	m	struct:iscsi_data_out_hdr
+exp_stat_sn	head.h	/^    unsigned int exp_stat_sn;$/;"	m	struct:iscsi_login_req_hdr
+exp_stat_sn	head.h	/^    unsigned int exp_stat_sn;$/;"	m	struct:iscsi_logout_req_hdr
+exp_stat_sn	head.h	/^    unsigned int exp_stat_sn;$/;"	m	struct:iscsi_nop_out_hdr
+exp_stat_sn	head.h	/^    unsigned int exp_stat_sn;$/;"	m	struct:iscsi_scsi_cmd_hdr
+exp_stat_sn	head.h	/^    unsigned int exp_stat_sn;$/;"	m	struct:iscsi_text_req_hdr
+extended_self_test_completion_time	head.h	/^    unsigned short extended_self_test_completion_time;$/;"	m	struct:control_mode_page
+fd	Agent.h	/^        int fd;$/;"	m	class:Agent
+find_key	I_Manager_Agent.cpp	/^char* I_Manager_Agent::find_key(char* searchkey, void* text,int text_len)$/;"	f	class:I_Manager_Agent
+first_burst_size	head.h	/^    unsigned short first_burst_size;$/;"	m	struct:dis_reconnect_page
+firstlun	head.h	/^    unsigned long firstlun;$/;"	m	struct:response_reportlun
+firstpagecode	head.h	/^    unsigned char firstpagecode;$/;"	m	struct:response00_inquirylun
+flag	head.h	/^    unsigned char  flag;$/;"	m	struct:format_device_mode_page
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:dis_reconnect_page
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_data_in_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_data_out_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_login_req_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_login_rsp_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_logout_req_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_logout_rsp_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_nop_in_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_nop_out_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_r2t_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_scsi_cmd_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_scsi_rsp_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_text_req_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:iscsi_text_rsp_hdr
+flag	head.h	/^    unsigned char flag;$/;"	m	struct:scsi_inquirylun
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:caching_mode_page
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:control_mode_page
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:exeptions_control_mode_page
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:response00_inquirylun
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:response80_inquirylun
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:response83_inquirylun
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:responseall_inquirylun
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:scsi_modesense
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:scsi_read
+flag1	head.h	/^    unsigned char flag1;$/;"	m	struct:scsi_write
+flag2	head.h	/^    unsigned char flag2;$/;"	m	struct:caching_mode_page
+flag2	head.h	/^    unsigned char flag2;$/;"	m	struct:control_mode_page
+flag2	head.h	/^    unsigned char flag2;$/;"	m	struct:exeptions_control_mode_page
+flag2	head.h	/^    unsigned char flag2;$/;"	m	struct:response83_inquirylun
+flag2	head.h	/^    unsigned char flag2;$/;"	m	struct:responseall_inquirylun
+flag2	head.h	/^    unsigned char flag2;$/;"	m	struct:scsi_modesense
+flag2	head.h	/^    unsigned char flag2;$/;"	m	struct:scsi_read
+flag2	head.h	/^    unsigned char flag2;$/;"	m	struct:scsi_write
+flag3	head.h	/^    unsigned char flag3;$/;"	m	struct:caching_mode_page
+flag3	head.h	/^    unsigned char flag3;$/;"	m	struct:control_mode_page
+flag3	head.h	/^    unsigned char flag3;$/;"	m	struct:response83_inquirylun
+flag3	head.h	/^    unsigned char flag3;$/;"	m	struct:responseall_inquirylun
+flag4	head.h	/^    unsigned char flag4;$/;"	m	struct:control_mode_page
+flag4	head.h	/^    unsigned char flag4;$/;"	m	struct:responseall_inquirylun
+flag5	head.h	/^    unsigned char flag5;$/;"	m	struct:responseall_inquirylun
+flag6	head.h	/^    unsigned char flag6;$/;"	m	struct:responseall_inquirylun
+format_device_mode_page	head.h	/^struct format_device_mode_page{$/;"	s
+format_device_mode_page_rsp	I_Manager_Agent.h	/^        struct format_device_mode_page        format_device_mode_page_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::format_device_mode_page
+front_truncation	Buffermanager.cpp	/^int Buffermanager::front_truncation(int len)$/;"	f	class:Buffermanager
+function	test.cpp	/^int function(int &ptr)$/;"	f
+getfd	Agent.h	/^        virtual int getfd(){return -1;}$/;"	f	class:Agent
+getfd	D_Agent.cpp	/^int D_Agent::getfd()$/;"	f	class:D_Agent
+getfd	D_Listenagent.h	/^        int getfd(){return fd;}$/;"	f	class:D_Listenagent
+getfd	Epoll.cpp	/^int Epoll::getfd() const$/;"	f	class:Epoll
+getfd	I_Agent.cpp	/^int I_Agent::getfd()$/;"	f	class:I_Agent
+getfd	I_Listenagent.h	/^        int getfd(){return fd;}$/;"	f	class:I_Listenagent
+head	Socket_I_O_Buff.h	/^        struct data_list* head;$/;"	m	class:Socket_I_O_Buff	typeref:struct:Socket_I_O_Buff::data_list
+header	I_Manager_Agent.h	/^        struct iscsi_hdr* header;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_hdr
+i_agent	D_Manager_Agent.h	/^        class I_Agent* i_agent; $/;"	m	class:D_Manager_Agent	typeref:class:D_Manager_Agent::I_Agent
+i_agent	I_Manager_Agent.h	/^        class I_Agent* i_agent; $/;"	m	class:I_Manager_Agent	typeref:class:I_Manager_Agent::I_Agent
+i_manager_agent	I_Manager_Agent.cpp	/^class I_Manager_Agent i_manager_agent;$/;"	v	typeref:class:I_Manager_Agent
+i_o_buff	D_Manager_Agent.h	/^     class Buffermanager* i_o_buff;$/;"	m	struct:DISK_cmnd	typeref:class:DISK_cmnd::Buffermanager
+i_o_cmnd	D_Manager_Agent.h	/^     struct iscsi_scsi_cmd_hdr i_o_cmnd;$/;"	m	struct:DISK_cmnd	typeref:struct:DISK_cmnd::iscsi_scsi_cmd_hdr
+i_o_head	D_Agent.h	/^        struct mesg_head i_o_head;$/;"	m	class:D_Agent	typeref:struct:D_Agent::mesg_head
+i_o_head	D_Manager_Agent.h	/^        struct mesg_head i_o_head;$/;"	m	class:D_Manager_Agent	typeref:struct:D_Manager_Agent::mesg_head
+id	head.h	/^    }id;$/;"	m	union:iscsi_sid	typeref:struct:iscsi_sid::__anon1
+id64	head.h	/^    unsigned int id64;$/;"	m	union:iscsi_sid
+identifier	head.h	/^    char* identifier;$/;"	m	struct:response83_inquirylun
+identifier_length	head.h	/^    unsigned char identifier_length;$/;"	m	struct:response83_inquirylun
+initialserver	D_Listenagent.cpp	/^int D_Listenagent::initialserver()$/;"	f	class:D_Listenagent
+initialserver	I_Listenagent.cpp	/^int I_Listenagent::initialserver()$/;"	f	class:I_Listenagent
+inquirylun00_rsp	I_Manager_Agent.h	/^        struct response00_inquirylun   inquirylun00_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::response00_inquirylun
+inquirylun80_rsp	I_Manager_Agent.h	/^        struct response80_inquirylun   inquirylun80_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::response80_inquirylun
+inquirylun83_rsp	I_Manager_Agent.h	/^        struct response83_inquirylun   inquirylun83_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::response83_inquirylun
+inquirylun_cmd	I_Manager_Agent.h	/^        struct scsi_inquirylun*    inquirylun_cmd;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::scsi_inquirylun
+inquirylunall_rsp	I_Manager_Agent.h	/^        struct responseall_inquirylun  inquirylunall_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::responseall_inquirylun
+interleave	head.h	/^    unsigned short interleave;$/;"	m	struct:format_device_mode_page
+interval_timer	head.h	/^    unsigned int  interval_timer;$/;"	m	struct:exeptions_control_mode_page
+iscsi_data_in_hdr	head.h	/^struct iscsi_data_in_hdr{$/;"	s
+iscsi_data_out_hdr	head.h	/^struct iscsi_data_out_hdr{$/;"	s
+iscsi_hdr	head.h	/^struct iscsi_hdr{$/;"	s
+iscsi_login_req_hdr	head.h	/^struct iscsi_login_req_hdr{$/;"	s
+iscsi_login_rsp_hdr	head.h	/^struct iscsi_login_rsp_hdr{$/;"	s
+iscsi_logout_req_hdr	head.h	/^struct iscsi_logout_req_hdr{$/;"	s
+iscsi_logout_rsp_hdr	head.h	/^struct iscsi_logout_rsp_hdr{$/;"	s
+iscsi_nop_in_hdr	head.h	/^struct iscsi_nop_in_hdr{$/;"	s
+iscsi_nop_out_hdr	head.h	/^struct iscsi_nop_out_hdr{$/;"	s
+iscsi_r2t_hdr	head.h	/^struct iscsi_r2t_hdr{$/;"	s
+iscsi_scsi_cmd_hdr	head.h	/^struct iscsi_scsi_cmd_hdr{$/;"	s
+iscsi_scsi_rsp_hdr	head.h	/^struct iscsi_scsi_rsp_hdr{$/;"	s
+iscsi_sid	head.h	/^union iscsi_sid{$/;"	u
+iscsi_text_req_hdr	head.h	/^struct iscsi_text_req_hdr{$/;"	s
+iscsi_text_rsp_hdr	head.h	/^struct iscsi_text_rsp_hdr{$/;"	s
+isid	head.h	/^        unsigned char isid[6];$/;"	m	struct:iscsi_sid::__anon1
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_data_in_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_data_out_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_login_req_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_login_rsp_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_logout_req_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_logout_rsp_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_nop_in_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_nop_out_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_r2t_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_scsi_cmd_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_scsi_rsp_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_text_req_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:iscsi_text_rsp_hdr
+itt	head.h	/^    unsigned int itt;$/;"	m	struct:mesg_head
+landing_zone_cylinder	head.h	/^    unsigned char landing_zone_cylinder[3];$/;"	m	struct:rigid_disk_geometry_mode_page
+len	head.h	/^    int len;$/;"	m	struct:data_list
+len	head.h	/^    unsigned short len;$/;"	m	struct:mesg_head
+logical_block_address	head.h	/^    unsigned int  logical_block_address;$/;"	m	struct:scsi_read
+logical_block_address	head.h	/^    unsigned int  logical_block_address;$/;"	m	struct:scsi_write
+logical_block_address	head.h	/^    unsigned int logical_block_address;$/;"	m	struct:response_readcapacity
+logical_block_address	head.h	/^    unsigned int logical_block_address;$/;"	m	struct:scsi_readcapacity
+login_req_hdr	I_Manager_Agent.h	/^        struct iscsi_login_req_hdr*  login_req_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_login_req_hdr
+login_rsp_hdr	I_Manager_Agent.h	/^        struct iscsi_login_rsp_hdr  login_rsp_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_login_rsp_hdr
+logout_req_hdr	I_Manager_Agent.h	/^        struct iscsi_logout_req_hdr* logout_req_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_logout_req_hdr
+logout_rsp_hdr	I_Manager_Agent.h	/^        struct iscsi_logout_rsp_hdr logout_rsp_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_logout_rsp_hdr
+lun	head.h	/^    unsigned short lun[4];$/;"	m	struct:iscsi_data_out_hdr
+lun	head.h	/^    unsigned short lun[4];$/;"	m	struct:iscsi_hdr
+lun	head.h	/^    unsigned short lun[4];$/;"	m	struct:iscsi_nop_in_hdr
+lun	head.h	/^    unsigned short lun[4];$/;"	m	struct:iscsi_nop_out_hdr
+lun	head.h	/^    unsigned short lun[4];$/;"	m	struct:iscsi_r2t_hdr
+lun	head.h	/^    unsigned short lun[4];$/;"	m	struct:iscsi_scsi_cmd_hdr
+lun_list_length	head.h	/^    unsigned int lun_list_length;$/;"	m	struct:response_reportlun
+m_epoll	Epoll.cpp	/^class Epoll m_epoll;$/;"	v	typeref:class:Epoll
+m_event	Epoll.h	/^        struct  epoll_event*      m_event;$/;"	m	class:Epoll	typeref:struct:Epoll::epoll_event
+m_port	I_Listenagent.h	/^        int m_port;$/;"	m	class:I_Listenagent
+main	main.cpp	/^int main(int argc, char **argv)$/;"	f
+main	test.cpp	/^int main()$/;"	f
+max_cmd_sn	I_Manager_Agent.h	/^        int max_cmd_sn;$/;"	m	class:I_Manager_Agent
+max_cmd_sn	head.h	/^    unsigned int max_cmd_sn;$/;"	m	struct:iscsi_data_in_hdr
+max_cmd_sn	head.h	/^    unsigned int max_cmd_sn;$/;"	m	struct:iscsi_login_rsp_hdr
+max_cmd_sn	head.h	/^    unsigned int max_cmd_sn;$/;"	m	struct:iscsi_logout_rsp_hdr
+max_cmd_sn	head.h	/^    unsigned int max_cmd_sn;$/;"	m	struct:iscsi_nop_in_hdr
+max_cmd_sn	head.h	/^    unsigned int max_cmd_sn;$/;"	m	struct:iscsi_r2t_hdr
+max_cmd_sn	head.h	/^    unsigned int max_cmd_sn;$/;"	m	struct:iscsi_scsi_rsp_hdr
+max_cmd_sn	head.h	/^    unsigned int max_cmd_sn;$/;"	m	struct:iscsi_text_rsp_hdr
+max_sn	head.h	/^    unsigned int max_sn;$/;"	m	struct:iscsi_hdr
+max_version	head.h	/^    unsigned char max_version;$/;"	m	struct:iscsi_login_req_hdr
+max_version	head.h	/^    unsigned char max_version;$/;"	m	struct:iscsi_login_rsp_hdr
+maximum_burst_size	head.h	/^    unsigned short maximum_burst_size;$/;"	m	struct:dis_reconnect_page
+maximum_pre_fetch	head.h	/^    unsigned short maximum_pre_fetch;$/;"	m	struct:caching_mode_page
+maximum_pre_fetch_ceiling	head.h	/^    unsigned short maximum_pre_fetch_ceiling;$/;"	m	struct:caching_mode_page
+medium_totaltion_rate	head.h	/^    unsigned short medium_totaltion_rate;$/;"	m	struct:rigid_disk_geometry_mode_page
+medium_type	head.h	/^    unsigned char medium_type;$/;"	m	struct:mode_parameter_header
+mesg_head	head.h	/^struct mesg_head{$/;"	s
+min_version	head.h	/^    unsigned char min_version;$/;"	m	struct:iscsi_login_req_hdr
+minimum_pre_fetch	head.h	/^    unsigned short minimum_pre_fetch;$/;"	m	struct:caching_mode_page
+mode_data_length	head.h	/^    unsigned char mode_data_length;$/;"	m	struct:mode_parameter_header
+mode_parameter_header	head.h	/^struct mode_parameter_header{$/;"	s
+modesense_cmd	I_Manager_Agent.h	/^        struct scsi_modesense*     modesense_cmd;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::scsi_modesense
+new_buff	Buffermanager.cpp	/^int Buffermanager::new_buff(int len)$/;"	f	class:Buffermanager
+new_buff	Socket_I_O_Buff.cpp	/^int Socket_I_O_Buff::new_buff(int len)$/;"	f	class:Socket_I_O_Buff
+next_data_block	head.h	/^    struct data_list* next_data_block;$/;"	m	struct:data_list	typeref:struct:data_list::data_list
+nfd	Epoll.h	/^        int                      nfd;$/;"	m	class:Epoll
+non_cache_segment_size	head.h	/^    unsigned char non_cache_segment_size[3];$/;"	m	struct:caching_mode_page
+nop_in_hdr	I_Manager_Agent.h	/^        struct iscsi_nop_in_hdr     nop_in_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_nop_in_hdr
+nop_out_hdr	I_Manager_Agent.h	/^        struct iscsi_nop_out_hdr*    nop_out_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_nop_out_hdr
+number_of_blocks	head.h	/^    unsigned int number_of_blocks;$/;"	m	struct:mode_parameter_header
+number_of_cache_segments	head.h	/^    unsigned char number_of_cache_segments;$/;"	m	struct:caching_mode_page
+number_of_cylinder	head.h	/^    unsigned char number_of_cylinder[3];$/;"	m	struct:rigid_disk_geometry_mode_page
+number_of_heads	head.h	/^    unsigned char number_of_heads;$/;"	m	struct:rigid_disk_geometry_mode_page
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_data_in_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_data_out_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_login_req_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_login_rsp_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_logout_req_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_logout_rsp_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_nop_in_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_nop_out_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_r2t_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_scsi_cmd_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_scsi_rsp_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_text_req_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:iscsi_text_rsp_hdr
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:mesg_head
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:scsi_inquirylun
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:scsi_modesense
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:scsi_read
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:scsi_reportlun
+opcode	head.h	/^    unsigned char opcode;$/;"	m	struct:scsi_write
+opcode	head.h	/^    unsigned opcode;$/;"	m	struct:scsi_readcapacity
+package_head_data	D_Agent.cpp	/^int D_Agent::package_head_data()$/;"	f	class:D_Agent
+package_head_data	I_Agent.cpp	/^int I_Agent::package_head_data()$/;"	f	class:I_Agent
+paddingbuf	I_Manager_Agent.h	/^        class Buffermanager paddingbuf;$/;"	m	class:I_Manager_Agent	typeref:class:I_Manager_Agent::Buffermanager
+page_length	head.h	/^    unsigned char page_length;$/;"	m	struct:caching_mode_page
+page_length	head.h	/^    unsigned char page_length;$/;"	m	struct:control_mode_page
+page_length	head.h	/^    unsigned char page_length;$/;"	m	struct:dis_reconnect_page
+page_length	head.h	/^    unsigned char page_length;$/;"	m	struct:exeptions_control_mode_page
+page_length	head.h	/^    unsigned char page_length;$/;"	m	struct:format_device_mode_page
+page_length	head.h	/^    unsigned char page_length;$/;"	m	struct:response00_inquirylun
+page_length	head.h	/^    unsigned char page_length;$/;"	m	struct:response80_inquirylun
+page_length	head.h	/^    unsigned char page_length;$/;"	m	struct:response83_inquirylun
+page_length	head.h	/^    unsigned char page_length;$/;"	m	struct:rigid_disk_geometry_mode_page
+page_operationcode	head.h	/^    unsigned char page_operationcode;$/;"	m	struct:scsi_inquirylun
+pagecode	head.h	/^    unsigned char pagecode;$/;"	m	struct:caching_mode_page
+pagecode	head.h	/^    unsigned char pagecode;$/;"	m	struct:control_mode_page
+pagecode	head.h	/^    unsigned char pagecode;$/;"	m	struct:dis_reconnect_page
+pagecode	head.h	/^    unsigned char pagecode;$/;"	m	struct:exeptions_control_mode_page
+pagecode	head.h	/^    unsigned char pagecode;$/;"	m	struct:format_device_mode_page
+pagecode	head.h	/^    unsigned char pagecode;$/;"	m	struct:response00_inquirylun
+pagecode	head.h	/^    unsigned char pagecode;$/;"	m	struct:response80_inquirylun
+pagecode	head.h	/^    unsigned char pagecode;$/;"	m	struct:response83_inquirylun
+pagecode	head.h	/^    unsigned char pagecode;$/;"	m	struct:rigid_disk_geometry_mode_page
+parameter_header	I_Manager_Agent.h	/^        struct mode_parameter_header   parameter_header;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::mode_parameter_header
+pdu	I_Agent.h	/^        struct PDU pdu;$/;"	m	class:I_Agent	typeref:struct:I_Agent::PDU
+pdu	I_Manager_Agent.h	/^        struct PDU pdu;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::PDU
+product_identification	head.h	/^    char product_identification[16];$/;"	m	struct:responseall_inquirylun
+product_revision_level	head.h	/^    char product_revision_level[4];$/;"	m	struct:responseall_inquirylun
+product_serial_number	head.h	/^    char product_serial_number;$/;"	m	struct:response80_inquirylun
+ptr	head.h	/^    char* ptr;$/;"	m	struct:data_list
+r2t_hdr	D_Manager_Agent.h	/^        struct iscsi_r2t_hdr r2t_hdr;$/;"	m	class:D_Manager_Agent	typeref:struct:D_Manager_Agent::iscsi_r2t_hdr
+r2t_hdr	I_Manager_Agent.h	/^        struct iscsi_r2t_hdr        r2t_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_r2t_hdr
+r2t_response	D_Manager_Agent.cpp	/^int D_Manager_Agent::r2t_response(unsigned int itt, unsigned short len)$/;"	f	class:D_Manager_Agent
+r2t_sn	head.h	/^    unsigned int r2t_sn;$/;"	m	struct:iscsi_r2t_hdr
+read_cmd	I_Manager_Agent.h	/^        struct scsi_read*          read_cmd;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::scsi_read
+read_cmnd	D_Manager_Agent.cpp	/^int D_Manager_Agent::read_cmnd(struct iscsi_scsi_cmd_hdr* read_pdu)$/;"	f	class:D_Manager_Agent
+read_complete	ReadAgent.h	/^        bool read_complete;$/;"	m	class:ReadAgent
+read_len	D_Agent.h	/^        int read_len;$/;"	m	class:D_Agent
+read_len	I_Agent.h	/^        int read_len;$/;"	m	class:I_Agent
+read_len	ReadAgent.h	/^       int read_len;$/;"	m	class:ReadAgent
+read_socket	ReadAgent.cpp	/^int ReadAgent::read_socket(int fd, unsigned char* ptr, int* len)$/;"	f	class:ReadAgent
+read_stat	D_Agent.h	/^        int read_stat;$/;"	m	class:D_Agent
+read_stat	I_Agent.h	/^        int read_stat;$/;"	m	class:I_Agent
+read_stat	I_Manager_Agent.h	/^        int read_stat;$/;"	m	class:I_Manager_Agent
+readagent	Agent.h	/^        virtual int readagent(){return 0;}$/;"	f	class:Agent
+readagent	D_Agent.cpp	/^int D_Agent::readagent()$/;"	f	class:D_Agent
+readagent	D_Listenagent.cpp	/^int D_Listenagent::readagent()$/;"	f	class:D_Listenagent
+readagent	I_Agent.cpp	/^int I_Agent::readagent()$/;"	f	class:I_Agent
+readagent	I_Listenagent.cpp	/^int I_Listenagent::readagent()$/;"	f	class:I_Listenagent
+readcapacity_cmd	I_Manager_Agent.h	/^        struct scsi_readcapacity*  readcapacity_cmd;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::scsi_readcapacity
+readcapacity_rsp	I_Manager_Agent.h	/^        struct response_readcapacity   readcapacity_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::response_readcapacity
+rear	Socket_I_O_Buff.h	/^        struct data_list* rear;$/;"	m	class:Socket_I_O_Buff	typeref:struct:Socket_I_O_Buff::data_list
+reay_aer_holdoff_period	head.h	/^    unsigned short reay_aer_holdoff_period;$/;"	m	struct:control_mode_page
+report_count	head.h	/^    unsigned int report_count;$/;"	m	struct:exeptions_control_mode_page
+reportlun_cmd	I_Manager_Agent.h	/^        struct scsi_reportlun*     reportlun_cmd;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::scsi_reportlun
+reportlun_rsp	I_Manager_Agent.h	/^        struct response_reportlun      reportlun_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::response_reportlun
+residual_count	head.h	/^    unsigned int residual_count;$/;"	m	struct:iscsi_data_in_hdr
+residual_count	head.h	/^    unsigned int residual_count;$/;"	m	struct:iscsi_scsi_rsp_hdr
+response	Epoll.h	/^        int response;$/;"	m	class:Epoll
+response	head.h	/^    unsigned char response;$/;"	m	struct:iscsi_logout_rsp_hdr
+response	head.h	/^    unsigned char response;$/;"	m	struct:iscsi_scsi_rsp_hdr
+response00_inquirylun	head.h	/^struct response00_inquirylun{$/;"	s
+response80_inquirylun	head.h	/^struct response80_inquirylun{$/;"	s
+response83_inquirylun	head.h	/^struct response83_inquirylun{$/;"	s
+response_read	D_Manager_Agent.cpp	/^int D_Manager_Agent::response_read(class D_Agent* d_agent)$/;"	f	class:D_Manager_Agent
+response_readcapacity	head.h	/^struct response_readcapacity{$/;"	s
+response_reportlun	head.h	/^struct response_reportlun{$/;"	s
+response_write	D_Manager_Agent.cpp	/^int D_Manager_Agent::response_write()$/;"	f	class:D_Manager_Agent
+responseall_inquirylun	head.h	/^struct responseall_inquirylun{$/;"	s
+rigid_disk_geometry_mode_page	head.h	/^struct rigid_disk_geometry_mode_page{$/;"	s
+rigid_disk_geometry_mode_page_rsp	I_Manager_Agent.h	/^        struct rigid_disk_geometry_mode_page  rigid_disk_geometry_mode_page_rsp;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::rigid_disk_geometry_mode_page
+rotational_offset	head.h	/^    unsigned char rotational_offset;$/;"	m	struct:rigid_disk_geometry_mode_page
+rsvd	head.h	/^    unsigned char rsvd;$/;"	m	struct:caching_mode_page
+rsvd	head.h	/^    unsigned char rsvd;$/;"	m	struct:dis_reconnect_page
+rsvd	head.h	/^    unsigned char rsvd;$/;"	m	struct:response80_inquirylun
+rsvd	head.h	/^    unsigned char rsvd;$/;"	m	struct:scsi_inquirylun
+rsvd	head.h	/^    unsigned char rsvd;$/;"	m	struct:scsi_modesense
+rsvd	head.h	/^    unsigned char rsvd[3];$/;"	m	struct:format_device_mode_page
+rsvd	head.h	/^    unsigned short rsvd;$/;"	m	struct:responseall_inquirylun
+rsvd1	head.h	/^    unsigned char rsvd1;$/;"	m	struct:iscsi_data_in_hdr
+rsvd1	head.h	/^    unsigned char rsvd1;$/;"	m	struct:iscsi_logout_rsp_hdr
+rsvd1	head.h	/^    unsigned char rsvd1;$/;"	m	struct:response00_inquirylun
+rsvd1	head.h	/^    unsigned char rsvd1;$/;"	m	struct:response83_inquirylun
+rsvd1	head.h	/^    unsigned char rsvd1;$/;"	m	struct:rigid_disk_geometry_mode_page
+rsvd1	head.h	/^    unsigned char rsvd1[5];$/;"	m	struct:scsi_reportlun
+rsvd1	head.h	/^    unsigned int rsvd1;$/;"	m	struct:iscsi_login_rsp_hdr
+rsvd1	head.h	/^    unsigned int rsvd1;$/;"	m	struct:response_reportlun
+rsvd1	head.h	/^    unsigned int rsvd1[2];$/;"	m	struct:iscsi_scsi_rsp_hdr
+rsvd1	head.h	/^    unsigned rsvd1;$/;"	m	struct:scsi_readcapacity
+rsvd1	head.h	/^    unsigned short rsvd1;$/;"	m	struct:iscsi_data_out_hdr
+rsvd1	head.h	/^    unsigned short rsvd1;$/;"	m	struct:iscsi_login_req_hdr
+rsvd1	head.h	/^    unsigned short rsvd1;$/;"	m	struct:iscsi_logout_req_hdr
+rsvd1	head.h	/^    unsigned short rsvd1;$/;"	m	struct:iscsi_nop_in_hdr
+rsvd1	head.h	/^    unsigned short rsvd1;$/;"	m	struct:iscsi_nop_out_hdr
+rsvd1	head.h	/^    unsigned short rsvd1;$/;"	m	struct:iscsi_r2t_hdr
+rsvd1	head.h	/^    unsigned short rsvd1;$/;"	m	struct:iscsi_scsi_cmd_hdr
+rsvd1	head.h	/^    unsigned short rsvd1;$/;"	m	struct:iscsi_text_req_hdr
+rsvd1	head.h	/^    unsigned short rsvd1;$/;"	m	struct:iscsi_text_rsp_hdr
+rsvd2	head.h	/^    unsigned char rsvd2;$/;"	m	struct:response83_inquirylun
+rsvd2	head.h	/^    unsigned char rsvd2;$/;"	m	struct:rigid_disk_geometry_mode_page
+rsvd2	head.h	/^    unsigned char rsvd2;$/;"	m	struct:scsi_readcapacity
+rsvd2	head.h	/^    unsigned char rsvd2;$/;"	m	struct:scsi_reportlun
+rsvd2	head.h	/^    unsigned char rsvd2;\/\/my adding$/;"	m	struct:response00_inquirylun
+rsvd2	head.h	/^    unsigned char rsvd2[10];$/;"	m	struct:iscsi_login_rsp_hdr
+rsvd2	head.h	/^    unsigned int rsvd2;$/;"	m	struct:iscsi_data_out_hdr
+rsvd2	head.h	/^    unsigned int rsvd2[2];$/;"	m	struct:iscsi_data_in_hdr
+rsvd2	head.h	/^    unsigned int rsvd2[2];$/;"	m	struct:iscsi_logout_req_hdr
+rsvd2	head.h	/^    unsigned int rsvd2[2];$/;"	m	struct:iscsi_logout_rsp_hdr
+rsvd2	head.h	/^    unsigned int rsvd2[2];$/;"	m	struct:iscsi_text_req_hdr
+rsvd2	head.h	/^    unsigned int rsvd2[2];$/;"	m	struct:iscsi_text_rsp_hdr
+rsvd2	head.h	/^    unsigned int rsvd2[3];$/;"	m	struct:iscsi_nop_in_hdr
+rsvd2	head.h	/^    unsigned int rsvd2[4];$/;"	m	struct:iscsi_login_req_hdr
+rsvd2	head.h	/^    unsigned int rsvd2[4];$/;"	m	struct:iscsi_nop_out_hdr
+rsvd3	head.h	/^    unsigned char rsvd3;$/;"	m	struct:rigid_disk_geometry_mode_page
+rsvd3	head.h	/^    unsigned char rsvd3;$/;"	m	struct:scsi_readcapacity
+rsvd3	head.h	/^    unsigned int rsvd3;$/;"	m	struct:iscsi_data_out_hdr
+rsvd3	head.h	/^    unsigned int rsvd3;$/;"	m	struct:iscsi_logout_rsp_hdr
+rsvd3	head.h	/^    unsigned int rsvd3[3];$/;"	m	struct:iscsi_text_rsp_hdr
+rsvd3	head.h	/^    unsigned int rsvd3[4];$/;"	m	struct:iscsi_text_req_hdr
+rsvd3	head.h	/^    unsigned short rsvd3;$/;"	m	struct:iscsi_logout_req_hdr
+rsvd4	head.h	/^    unsigned char rsvd4;$/;"	m	struct:rigid_disk_geometry_mode_page
+rsvd4	head.h	/^    unsigned char rsvd4;$/;"	m	struct:scsi_readcapacity
+rsvd4	head.h	/^    unsigned int rsvd4;$/;"	m	struct:iscsi_data_out_hdr
+rsvd4	head.h	/^    unsigned int rsvd4;$/;"	m	struct:iscsi_logout_rsp_hdr
+rsvd4	head.h	/^    unsigned rsvd4[4];$/;"	m	struct:iscsi_logout_req_hdr
+rsvd5	head.h	/^    unsigned int rsvd5;$/;"	m	struct:iscsi_logout_rsp_hdr
+scb	head.h	/^    unsigned char scb[16];$/;"	m	struct:iscsi_scsi_cmd_hdr
+scsi_cmd_hdr	I_Manager_Agent.h	/^        struct iscsi_scsi_cmd_hdr*   scsi_cmd_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_scsi_cmd_hdr
+scsi_cmnd_exec_inquiry	I_Manager_Agent.cpp	/^int I_Manager_Agent::scsi_cmnd_exec_inquiry()$/;"	f	class:I_Manager_Agent
+scsi_cmnd_exec_mode_sense	I_Manager_Agent.cpp	/^int I_Manager_Agent::scsi_cmnd_exec_mode_sense()$/;"	f	class:I_Manager_Agent
+scsi_cmnd_exec_read10	I_Manager_Agent.cpp	/^int I_Manager_Agent::scsi_cmnd_exec_read10()$/;"	f	class:I_Manager_Agent
+scsi_cmnd_exec_read_capacity	I_Manager_Agent.cpp	/^int I_Manager_Agent::scsi_cmnd_exec_read_capacity()$/;"	f	class:I_Manager_Agent
+scsi_cmnd_exec_report	I_Manager_Agent.cpp	/^int I_Manager_Agent::scsi_cmnd_exec_report()$/;"	f	class:I_Manager_Agent
+scsi_cmnd_exec_test	I_Manager_Agent.cpp	/^int I_Manager_Agent::scsi_cmnd_exec_test()$/;"	f	class:I_Manager_Agent
+scsi_cmnd_exec_write10	I_Manager_Agent.cpp	/^int I_Manager_Agent::scsi_cmnd_exec_write10()$/;"	f	class:I_Manager_Agent
+scsi_cmnd_list	D_Manager_Agent.h	/^        map<unsigned int,struct DISK_cmnd> scsi_cmnd_list;$/;"	m	class:D_Manager_Agent
+scsi_inquirylun	head.h	/^struct scsi_inquirylun{$/;"	s
+scsi_modesense	head.h	/^struct scsi_modesense{$/;"	s
+scsi_read	head.h	/^struct scsi_read{$/;"	s
+scsi_readcapacity	head.h	/^struct scsi_readcapacity{$/;"	s
+scsi_reportlun	head.h	/^struct scsi_reportlun{$/;"	s
+scsi_response	D_Manager_Agent.cpp	/^int D_Manager_Agent::scsi_response()$/;"	f	class:D_Manager_Agent
+scsi_rsp_hdr	D_Manager_Agent.h	/^        struct iscsi_scsi_rsp_hdr scsi_rsp_hdr;$/;"	m	class:D_Manager_Agent	typeref:struct:D_Manager_Agent::iscsi_scsi_rsp_hdr
+scsi_rsp_hdr	I_Manager_Agent.h	/^        struct iscsi_scsi_rsp_hdr   scsi_rsp_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_scsi_rsp_hdr
+scsi_write	head.h	/^struct scsi_write{$/;"	s
+secondpagecode	head.h	/^    unsigned char secondpagecode;$/;"	m	struct:response00_inquirylun
+sectors_per_track	head.h	/^    unsigned short sectors_per_track;$/;"	m	struct:format_device_mode_page
+session_type	I_Manager_Agent.h	/^        int session_type;$/;"	m	class:I_Manager_Agent
+setnonblocking	D_Listenagent.cpp	/^int D_Listenagent::setnonblocking (int fd) const$/;"	f	class:D_Listenagent
+setnonblocking	I_Listenagent.cpp	/^int I_Listenagent::setnonblocking (int fd) const$/;"	f	class:I_Listenagent
+sid	head.h	/^    union iscsi_sid sid;$/;"	m	struct:iscsi_login_req_hdr	typeref:union:iscsi_login_req_hdr::iscsi_sid
+sid	head.h	/^    union iscsi_sid sid;$/;"	m	struct:iscsi_login_rsp_hdr	typeref:union:iscsi_login_rsp_hdr::iscsi_sid
+sighandler	main.cpp	/^static void sighandler(int sig_no)$/;"	f	file:
+sn	I_Manager_Agent.h	/^        int sn;$/;"	m	class:I_Manager_Agent
+sn	head.h	/^    unsigned int sn;$/;"	m	struct:iscsi_hdr
+snack	head.h	/^    unsigned int snack;$/;"	m	struct:iscsi_scsi_rsp_hdr
+spec1	head.h	/^    unsigned char spec1[2];$/;"	m	struct:iscsi_hdr
+spec3	head.h	/^    unsigned int spec3[3];$/;"	m	struct:iscsi_hdr
+starting_cylinder_reduced_write_current	head.h	/^    unsigned char starting_cylinder_reduced_write_current[3];$/;"	m	struct:rigid_disk_geometry_mode_page
+starting_cylinder_writer_precompensation	head.h	/^    unsigned char starting_cylinder_writer_precompensation[3];$/;"	m	struct:rigid_disk_geometry_mode_page
+stat_sn	head.h	/^    unsigned int stat_sn;$/;"	m	struct:iscsi_data_in_hdr
+stat_sn	head.h	/^    unsigned int stat_sn;$/;"	m	struct:iscsi_login_rsp_hdr
+stat_sn	head.h	/^    unsigned int stat_sn;$/;"	m	struct:iscsi_logout_rsp_hdr
+stat_sn	head.h	/^    unsigned int stat_sn;$/;"	m	struct:iscsi_nop_in_hdr
+stat_sn	head.h	/^    unsigned int stat_sn;$/;"	m	struct:iscsi_r2t_hdr
+stat_sn	head.h	/^    unsigned int stat_sn;$/;"	m	struct:iscsi_scsi_rsp_hdr
+stat_sn	head.h	/^    unsigned int stat_sn;$/;"	m	struct:iscsi_text_rsp_hdr
+state	D_Manager_Agent.h	/^     unsigned char state;$/;"	m	struct:DISK_cmnd
+state_exec_login	I_Manager_Agent.cpp	/^int I_Manager_Agent::state_exec_login()$/;"	f	class:I_Manager_Agent
+status_class	head.h	/^    unsigned char status_class;$/;"	m	struct:iscsi_login_rsp_hdr
+status_detail	head.h	/^    unsigned char status_detail;$/;"	m	struct:iscsi_login_rsp_hdr
+text_req_hdr	I_Manager_Agent.h	/^        struct iscsi_text_req_hdr*   text_req_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_text_req_hdr
+text_rsp_hdr	I_Manager_Agent.h	/^        struct iscsi_text_rsp_hdr   text_rsp_hdr;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::iscsi_text_rsp_hdr
+thirdpagecode	head.h	/^    unsigned char thirdpagecode;$/;"	m	struct:response00_inquirylun
+time2retain	head.h	/^    unsigned short time2retain;$/;"	m	struct:iscsi_logout_rsp_hdr
+time2wait	head.h	/^    unsigned short time2wait;$/;"	m	struct:iscsi_logout_rsp_hdr
+track_skew_factor	head.h	/^    unsigned short track_skew_factor;$/;"	m	struct:format_device_mode_page
+tracks_per_zone	head.h	/^    unsigned short tracks_per_zone;$/;"	m	struct:format_device_mode_page
+transfer_length	head.h	/^    unsigned short transfer_length;$/;"	m	struct:scsi_read
+transfer_length	head.h	/^    unsigned short transfer_length;$/;"	m	struct:scsi_write
+tsih	head.h	/^        unsigned short tsih;$/;"	m	struct:iscsi_sid::__anon1
+ttt	head.h	/^    unsigned int ttt;$/;"	m	struct:iscsi_data_in_hdr
+ttt	head.h	/^    unsigned int ttt;$/;"	m	struct:iscsi_data_out_hdr
+ttt	head.h	/^    unsigned int ttt;$/;"	m	struct:iscsi_hdr
+ttt	head.h	/^    unsigned int ttt;$/;"	m	struct:iscsi_nop_in_hdr
+ttt	head.h	/^    unsigned int ttt;$/;"	m	struct:iscsi_nop_out_hdr
+ttt	head.h	/^    unsigned int ttt;$/;"	m	struct:iscsi_r2t_hdr
+ttt	head.h	/^    unsigned int ttt;$/;"	m	struct:iscsi_text_req_hdr
+ttt	head.h	/^    unsigned int ttt;$/;"	m	struct:iscsi_text_rsp_hdr
+vendor_identification	head.h	/^    char vendor_identification[8];$/;"	m	struct:responseall_inquirylun
+vendor_specific	head.h	/^    char vendor_specific[20];$/;"	m	struct:responseall_inquirylun
+version	head.h	/^    unsigned char version;$/;"	m	struct:responseall_inquirylun
+version_descriptor1	head.h	/^    unsigned short version_descriptor1;$/;"	m	struct:responseall_inquirylun
+version_descriptor2	head.h	/^    unsigned short version_descriptor2;$/;"	m	struct:responseall_inquirylun
+version_descriptor3	head.h	/^    unsigned short version_descriptor3;$/;"	m	struct:responseall_inquirylun
+write_cmd	I_Manager_Agent.h	/^        struct scsi_write*         write_cmd;$/;"	m	class:I_Manager_Agent	typeref:struct:I_Manager_Agent::scsi_write
+write_cmnd	D_Manager_Agent.cpp	/^int D_Manager_Agent::write_cmnd(struct iscsi_scsi_cmd_hdr* write_pdu,class Buffermanager* databuff)$/;"	f	class:D_Manager_Agent
+write_len	WriteAgent.h	/^        int write_len;$/;"	m	class:WriteAgent
+write_socket	WriteAgent.cpp	/^int WriteAgent::write_socket(int fd, class Socket_I_O_Buff* buff)$/;"	f	class:WriteAgent
+write_status	head.h	/^    unsigned char write_status;$/;"	m	struct:mesg_head
+writeagent	Agent.h	/^        virtual int writeagent(){return 0;}$/;"	f	class:Agent
+writeagent	D_Agent.cpp	/^int D_Agent::writeagent()$/;"	f	class:D_Agent
+writeagent	D_Listenagent.h	/^        int writeagent(){return 0;}$/;"	f	class:D_Listenagent
+writeagent	I_Agent.cpp	/^int I_Agent::writeagent()$/;"	f	class:I_Agent
+writeagent	I_Listenagent.h	/^        int writeagent(){return 0;}$/;"	f	class:I_Listenagent
+~Buffermanager	Buffermanager.cpp	/^Buffermanager::~Buffermanager()$/;"	f	class:Buffermanager
+~D_Agent	D_Agent.cpp	/^D_Agent::~D_Agent()$/;"	f	class:D_Agent
+~D_Manager_Agent	D_Manager_Agent.cpp	/^D_Manager_Agent::~D_Manager_Agent()$/;"	f	class:D_Manager_Agent
+~Epoll	Epoll.cpp	/^Epoll::~Epoll()$/;"	f	class:Epoll
+~I_Agent	I_Agent.cpp	/^I_Agent::~I_Agent()$/;"	f	class:I_Agent
+~I_Manager_Agent	I_Manager_Agent.cpp	/^I_Manager_Agent::~I_Manager_Agent()$/;"	f	class:I_Manager_Agent
+~ReadAgent	ReadAgent.cpp	/^ReadAgent::~ReadAgent()$/;"	f	class:ReadAgent
+~Socket_I_O_Buff	Socket_I_O_Buff.cpp	/^Socket_I_O_Buff::~Socket_I_O_Buff()$/;"	f	class:Socket_I_O_Buff
+~WriteAgent	WriteAgent.cpp	/^WriteAgent::~WriteAgent()$/;"	f	class:WriteAgent

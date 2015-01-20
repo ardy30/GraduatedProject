@@ -36,6 +36,7 @@ int main(int argc, char **argv)
     DataSet *DataSet3 = DataSet2->shuffle();
     DataSet *DataSet4 = DataSet3 -> map(lib2,para2);
     result = DataSet4 -> reduce();
+    result = DataSet4 -> reduce();
     cout << "123"<< endl;
 
     /*   if(argc != 2)
