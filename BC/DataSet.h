@@ -55,6 +55,7 @@ class DataSet
    
        int CheckMapFaild(); 
        int CheckShuffleFaild();
+       int CheckReduceFaild();
 };
 
 

@@ -193,7 +193,7 @@ int main(int argc, char **argv)
             {
                 cout << "read error"<< endl;
             }
-            number -1;
+            number =-1;
             bc_eu::pb_MSG_BC_EU_MAP Mapoperation;
             string load(temp,ptr.length);
             Mapoperation.ParseFromString(load);
@@ -256,14 +256,75 @@ int main(int argc, char **argv)
                 if(deletedataid == datacontainer.at(j))
                     datacontainer.erase(datacontainer.begin()+j);
             }*/
-            datacontainer.erase(datacontainer.find(deletedataid));
             cout << deletedataid<< endl;
+            if(datacontainer.find(deletedataid) != datacontainer.end())
+                datacontainer.erase(datacontainer.find(deletedataid));
             struct mesg_head responsedelete_ptr;
             responsedelete_ptr.cmd = MSG_BC_EU_MAP_ACK;
             responsedelete_ptr.error = 0;
             responsedelete_ptr.length = 0;
             write(connfdcontainer.at(i),&responsedelete_ptr,20);
             delete temp;
+            see_datacontainer(datacontainer);
+        }
+        if(ptr.cmd == MSG_BC_EU_REDUCE)
+        {
+            cout << "MSG TYPE: REDUCE, LENGTH:"<< ptr.length<< endl;
+            char *temp = new char[ptr.length];
+            
+            number = read(connfdcontainer.at(i),temp,ptr.length);
+            while (number < 0)
+            {
+                number = read(connfdcontainer.at(i),temp,ptr.length);
+
+            }
+            if(number != ptr.length)
+            {
+                cout << "read error"<< endl;
+            }
+            number =-1;
+            bc_eu::pb_MSG_BC_EU_REDUCE Reduceoperation;
+            string load(temp,ptr.length);
+            Reduceoperation.ParseFromString(load);
+                
+            string sourcedata =Reduceoperation.sourcesplitname();   
+            int sourcedatasplitnumber = Reduceoperation.sourcesplitnumber();
+            string sourcedataid = sourcedata+ IntToString(sourcedatasplitnumber) ;
+
+            cout << "sourcedataid"<<sourcedataid<< endl;
+            
+            struct mesg_head responsereduce_ptr;
+            responsereduce_ptr.cmd = MSG_BC_EU_REDUCE_ACK;
+            responsereduce_ptr.error = -1;
+            responsereduce_ptr.length = 0;
+            
+            set<string>::iterator tempit;
+            string temp_str;
+            char* body;
+            if((tempit = datacontainer.find(sourcedataid)) != datacontainer.end())
+            {
+                responsereduce_ptr.error = 0;
+                bc_eu::pb_MSG_BC_EU_REDUCE_ACK mesg_body;
+                
+                    bc_eu::pb_MSG_BC_EU_REDUCE_ACK_result *result;
+                    //info.set_key(i);
+                    //info.set_ip(Data.at(i).IP);
+                    result = mesg_body.add_result_list();
+                    result -> set_key("1");
+                    result -> set_value("1,2");
+                
+                mesg_body.SerializeToString(&temp_str);
+                responsereduce_ptr.length = temp_str.length();
+                //TempAgent -> Writebuff.add_buff(&SendShufflemsghead,sizeof(SendShufflemsghead));
+                body = new char[temp_str.size()];
+                memcpy(body,temp_str.c_str(),temp_str.length());
+
+                //TempAgent -> Writebuff.add_buff(body,temp.length());
+            }
+            write(connfdcontainer.at(i),&responsereduce_ptr,20);           
+            write(connfdcontainer.at(i),body,temp_str.length());           
+            //delete temp;
+            delete body;
             see_datacontainer(datacontainer);
         }
         if(ptr.cmd == MSG_BC_EU_SHUFFLE)

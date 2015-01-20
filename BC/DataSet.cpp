@@ -50,12 +50,141 @@ DataSet* DataSet::shuffle()
 
 vector<string> DataSet::reduce()
 {
-   if(this ->IsInitial == UNINIT ) 
-   {
-         BuildData(-1);
-   }
-   vector<string> temp;
-    return temp; 
+    if(this ->IsInitial == UNINIT ) 
+    {
+        BuildData(-1);
+    }
+    
+    S_Agent* TempAgent = NULL;
+    //struct mesg_head SendReducemsghead;
+    //bc_eu::pb_MSG_BC_EU_REDUCE mesg_body;
+    string temp;
+    char* body = NULL;
+    int ret = 0;
+    vector<string> return_temp;
+    
+    int size = Data.size();
+    for(int i = 0; i < size; i ++)
+    {
+        TempAgent = new S_Agent(&(BC -> m_epoll));
+        BC -> BCAgentList.push_back(TempAgent);
+        if((TempAgent -> connect_server((char*)(Data.at(i).IP).c_str(),EU_PORT)) < 0)
+        {
+            cout << "reduce connect EU error";
+            TempAgent -> error = 1;
+            continue;
+        }
+        mesg_head SendReducemsghead;
+        SendReducemsghead.cmd = MSG_BC_EU_REDUCE;
+        
+        bc_eu::pb_MSG_BC_EU_REDUCE mesg_body;
+        mesg_body.set_instanceid(BC -> InstanceID);
+        mesg_body.set_sourcesplitname(name);
+        mesg_body.set_sourcesplitnumber(i);
+
+        mesg_body.SerializeToString(&temp);
+        SendReducemsghead.length = temp.length();
+        TempAgent -> Writebuff.add_buff(&SendReducemsghead,sizeof(SendReducemsghead));
+        body = new char[temp.size()];
+        memcpy(body,temp.c_str(),temp.length());
+
+        TempAgent -> Writebuff.add_buff(body,temp.length());
+        delete body;
+        body = NULL;
+        TempAgent -> m_epoll -> epoll_modify(EPOLLOUT,TempAgent);
+    }
+        while(CheckFinish() < 0)
+        {
+            if((BC -> m_epoll.epollwait()) < 0)
+            {
+                cout << "epollwaiterror in reduce fatal error"<< endl;
+                exit (0);
+            }
+        }
+        ret = CheckReduceFaild();
+        if(ret == -2)
+        {
+            for(int j = 0;j < BC -> BCAgentList.size(); j ++)
+            {
+                string tempload = BC -> BCAgentList.at(j) -> load;
+                bc_eu::pb_MSG_BC_EU_REDUCE_ACK Reduceack;
+                Reduceack.ParseFromString(tempload);
+                for(int i = 0; i < Reduceack.result_list_size();i ++)
+                {
+                    return_temp.push_back(Reduceack.result_list(i).value());
+                }
+            }
+        }
+        for(int j = BC -> BCAgentList.size();j > 0;j --)
+        {
+            delete BC -> BCAgentList.at(j - 1);
+            BC -> BCAgentList.at(j - 1) = NULL;
+            BC -> BCAgentList.pop_back();
+        }
+        /*if(ret == -2)
+            return return_temp;*/
+        if(ret == -1)
+        {
+            BuildData(-1);
+            //vector<string> temp;
+            return_temp = reduce();
+           /*   return return_temp;*/
+            
+        }
+        else if(ret >= 0)
+        {
+            cout << "in rebuild dataset in reduce"<< endl;
+            BuildData(ret);
+            //vector<string> temp; 
+            return_temp = reduce();
+            /*  return return_temp;*/
+        }
+    if(caching == 0) 
+    {
+        int size = Data.size();
+        for(int i = 0; i < size; i++)
+        {
+            TempAgent = new S_Agent(&(BC -> m_epoll));
+            BC -> BCAgentList.push_back(TempAgent);
+            if((TempAgent -> connect_server((char*)(Data.at(i).IP).c_str(),EU_PORT)) < 0)
+            {
+                cout <<"connect EU error"<< endl;
+                TempAgent -> error = 1;
+                continue;
+            }
+            mesg_head SendDeletemsghead;
+            SendDeletemsghead.cmd = MSG_BC_EU_DELETE_DATA;
+            bc_eu::pb_MSG_BC_EU_DELETE_DATA mesg_body;
+            mesg_body.set_instanceid(BC -> InstanceID);
+            mesg_body.set_sourcesplitname(name);
+            mesg_body.set_sourcesplitnumber(i);
+
+            mesg_body.SerializeToString(&temp);
+            SendDeletemsghead.length = temp.length();
+            TempAgent -> Writebuff.add_buff(body,temp.length());
+            delete body;
+            body = NULL;
+            TempAgent -> m_epoll -> epoll_modify(EPOLLOUT,TempAgent);
+        }
+        while((CheckFinish()) < 0)
+        {
+            if((BC -> m_epoll.epollwait()) < 0)
+            {
+                cout << "epollwaiterror"<<endl;
+                exit (0);
+            }
+        }
+        for(int i = BC -> BCAgentList.size();i > 0; i--)
+        {
+            delete BC -> BCAgentList.at(i -1);
+            BC -> BCAgentList.at(i -1) = NULL;
+            BC -> BCAgentList.pop_back();
+        }
+    }
+        
+    
+  // vector<string> temp;
+    return return_temp; 
 }
 
 int DataSet::BuildData(int SplitNumber)
@@ -768,6 +897,26 @@ int DataSet::CheckMapFaild()//单个片出错返回序号，-1无数据源重做
             return -1;//无数据源
         }
 
+    }
+    if(check == -1)
+        return -2;
+    else
+        return check;
+}
+
+int DataSet::CheckReduceFaild()//单个片出错返回片号，-1无数据源重做，-2 成功
+{
+    int check = -1;
+    for(int i = 0; i < BC -> BCAgentList.size();i ++)
+    {
+        if((BC -> BCAgentList.at(i) -> error) == 1)
+        {
+            check = i;
+        }
+        if((int)((BC -> BCAgentList.at(i) -> message_head).error) == -1)
+        {
+            return -1;
+        }
     }
     if(check == -1)
         return -2;
