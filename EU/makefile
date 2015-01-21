@@ -1,4 +1,4 @@
-OBJ := main.o I_Listenagent.o Socket_I_O_Buff.o Buffermanager.o Epoll.o I_Manager_Agent.o  I_Agent.o ReadAgent.o WriteAgent.o  bc_eu.protocol.pb.o
+OBJ := main.o I_Listenagent.o Socket_I_O_Buff.o Buffermanager.o Epoll.o DataSet.o DataSetSplit.o I_Agent.o ReadAgent.o WriteAgent.o  bc_eu.protocol.pb.o Tool.o
 
 EU:$(OBJ)
 	g++ -pg $(OBJ) -o EU -g -I./protobuff -I/usr/local/protobuf/include -L/usr/local/lib -lprotobuf
@@ -19,9 +19,13 @@ Epoll.o : Epoll.cpp
 	g++ -pg -c -g Epoll.cpp
 
 
-I_Manager_Agent.o : I_Manager_Agent.cpp
-	g++ -pg -c -g I_Manager_Agent.cpp
+#I_Manager_Agent.o : I_Manager_Agent.cpp
+#	g++ -pg -c -g I_Manager_Agent.cpp
+DataSet.o : DataSet.cpp
+	g++ -pg -c -g DataSet.cpp
 
+DataSetSplit.o : DataSetSplit.cpp
+	g++ -pg -c -g DataSetSplit.cpp
 
 I_Agent.o : I_Agent.cpp
 	g++ -pg -c -g I_Agent.cpp
@@ -34,6 +38,7 @@ WriteAgent.o : WriteAgent.cpp
 
 bc_eu.protocol.pb.o:./protobuff/bc_eu.protocol.pb.cc
 	    g++ -c -g ./protobuff/bc_eu.protocol.pb.cc
-
+Tool.o: Tool.cpp
+	g++ -c -g Tool.cpp
 clean :
 	rm *.o

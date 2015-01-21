@@ -19,7 +19,7 @@
 
 I_Agent::I_Agent(int I_fd)
 {
-    i_manager_agent.i_agent = this;
+//    i_manager_agent.i_agent = this;
     this ->fd = I_fd;
     read_len = MSGHEAD_LEN;
     Readbuff_head.new_buff(MSGHEAD_LEN);
@@ -34,7 +34,7 @@ I_Agent::~I_Agent()
     {
         cout<< "epoll_delete error"<<endl;
     }
-    i_manager_agent.i_agent = NULL;
+ //   i_manager_agent.i_agent = NULL;
     close(fd);
 }
 
@@ -172,15 +172,22 @@ int I_Agent::cmnd_exec()
         string load(Data,Head->length);
         if(Initoperation.ParseFromArray((void*)Data,Head->length) < 0)
             cout << "parseerror"<< endl;
+
+        string instanceid = Initoperation.instanceid();
+        string path = Initoperation.path();
         string splitname = Initoperation.splitname();
         int    splitnumber = Initoperation.splitnumber();
+        int    startline = Initoperation.starline();
+        int    endline = Initoperation.endline();
 
         string splitid = splitname + IntToString(splitnumber);
-        
+        g_DataSet.InitDataSetSplit(path, startline, endline,splitid,instanceid, splitname,splitnumber); 
         //datacontainer.insert(splitid);
         cout << splitname << endl;
         cout << splitnumber<<endl;
         cout << splitid << endl;
+
+        g_DataSet.SeeDataSet(splitid);
 
         struct mesg_head responsehead;
         responsehead.cmd = MSG_BC_EU_INIT_DATA_ACK;
@@ -190,36 +197,37 @@ int I_Agent::cmnd_exec()
         //delete temp;
         //see_datacontainer(datacontainer);
     }
-/*    if(ptr.cmd == MSG_BC_EU_MAP)
+    if(Head ->cmd == MSG_BC_EU_MAP)
         {
-            cout << "MSG TYPE: MAPOP, LENGTH:"<< ptr.length<< endl;
-            char *temp = new char[ptr.length];
+            cout << "MSG TYPE: MAPOP, LENGTH:"<< Head -> length<< endl;
 
-            number = read(connfdcontainer.at(i),temp,ptr.length);
-            while (number < 0)
-            {
-                number = read(connfdcontainer.at(i),temp,ptr.length);
-
-            }
-            if(number != ptr.length)
-            {
-                cout << "read error"<< endl;
-            }
-            number =-1;
             bc_eu::pb_MSG_BC_EU_MAP Mapoperation;
-            string load(temp,ptr.length);
+            char * Data = (char*)Readbuff_data.bufferptr;
+            string load(Data,Head->length);
             Mapoperation.ParseFromString(load);
 
-            string sourcedata =Mapoperation.sourcesplitname();
+            string cmd = Mapoperation.cmd();
+            vector<string> para;
+            for(int i = 0; i < Mapoperation.para_size(); i++)
+            {
+                para.push_back(Mapoperation.para(i));
+            }
+            string instanceid = Mapoperation.instanceid();
+            string sourcedataname =Mapoperation.sourcesplitname();
             int sourcedatasplitnumber = Mapoperation.sourcesplitnumber();
             string destdata = Mapoperation.destsplitname();
             int destdatasplitnumber = Mapoperation.destsplitnumber();
-            string sourcedataid = sourcedata+ IntToString(sourcedatasplitnumber) ;
+            string sourcedataid = sourcedataname+ IntToString(sourcedatasplitnumber) ;
             string destdataid   = destdata + IntToString(destdatasplitnumber);
 
             cout << "sourcedataid"<<sourcedataid<< endl;
             cout << "destdataid" <<destdataid << endl;
-            struct mesg_head responsemap_ptr;
+
+            vector<pair<string,string> > sourcedata = g_DataSet.ReturnDataSet(sourcedataid);
+
+
+
+   /*           struct mesg_head responsemap_ptr;
             responsemap_ptr.cmd = MSG_BC_EU_MAP_ACK;
             responsemap_ptr.error = -1;
             responsemap_ptr.length = 0;
@@ -232,8 +240,10 @@ int I_Agent::cmnd_exec()
             write(connfdcontainer.at(i),&responsemap_ptr,20);
             delete temp;
             see_datacontainer(datacontainer);
-        }
-    if(ptr.cmd == MSG_BC_EU_DELETE_DATA)
+        */
+            cout << "abc"<< endl;
+            }
+/*      if(ptr.cmd == MSG_BC_EU_DELETE_DATA)
         {
             cout << "MSG TYPE: DELETEDATA, LENGTH:"<< ptr.length<< endl;
             char *temp = new char[ptr.length];

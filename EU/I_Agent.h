@@ -20,10 +20,11 @@
 
 #include "head.h"
 #include "Epoll.h"
-#include "I_Manager_Agent.h"
+//#include "I_Manager_Agent.h"
 #include "Buffermanager.h"
 #include "ReadAgent.h"
 #include "WriteAgent.h"
+#include "DataSet.h"
 class I_Agent:public Agent
 {
     public:
