@@ -1,7 +1,7 @@
 OBJ := main.o I_Listenagent.o Socket_I_O_Buff.o Buffermanager.o Epoll.o DataSet.o DataSetSplit.o I_Agent.o ReadAgent.o WriteAgent.o  bc_eu.protocol.pb.o Tool.o
 
 EU:$(OBJ)
-	g++ -pg $(OBJ) -o EU -g -I./protobuff -I/usr/local/protobuf/include -L/usr/local/lib -lprotobuf
+	g++ -pg $(OBJ) -o EU -g -I./protobuff -I/usr/local/protobuf/include -L/usr/local/lib  -lprotobuf -ldl
 
 main.o : main.cpp
 	g++  -pg -c -g main.cpp

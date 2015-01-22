@@ -63,11 +63,18 @@ int DataSet::SeeDataSet(string name)
     }
 }
 
-vector<pair<string,string> > DataSet::ReturnDataSet(string name)
+int DataSet::ReturnDataSet(string name, vector<pair<string,string> > &DataSet)
 {
     map<string, class DataSetSplit*>:: iterator it;
     it = Data.find(name);
-    return it -> second -> Data;
+    if(it != Data.end())
+    {
+        DataSet = it -> second -> Data;
+        return 0;
+    }
+    else 
+        return -1;
+
 }
 
 class DataSet g_DataSet;

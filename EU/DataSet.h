@@ -32,7 +32,7 @@ class DataSet
        
        
        int SeeDataSet(string name);
-       vector<pair<string,string> > ReturnDataSet(string name);
+       int ReturnDataSet(string name, vector<pair<string,string> > &DataSet);
 };
 
 extern class DataSet g_DataSet;

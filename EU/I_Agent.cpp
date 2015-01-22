@@ -187,7 +187,7 @@ int I_Agent::cmnd_exec()
         cout << splitnumber<<endl;
         cout << splitid << endl;
 
-        g_DataSet.SeeDataSet(splitid);
+        //g_DataSet.SeeDataSet(splitid);
 
         struct mesg_head responsehead;
         responsehead.cmd = MSG_BC_EU_INIT_DATA_ACK;
@@ -215,15 +215,45 @@ int I_Agent::cmnd_exec()
             string instanceid = Mapoperation.instanceid();
             string sourcedataname =Mapoperation.sourcesplitname();
             int sourcedatasplitnumber = Mapoperation.sourcesplitnumber();
-            string destdata = Mapoperation.destsplitname();
+            string destdataname = Mapoperation.destsplitname();
             int destdatasplitnumber = Mapoperation.destsplitnumber();
             string sourcedataid = sourcedataname+ IntToString(sourcedatasplitnumber) ;
-            string destdataid   = destdata + IntToString(destdatasplitnumber);
+            string destdataid   = destdataname + IntToString(destdatasplitnumber);
 
             cout << "sourcedataid"<<sourcedataid<< endl;
             cout << "destdataid" <<destdataid << endl;
 
-            vector<pair<string,string> > sourcedata = g_DataSet.ReturnDataSet(sourcedataid);
+            vector<pair<string,string> > sourcedata;
+            vector<pair<string,string> > destdata;
+            if(g_DataSet.ReturnDataSet(sourcedataid,sourcedata) < 0)
+            {
+                struct mesg_head responsehead;
+                responsehead.cmd = MSG_BC_EU_MAP_ACK;
+                responsehead.error = -1;
+                responsehead.length = 0;
+                Writebuff.add_buff(&responsehead,MSGHEAD_LEN);                
+            }
+            else
+            {
+                void *dp;
+                vector<pair<string,string> > (*lib)(vector<pair<string,string> >,vector<string>);
+                dp = dlopen("./Plugin/plugin.so",RTLD_LAZY);
+                if(dp == NULL)
+                {
+                    cout << "dlopen error"<< endl;
+                    exit(1);
+                }
+                lib = (vector<pair<string,string> >(*)(vector<pair<string,string> >,vector<string>))dlsym(dp,"map");
+                char *error = dlerror();
+                if(error != NULL)
+                {
+                    cout << "dlsym error"<< endl;
+                    exit(1);
+                }
+                destdata = lib(sourcedata, para);
+
+
+            }
 
 
 
