@@ -7,10 +7,6 @@
 #include <string>
 #include <vector>
 
-int g_startPort;
-std::string g_dllConfig;
-std::string g_dllPath;
-std::string g_dllNotify;
 
 Plugin_interface g_plugin_interface;
 
@@ -32,32 +28,6 @@ int plugin_start(int startPort, const char *pluginPath, int pathLen, const char 
     return 0;  
 }
 
-int plugin_stop()
-{
-    try
-    {
-        g_plugin_interface.stop();
-    }
-    catch (...)
-    {
-        std::cerr << "plugin stop error" << std::endl;
-        return -1;
-    }
-    return 0;
-}
-
-void plugin_notify(const char *notifyString, int notifyLen)
-{
-    g_dllNotify.assign(notifyString, notifyLen);
-    try
-    {
-        g_plugin_interface.notify();
-    }
-    catch (...)
-    {
-        std::cerr << "plugin notify error" << std::endl;
-    }
-}
 
 
 

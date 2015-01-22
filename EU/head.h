@@ -45,7 +45,6 @@
 #include "./protobuff/bc_eu.protocol.pb.h"
 using namespace std;
 
-extern "C"
 
 #define EU_PORT 32600
 #define LOCAL_IP "192.168.9.111"

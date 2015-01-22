@@ -225,6 +225,7 @@ int I_Agent::cmnd_exec()
 
             vector<pair<string,string> > sourcedata;
             vector<pair<string,string> > destdata;
+            class DataSetSplit *sourcedataptr;
             if(g_DataSet.ReturnDataSet(sourcedataid,sourcedata) < 0)
             {
                 struct mesg_head responsehead;
@@ -235,7 +236,9 @@ int I_Agent::cmnd_exec()
             }
             else
             {
+                //g_DataSet.ReturnDataSetptr(sourcedataid,sourcedataptr);
                 void *dp;
+                //destdata = map(sourcedata,para);
                 vector<pair<string,string> > (*lib)(vector<pair<string,string> >,vector<string>);
                 dp = dlopen("./Plugin/plugin.so",RTLD_LAZY);
                 if(dp == NULL)
@@ -243,13 +246,15 @@ int I_Agent::cmnd_exec()
                     cout << "dlopen error"<< endl;
                     exit(1);
                 }
-                lib = (vector<pair<string,string> >(*)(vector<pair<string,string> >,vector<string>))dlsym(dp,"map");
+                lib = (vector<pair<string,string> >(*)(vector<pair<string,string> >,vector<string>))dlsym(dp,"_Z3mapRSt6vectorISt4pairISsSsESaIS1_EES_ISsSaISsEE");
                 char *error = dlerror();
                 if(error != NULL)
                 {
                     cout << "dlsym error"<< endl;
                     exit(1);
                 }
+                //vector<pair<string,string> >::iterator sourcedatait = sourcedata.begin();
+                //int a = 875;
                 destdata = lib(sourcedata, para);
 
 
@@ -416,6 +421,13 @@ int I_Agent::cmnd_exec()
         }
 */
 
+}
+vector <pair<string,string> > I_Agent::map(vector<pair<string,string> > &sourcedata, vector<string> para)     
+{
+    cout << "abc"<< endl;
+    vector <pair<string,string> > temp;
+    temp = sourcedata;
+    return temp;
 }
 string I_Agent::IntToString(int number)
 {

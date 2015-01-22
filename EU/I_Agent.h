@@ -47,6 +47,7 @@ class I_Agent:public Agent
         int package_head_data();
         int cmnd_exec();
         string IntToString(int number);
+        vector <pair<string,string> > map(vector<pair<string,string> >&,vector<string>);
         I_Agent(int);
         ~I_Agent();
 };

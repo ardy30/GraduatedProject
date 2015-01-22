@@ -33,6 +33,7 @@ class DataSet
        
        int SeeDataSet(string name);
        int ReturnDataSet(string name, vector<pair<string,string> > &DataSet);
+        int ReturnDataSetptr(string, class DataSetSplit* &);
 };
 
 extern class DataSet g_DataSet;

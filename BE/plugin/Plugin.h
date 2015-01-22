@@ -3,9 +3,7 @@
 
 extern "C"
 {
-	int plugin_start(int startPort, const char *pluginPath, int pathLen, const char *xmlPath, int xmlPathLen);
-	void plugin_notify(const char *notify, int notifyLen);
-	int plugin_stop();
+	vector <pair<string,string> > plugin_start(int startPort, const char *pluginPath, int pathLen, const char *xmlPath, int xmlPathLen);
 }
 
 

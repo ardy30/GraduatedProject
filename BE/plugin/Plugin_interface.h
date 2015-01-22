@@ -1,33 +1,18 @@
 #ifndef _PLUGIN_INTERFACE_H
 #define _PLUGIN_INTERFACE_H
 #include <string>
-#include <vector>
-#include <map>
-#include <utility>
-using namespace std;
-//#include "Tcp_socket.h"
-//#include "Sock_addr.h"
-extern "C"
+#include "Tcp_socket.h"
+#include "Sock_addr.h"
+
 class Plugin_interface
 {
 	public:
+		void start();
+		void notify();
+		void stop();
 
-        Plugin_interface();
-
-
-		extern "C" vector<pair<string,string> > map(vector<pair<string,string> >sourcedata, vector<string> para);
-
-        int UserDefine();
-
-        
-
-        int GetIterm(pair<string,string>&);
-        int PutIterm(pair<string,string>);
-
-        vector<pair<string,string> > SourceData;
-        vector<pair<string,string> > DestData;
-        int access_ptr;
-
+	private:
+		Tcp_Socket m_sock;
 };
 
 #endif
