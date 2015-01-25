@@ -18,6 +18,7 @@ extern std::string g_dllNotify;
 int access_ptr = 0;
 vector<pair<string,string> > SourceData;
 vector<pair<string,string> > DestData;
+vector<string> Para;
 
 vector<pair<string,string> > map_ptr(class DataSetSplit* sourcedataptr, vector<string> para,int a)
 {
@@ -60,6 +61,7 @@ vector<pair<string,string> > map(vector<pair<string,string> >& sourcedata, vecto
 {
   //  access_ptr = 0;
     SourceData = sourcedata;
+    Para = para;
    UserDefine();
   // cout <<"abc"<< endl;
     vector<pair<string,string> > ret = DestData;
@@ -68,6 +70,8 @@ vector<pair<string,string> > map(vector<pair<string,string> >& sourcedata, vecto
       SourceData.pop_back();
   for(;DestData.size()> 0;)
       DestData.pop_back();
+  for(;Para.size()> 0;)
+      Para.pop_back();
     return ret;    
 }
 

@@ -48,7 +48,16 @@ int DataSet::InitDataSetSplit(string path, int startline, int endline, string na
     }   
     return 0;
 }
-
+int DataSet::SaveDataSet(string name, string InstanceID, string SplitName,int SplitNumber,vector<pair<string,string> > DataSet)
+{
+    class DataSetSplit* ptr = new DataSetSplit(name,InstanceID,SplitName,SplitNumber);
+    Data.insert(pair<string, class DataSetSplit*>(name,ptr));
+    for(int i = 0 ;i < DataSet.size(); i++)
+    {
+        ptr -> Data.push_back(DataSet.at(i));
+    }
+    return 0;
+}
 int DataSet::SeeDataSet(string name)
 {
     map<string, class DataSetSplit*>::iterator it;
@@ -60,6 +69,21 @@ int DataSet::SeeDataSet(string name)
         cout << "value :"<< temp -> Data.at(i).second<< endl;
         if(i == temp -> Data.size() -1)
             cout << "size = "<< i+1 << endl;
+    }
+}
+
+int DataSet::DeleteDataSet(string name)
+{
+    map<string, class DataSetSplit*>::iterator it;
+    it = Data.find(name);
+    if(it == Data.end())
+        return 0;
+    else
+    {
+        class DataSetSplit *temp = it -> second;
+        delete temp;
+        Data.erase(it);
+        return 0;
     }
 }
 

@@ -28,8 +28,8 @@ class DataSet
        class Tool tool;
 
        int InitDataSetSplit(string path, int startline, int endline,string name, string InstanceID, string SplitName, int SplitNumber);
-       
-       
+       int SaveDataSet(string name, string InstanceID, string SplitName, int SplitNumber, vector<pair<string,string> > DataSet);
+       int DeleteDataSet(string name) ;
        
        int SeeDataSet(string name);
        int ReturnDataSet(string name, vector<pair<string,string> > &DataSet);

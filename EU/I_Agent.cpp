@@ -206,7 +206,7 @@ int I_Agent::cmnd_exec()
             string load(Data,Head->length);
             Mapoperation.ParseFromString(load);
 
-            string cmd = Mapoperation.cmd();
+            string cmd = "./Plugin/"+Mapoperation.cmd();
             vector<string> para;
             for(int i = 0; i < Mapoperation.para_size(); i++)
             {
@@ -240,7 +240,7 @@ int I_Agent::cmnd_exec()
                 void *dp;
                 //destdata = map(sourcedata,para);
                 vector<pair<string,string> > (*lib)(vector<pair<string,string> >,vector<string>);
-                dp = dlopen("./Plugin/plugin.so",RTLD_LAZY);
+                dp = dlopen(cmd.c_str(),RTLD_LAZY);
                 if(dp == NULL)
                 {
                     cout << "dlopen error"<< endl;
@@ -256,61 +256,43 @@ int I_Agent::cmnd_exec()
                 //vector<pair<string,string> >::iterator sourcedatait = sourcedata.begin();
                 //int a = 875;
                 destdata = lib(sourcedata, para);
-
-
+                g_DataSet.SaveDataSet(destdataid,instanceid,destdataname,destdatasplitnumber,destdata);
+                g_DataSet.SeeDataSet(destdataid); 
+                struct mesg_head responsehead;
+                responsehead.cmd = MSG_BC_EU_MAP_ACK;
+                responsehead.error = 0;
+                responsehead.length = 0;
+                Writebuff.add_buff(&responsehead,MSGHEAD_LEN);    
             }
 
 
 
-   /*           struct mesg_head responsemap_ptr;
-            responsemap_ptr.cmd = MSG_BC_EU_MAP_ACK;
-            responsemap_ptr.error = -1;
-            responsemap_ptr.length = 0;
-            set<string>::iterator tempit;
-            if((tempit = datacontainer.find(sourcedataid)) != datacontainer.end())
-            {
-                responsemap_ptr.error = 0;
-                datacontainer.insert(destdataid);
-            }
-            write(connfdcontainer.at(i),&responsemap_ptr,20);
-            delete temp;
-            see_datacontainer(datacontainer);
-        */
             cout << "abc"<< endl;
             }
-/*      if(ptr.cmd == MSG_BC_EU_DELETE_DATA)
+      if(Head -> cmd == MSG_BC_EU_DELETE_DATA)
         {
-            cout << "MSG TYPE: DELETEDATA, LENGTH:"<< ptr.length<< endl;
-            char *temp = new char[ptr.length];
-            number = read(connfdcontainer.at(i),temp,ptr.length);
-            while(number < 0)
-            {
-                number = read(connfdcontainer.at(i),temp,ptr.length);
-            }
-            if(number != ptr.length)
-            {
-                cout << "read error"<< endl;
-            }
-            number  = -1;
+            cout << "MSG TYPE: DELETEDATA, LENGTH:"<< Head ->length<<endl;
             bc_eu::pb_MSG_BC_EU_DELETE_DATA Deleteoperation;
-            string load(temp,ptr.length);
+            char *Data = (char*)Readbuff_data.bufferptr;
+            string load(Data,Head -> length);
             Deleteoperation.ParseFromString(load);
 
             string deletesourcedata = Deleteoperation.sourcesplitname();
             int deletesourcedatanumber = Deleteoperation.sourcesplitnumber();
             string deletedataid = deletesourcedata + IntToString(deletesourcedatanumber);
             cout << deletedataid<< endl;
-            if(datacontainer.find(deletedataid) != datacontainer.end())
-                datacontainer.erase(datacontainer.find(deletedataid));
-            struct mesg_head responsedelete_ptr;
-            responsedelete_ptr.cmd = MSG_BC_EU_MAP_ACK;
-            responsedelete_ptr.error = 0;
-            responsedelete_ptr.length = 0;
-            write(connfdcontainer.at(i),&responsedelete_ptr,20);
-            delete temp;
-            see_datacontainer(datacontainer);
+
+            g_DataSet.DeleteDataSet(deletedataid);
+
+            struct mesg_head responsedeletehead;
+            responsedeletehead.cmd = MSG_BC_EU_DELETE_DATA_ACK;
+            responsedeletehead.error = 0;
+            responsedeletehead.length = 0;
+            Writebuff.add_buff(&responsedeletehead,MSGHEAD_LEN);
+
+            g_DataSet.SeeDataSet(deletedataid);
         }
-    if(ptr.cmd == MSG_BC_EU_REDUCE)
+/*    if(ptr.cmd == MSG_BC_EU_REDUCE)
         {
             cout << "MSG TYPE: REDUCE, LENGTH:"<< ptr.length<< endl;
             char *temp = new char[ptr.length];

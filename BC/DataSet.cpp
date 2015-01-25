@@ -29,6 +29,8 @@ DataSet* DataSet::map(string lib, vector<string> arg)
     temp -> name = BC -> InstanceID +  tool.IntToString(BC->DataNumber) ;
     BC-> DataNumber++;
     temp -> op = "map";
+    temp -> lib = lib;
+    temp -> arg = arg;
     temp-> BC = this-> BC;
     this -> next = temp;
     temp -> prev = this;

@@ -24,11 +24,29 @@ int main(int argc, char **argv)
 
     string InstanceID = "Kmeans";
     string data_path = "./data";
-    string lib1 = "lib1";
+    string lib1 = "lib1.so";
     vector<string> para1;
     string lib2 = "lib2";
     vector<string> para2;
     vector<string> result;
+    
+    fstream ReadFile;  
+    string point1; 
+    string point2; 
+    ReadFile.open(data_path.c_str(),ios::in);//以只读的方式读取文件  
+    if(ReadFile.fail())//文件打开失败:返回-1
+    {   
+        return -1;  
+    }   
+    else//文件存在  
+    {   
+        getline(ReadFile,point1);
+        getline(ReadFile,point2);
+        para1.push_back(point1);
+        para1.push_back(point2);
+           
+    }   
+
     class BusinessController *BC = new BusinessController(InstanceID);
     class DataSet *DataSet1 = BC -> InitialDataSet(data_path);
     DataSet1 -> caching = 1;
