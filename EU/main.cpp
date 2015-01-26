@@ -18,6 +18,7 @@
 #include "head.h"
 #include "Epoll.h"
 #include "I_Listenagent.h"
+#include "EU_Listenagent.h"
 
 static void sighandler(int sig_no)
 {
@@ -35,6 +36,13 @@ int main(int argc, char **argv)
         delete i_lisagent;
         return -1;
     }
+    EU_Listenagent* eu_lisagent = new EU_Listenagent();
+    if((eu_lisagent -> initialserver()) < 0) 
+    {
+        cerr<< "eu_initialserver error"<<endl;
+        delete eu_lisagent;
+        return -1;
+    }
 /*    D_Listenagent* d_lisagent = new D_Listenagent() ;
     if((d_lisagent -> initialserver()) < 0)
     {
@@ -46,10 +54,12 @@ int main(int argc, char **argv)
     if((m_epoll.epollwait()) < 0)
     {
         delete i_lisagent;
+        delete eu_lisagent;
        // delete d_lisagent;
         return -1;
     }
    // delete d_lisagent;
     delete i_lisagent;
+    delete eu_lisagent;
     return 0;
 }

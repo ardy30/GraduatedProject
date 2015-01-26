@@ -16,7 +16,6 @@
  * =====================================================================================
  */
 #include "I_Agent.h"
-
 I_Agent::I_Agent(int I_fd)
 {
 //    i_manager_agent.i_agent = this;
@@ -60,8 +59,8 @@ int I_Agent::readagent()
         else if(ret == READ_END)
         {
             cout <<"TCP disconnect"<< endl;
-            delete this;
-            return 0;
+          //  delete this;
+            return -1;
         }
         else if(ret == READ_BLOCK)
         {
@@ -346,62 +345,88 @@ int I_Agent::cmnd_exec()
             write(connfdcontainer.at(i),body,temp_str.length());
             delete body;
             see_datacontainer(datacontainer);
-        }
-    if(ptr.cmd == MSG_BC_EU_SHUFFLE)
+        }*/
+    if(Head -> cmd == MSG_BC_EU_SHUFFLE)
         {
-            cout << "MSG TYPE: SHUFFLE,LENGTH:"<< ptr.length<< endl;
-            char* temp = new char[ptr.length];
-            number = read(connfdcontainer.at(i),temp,ptr.length);
-            while(number < 0)
-            {
-                number = read(connfdcontainer.at(i),temp,ptr.length);
-            }
-            if(number != ptr.length)
-            {
-                cout <<"read error"<< endl;
-            }
-            number = -1;
+            cout << "MSG TYPE: SHUFFLE,LENGTH:"<< Head -> length<< endl;
+            
             bc_eu::pb_MSG_BC_EU_SHUFFLE Shuffleoperation;
-            string load(temp,ptr.length);
+            char* Data = (char*)Readbuff_data.bufferptr;
+            string load(Data,Head -> length);
             Shuffleoperation.ParseFromString(load);
 
-            string sourcedata = Shuffleoperation.sourcesplitname();
+            string instanceid = Shuffleoperation.instanceid();
+            string sourcedataname = Shuffleoperation.sourcesplitname();
             int    sourcedatanumber = Shuffleoperation.sourcesplitnumber();
             
-            string destdata = Shuffleoperation.destsplitname();
-            int    destnumber = Shuffleoperation.destsplitnumber();
-            string destdataid;
-            string localIP = LOCALIP;
-            string sourcedataid = sourcedata + IntToString(sourcedatanumber);
+            string destdataname = Shuffleoperation.destsplitname();
+            int    destdatanumber = Shuffleoperation.destsplitnumber();
+            string destdataid = destdataname + IntToString(destdatanumber);
+            string sourcedataid = sourcedataname + IntToString(sourcedatanumber);
             cout <<"sourcedataid" <<sourcedataid << endl;
-            struct mesg_head responseshuffle_ptr;
-            responseshuffle_ptr.cmd = MSG_BC_EU_SHUFLLE_ACK;
-            responseshuffle_ptr.error = -2;
-            responseshuffle_ptr.length = 0;
-            for(int j = 0; j < datacontainer.size(); j ++)
+            
+            vector<pair<string,string> >sourcedata;
+            //class DataSetSplit * sourcedataptr;
+            if(g_DataSet.ReturnDataSet(sourcedataid,sourcedata) < 0)
             {
-                if(datacontainer.find(sourcedataid) != datacontainer.end())
+                struct mesg_head responseshuffle;
+                responseshuffle.cmd = MSG_BC_EU_SHUFLLE_ACK;
+                responseshuffle.error = -2;
+                responseshuffle.length = 0;
+                Writebuff.add_buff(&responseshuffle,MSGHEAD_LEN);
+            }
+            else
+            {
+                vector<vector<pair<string,string> > > destdatalist;
+                for(int i = 0;i < Shuffleoperation.ipinfolist_size(); i++)
                 {
-                    responseshuffle_ptr.error = -1;
-                    for(int i = 0; i < Shuffleoperation.ipinfolist_size();i ++)
+                    vector<pair<string,string> > temp;
+                    destdatalist.push_back(temp);
+                }
+                for(int i = 0 ;i < sourcedata.size();i ++)
+                {
+                    string key = sourcedata.at(i).first;
+                    string value =sourcedata.at(i).second;
+                    int    key_number = atoi(key.c_str());
+                    int    size = sourcedata.size();
+                    int    mo  = key_number%size;
+                    
+                    destdatalist.at(mo).push_back(pair<string,string>(key,value));
+                }
+                eu_agent_size = sourcedata.size();
+                eu_agent = new EU_Agent[eu_agent_size];
+                for(int i = 0; i < sourcedata.size();i ++)
+                {
+                    if(0 > eu_agent[i].connect_server((char*)(Shuffleoperation.ipinfolist(i).ip()).c_str()) )
+                    continue;
+                    struct mesg_head eu_eu_shuffle;
+                    eu_eu_shuffle.cmd = MSG_EU_EU_SHUFFLE;
+                    
+                    eu_eu::pb_MSG_EU_EU_SHUFFLE EUShufflebody;
+                    EUShufflebody.set_instanceid(instanceid);
+                    EUShufflebody.set_destsplitname(destdataname);
+                    EUShufflebody.set_destsplitnumber(i);
+                    for(int j =0;j < destdatalist.at(i).size();j ++)
                     {
-                        string IP = Shuffleoperation.ipinfolist(i).ip();
-                        int key = (int)(Shuffleoperation.ipinfolist(i).key());
-                        if(IP == localIP)
-                        {
-                            destdataid = destdata + IntToString(key);
-                        }
-                        datacontainer.insert(destdataid);
+                        eu_eu::pb_MSG_EU_EU_SHUFFLE_Iterm *iterm;
+                        iterm = EUShufflebody.add_itermlist();
+                        iterm -> set_key(destdatalist.at(i).at(j).first);
+                        iterm -> set_value(destdatalist.at(i).at(j).second);
                     }
-                    break;
-
+                    string  temp;
+                    char* body;
+                    EUShufflebody.SerializeToString(&temp);
+                    eu_eu_shuffle.length = temp.length();
+                    eu_agent[i].Writebuff.add_buff(&eu_eu_shuffle,sizeof(eu_eu_shuffle));
+                    body = new char[temp.size()];
+                    memcpy(body,temp.c_str(),temp.length());
+                    eu_agent[i].Writebuff.add_buff(body,temp.length());
+                    delete body;
+                    body = NULL;
                 }
             }
-            write(connfdcontainer.at(i),&responseshuffle_ptr,20);
-            delete temp;
-            see_datacontainer(datacontainer);
         }
-*/
+
 
 }
 vector <pair<string,string> > I_Agent::map(vector<pair<string,string> > &sourcedata, vector<string> para)     

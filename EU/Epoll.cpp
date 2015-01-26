@@ -108,6 +108,7 @@ int Epoll::epollwait()
                     {
                        // cout<<"read error"<<endl;
                        // the value of read is 0,delete this agent
+                       delete agent;
                     }
             }
             else if(m_event[i].events&EPOLLOUT)

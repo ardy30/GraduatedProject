@@ -1,0 +1,15 @@
+package eu_eu;
+
+///////////////////////////////////////////////////////////////////////////
+message pb_MSG_EU_EU_SHUFFLE
+{
+    message Iterm{
+            required string key = 1;
+            required string value = 2;
+    }
+	required string InstanceID = 1;
+	required string DestSplitName = 2;
+	required int32  DestSplitNumber = 3;
+    repeated Iterm ItermList = 4;
+}
+

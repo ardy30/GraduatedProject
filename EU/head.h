@@ -43,10 +43,12 @@
 #include "Buffermanager.h"
 #include "./protobuff/bc_master.protocol.pb.h"
 #include "./protobuff/bc_eu.protocol.pb.h"
+#include "./protobuff/eu_eu.protocol.pb.h"
 using namespace std;
 
 
 #define EU_PORT 32600
+#define EU_EU_PORT 32602
 #define LOCAL_IP "192.168.9.111"
 
 
@@ -638,6 +640,11 @@ const uint32_t MSG_BC_EU_REDUCE_ACK = 0x00010041;
 const uint32_t MSG_BC_EU_DELETE_DATA = 0x00010050;
 const uint32_t MSG_BC_EU_DELETE_DATA_ACK = 0x00010051;
 ///////////////////////////////////////////////////////
+///////////////////////EU_EU///////////////////////////
+const uint32_t MSG_EU_EU_SHUFFLE = 0x00020010;
+const uint32_t MSG_EU_EU_SHUFFLE_ACK = 0x00020011;
+
+////////////////////////////////////////////////////////
 #define NO_BLOCK 0x00
 #define ODD_BLOCK 0x01
 #define EVEN_BLOCK 0x10

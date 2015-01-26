@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  I_Agent.h
+ *       Filename:  S_Agent.h
  *
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  03/12/12 14:55:48
+ *        Created:  03/09/12 10:06:00
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -15,35 +15,34 @@
  *
  * =====================================================================================
  */
-#ifndef _I_AGENT_H_
-#define _I_AGENT_H_
-
+#ifndef _EU_AGENT_H_
+#define _EU_AGENT_H_
 #include "head.h"
-#include "Epoll.h"
-//#include "I_Manager_Agent.h"
+//#include "S_Manager_Agent.h"
 #include "Buffermanager.h"
-#include "ReadAgent.h"
 #include "WriteAgent.h"
+#include "ReadAgent.h"
+#include "Epoll.h"
 #include "DataSet.h"
-#include "EU_Agent.h"
-#include "head.h"
-class I_Agent:public Agent
+
+class EU_Agent: public Agent
 {
     public:
-        class ReadAgent I_read;
-        class WriteAgent I_write;
+        EU_Agent(int);
+        EU_Agent();
+        ~EU_Agent();
+        class ReadAgent EU_read;
+        class WriteAgent EU_write;
         class Socket_I_O_Buff Writebuff;
         class Buffermanager* Readbuff;
         class Buffermanager Readbuff_head;
         class Buffermanager Readbuff_data;
         struct mesg_head *Head;
 
-        class EU_Agent *eu_agent;
-        int  eu_agent_size;
-
         int read_len;
         int read_stat;
 
+        int error;
 
         int readagent();
         int writeagent();
@@ -51,10 +50,12 @@ class I_Agent:public Agent
         int exec();
         int package_head_data();
         int cmnd_exec();
-        string IntToString(int number);
-        vector <pair<string,string> > map(vector<pair<string,string> >&,vector<string>);
-        I_Agent(int);
-        ~I_Agent();
+        
+        int connect_server(char*);
+        int setnonblocking(int);
+
+
 };
+
 
 #endif
