@@ -24,6 +24,7 @@ EU_Agent::EU_Agent()
     Readbuff = &Readbuff_head;
     read_stat = READ_MESGHEAD;
     error = 0;
+    type = CONNECT_EU_AGENT;
 }
 
 EU_Agent::EU_Agent(int I_fd)
@@ -34,6 +35,7 @@ EU_Agent::EU_Agent(int I_fd)
     Readbuff = & Readbuff_head;
     read_stat = READ_MESGHEAD;
     error = 0;
+    type = LISTEN_EU_AGENT;
 }
 
 EU_Agent::~EU_Agent()
@@ -124,7 +126,13 @@ int EU_Agent::readagent()
     else if(ret == READ_END)
     {
         cout << "TCP disconnect"<< endl;
-        error = 1;
+        if(this -> type == CONNECT_EU_AGENT)
+        {
+            error = 1;
+            //check condition
+        }
+        else if(this -> type == LISTEN_EU_AGENT)
+            delete this;
         //delete this;
         return 0;
     }
@@ -231,6 +239,37 @@ int EU_Agent::cmnd_exec()
 {
     if(Head -> cmd == MSG_EU_EU_SHUFFLE)
     {
+        cout << "MSG TYPE: EU_EU_SHUFFLE,LENGTH:"<< Head -> length<< endl;
+        eu_eu::pb_MSG_EU_EU_SHUFFLE EUShuffleoperation;
+        char* Data = (char*) Readbuff_data.bufferptr;
+        string load(Data,Head -> length);
+        EUShuffleoperation.ParseFromString(load);
+
+        string instanceid = EUShuffleoperation.instanceid();
+        string destdataname = EUShuffleoperation.destsplitname();
+        int    destdatanumber = EUShuffleoperation.destsplitnumber();
+
+        string destdataid = destdataname + IntToString(destdatanumber);
+
+        cout << "destdataid" << destdataid << endl;
+
+        vector<pair<string,string> > destdata;
+        for(int i = 0;i< EUShuffleoperation.itermlist_size();i ++)
+        {
+            string key = EUShuffleoperation.itermlist(i).key();
+            string value = EUShuffleoperation.itermlist(i).value();
+            destdata.push_back(pair<string,string>(key,value));
+        }
+        if(g_DataSet.CheckDataSet(destdataid) < 0)
+            g_DataSet.SaveDataSet(destdataid,instanceid,destdataname,destdatanumber,destdata);
+        else
+            g_DataSet.AddDataSet(destdataid,destdata);
+        g_DataSet.SeeDataSet(destdataid);
+        struct mesg_head responsehead;
+        responsehead.cmd = MSG_EU_EU_SHUFFLE_ACK;
+        responsehead.error = 0;
+        responsehead.length = 0;
+        Writebuff.add_buff(&responsehead,MSGHEAD_LEN);
         return 0;
     }
     if(Head -> cmd == MSG_EU_EU_SHUFFLE_ACK)
@@ -238,4 +277,16 @@ int EU_Agent::cmnd_exec()
         return 0;
     }
         
+}
+
+
+
+
+string EU_Agent::IntToString(int number)
+{
+    stringstream ss; 
+    ss << number;
+    string temp = ss.str();
+    return temp;
+
 }

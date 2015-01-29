@@ -104,10 +104,12 @@ int Epoll::epollwait()
             }
             else if(m_event[i].events&EPOLLIN)
             {
+                cout << "read fd"<< agent -> fd<< endl;
                 if(agent->readagent() < 0)
                     {
                        // cout<<"read error"<<endl;
                        // the value of read is 0,delete this agent
+                       cout << "deleteagent.fd"  << agent-> fd<< endl;
                        delete agent;
                     }
             }

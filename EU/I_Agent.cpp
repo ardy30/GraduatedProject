@@ -59,8 +59,8 @@ int I_Agent::readagent()
         else if(ret == READ_END)
         {
             cout <<"TCP disconnect"<< endl;
-          //  delete this;
-            return -1;
+            delete this;
+            return 0;
         }
         else if(ret == READ_BLOCK)
         {
@@ -388,14 +388,14 @@ int I_Agent::cmnd_exec()
                     string key = sourcedata.at(i).first;
                     string value =sourcedata.at(i).second;
                     int    key_number = atoi(key.c_str());
-                    int    size = sourcedata.size();
+                    int    size = destdatalist.size();
                     int    mo  = key_number%size;
                     
                     destdatalist.at(mo).push_back(pair<string,string>(key,value));
                 }
-                eu_agent_size = sourcedata.size();
+                eu_agent_size = destdatalist.size();
                 eu_agent = new EU_Agent[eu_agent_size];
-                for(int i = 0; i < sourcedata.size();i ++)
+                for(int i = 0; i < destdatalist.size();i ++)
                 {
                     if(0 > eu_agent[i].connect_server((char*)(Shuffleoperation.ipinfolist(i).ip()).c_str()) )
                     continue;

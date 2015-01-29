@@ -54,6 +54,7 @@ int I_Listenagent::initialserver()
         cerr<<"socket error:"<<strerror(errno)<<"\n"<<endl;
         return -1;
     }
+    cout << "listenfd"<< fd << endl;
     if(bind(fd,(struct sockaddr *)&servaddr, sizeof(servaddr)) <0)
     {
         cerr<<"bind error:"<<strerror(errno)<<"\n"<<endl;

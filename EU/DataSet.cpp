@@ -48,16 +48,6 @@ int DataSet::InitDataSetSplit(string path, int startline, int endline, string na
     }   
     return 0;
 }
-int DataSet::SaveDataSet(string name, string InstanceID, string SplitName,int SplitNumber,vector<pair<string,string> > DataSet)
-{
-    class DataSetSplit* ptr = new DataSetSplit(name,InstanceID,SplitName,SplitNumber);
-    Data.insert(pair<string, class DataSetSplit*>(name,ptr));
-    for(int i = 0 ;i < DataSet.size(); i++)
-    {
-        ptr -> Data.push_back(DataSet.at(i));
-    }
-    return 0;
-}
 int DataSet::SeeDataSet(string name)
 {
     map<string, class DataSetSplit*>::iterator it;
@@ -99,6 +89,39 @@ int DataSet::ReturnDataSet(string name, vector<pair<string,string> > &DataSet)
     else 
         return -1;
 
+}
+int DataSet::CheckDataSet(string name)
+{
+    map<string, class DataSetSplit*>::iterator it;
+    it = Data.find(name);
+    if(it != Data.end())
+        return 0;
+    else 
+        return -1;
+}
+
+int DataSet::AddDataSet(string name, vector<pair<string,string> > DataSet)
+{
+    map<string,class DataSetSplit*>:: iterator it;
+    it = Data.find(name);
+    class DataSetSplit* temp = it -> second;
+    for(int i = 0;i < DataSet.size();i ++)
+    {
+        temp -> Data.push_back(DataSet.at(i));
+    }
+    return 0;
+}
+    
+
+int DataSet::SaveDataSet(string name, string InstanceID, string SplitName,int SplitNumber,vector<pair<string,string> > DataSet)
+{
+    class DataSetSplit* ptr = new DataSetSplit(name,InstanceID,SplitName,SplitNumber);
+    Data.insert(pair<string, class DataSetSplit*>(name,ptr));
+    for(int i = 0 ;i < DataSet.size(); i++)
+    {
+        ptr -> Data.push_back(DataSet.at(i));
+    }
+    return 0;
 }
 int DataSet::ReturnDataSetptr(string name, class DataSetSplit* &DataSet)
 {

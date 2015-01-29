@@ -43,7 +43,9 @@ class EU_Agent: public Agent
         int read_stat;
 
         int error;
+        int type;//0 for listen 1for connect
 
+        string IntToString(int );
         int readagent();
         int writeagent();
         int getfd();

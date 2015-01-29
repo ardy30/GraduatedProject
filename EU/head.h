@@ -51,7 +51,8 @@ using namespace std;
 #define EU_EU_PORT 32602
 #define LOCAL_IP "192.168.9.111"
 
-
+#define LISTEN_EU_AGENT 0
+#define CONNECT_EU_AGENT 1
 
 #define  MAXEPOLL  100
 #define  LISTENQ  100

@@ -30,7 +30,9 @@ class DataSet
        int InitDataSetSplit(string path, int startline, int endline,string name, string InstanceID, string SplitName, int SplitNumber);
        int SaveDataSet(string name, string InstanceID, string SplitName, int SplitNumber, vector<pair<string,string> > DataSet);
        int DeleteDataSet(string name) ;
-       
+       int CheckDataSet(string );
+       int AddDataSet(string, vector<pair<string,string> >);
+
        int SeeDataSet(string name);
        int ReturnDataSet(string name, vector<pair<string,string> > &DataSet);
         int ReturnDataSetptr(string, class DataSetSplit* &);
