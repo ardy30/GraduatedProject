@@ -109,7 +109,7 @@ int EU_Agent::connect_server(char* IPaddr)
         error = 1;
         return -1;
     }
-
+    return 0;
 }
 
 int EU_Agent::readagent()

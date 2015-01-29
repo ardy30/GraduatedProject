@@ -398,7 +398,7 @@ int I_Agent::cmnd_exec()
                 for(int i = 0; i < destdatalist.size();i ++)
                 {
                     if(0 > eu_agent[i].connect_server((char*)(Shuffleoperation.ipinfolist(i).ip()).c_str()) )
-                    continue;
+                        continue;
                     struct mesg_head eu_eu_shuffle;
                     eu_eu_shuffle.cmd = MSG_EU_EU_SHUFFLE;
                     
@@ -423,6 +423,7 @@ int I_Agent::cmnd_exec()
                     eu_agent[i].Writebuff.add_buff(body,temp.length());
                     delete body;
                     body = NULL;
+                    m_epoll.epoll_modify(EPOLLOUT,&(eu_agent[i]));
                 }
             }
         }
