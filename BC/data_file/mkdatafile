@@ -1,0 +1,14 @@
+#!/bin/bash
+for((i=1;i<853;i++))                                                             
+do                                                                                 
+      # echo "mv_"$i                                                              
+      #echo $i | wc -L                                                            
+#      expr length "$i"                                                            
+    #j=$i                                                                           
+    # while((`expr length "$j"` < 7))                                              
+    #do                                                                            
+    # j="0"$j                                                                      
+    #  done                                                                        
+   #sed 1d mv_$j.txt > mv_$j.txt.tmp        
+        echo $RANDOM","$RANDOM >> data 
+done 

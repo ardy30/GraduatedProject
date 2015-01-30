@@ -52,6 +52,11 @@ int DataSet::SeeDataSet(string name)
 {
     map<string, class DataSetSplit*>::iterator it;
     it = Data.find(name);
+    if(it == Data.end())
+    {
+        cout << "no exit   "<< name<< endl;
+        return 0;
+    }
     class DataSetSplit *temp = it -> second;
     for(int i = 0;i < temp -> Data.size(); i ++)
     {

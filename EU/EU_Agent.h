@@ -24,12 +24,14 @@
 #include "ReadAgent.h"
 #include "Epoll.h"
 #include "DataSet.h"
+#include "I_Agent.h"
 
 class EU_Agent: public Agent
 {
     public:
         EU_Agent(int);
         EU_Agent();
+        EU_Agent(class I_Agent* );
         ~EU_Agent();
         class ReadAgent EU_read;
         class WriteAgent EU_write;
@@ -37,12 +39,14 @@ class EU_Agent: public Agent
         class Buffermanager* Readbuff;
         class Buffermanager Readbuff_head;
         class Buffermanager Readbuff_data;
+        class I_Agent *Parent_Agent;
         struct mesg_head *Head;
 
         int read_len;
         int read_stat;
 
         int error;
+        int finish;
         int type;//0 for listen 1for connect
 
         string IntToString(int );

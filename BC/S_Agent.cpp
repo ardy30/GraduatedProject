@@ -22,6 +22,7 @@ S_Agent::S_Agent(Epoll *epoll)
 //    s_manager_agent.s_agent = this;
       //this -> BC = BC;
       this -> m_epoll = epoll;
+      message_head.error = 100;
       error = 0;
       finish = 0;
 }

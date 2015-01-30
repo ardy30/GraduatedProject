@@ -51,6 +51,8 @@ class I_Agent:public Agent
         int exec();
         int package_head_data();
         int cmnd_exec();
+        int CheckShuffleResult();
+        int CheckFinish();
         string IntToString(int number);
         vector <pair<string,string> > map(vector<pair<string,string> >&,vector<string>);
         I_Agent(int);

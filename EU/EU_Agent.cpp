@@ -17,6 +17,17 @@
  */
 #include "EU_Agent.h"
 
+EU_Agent::EU_Agent(class I_Agent* ptr)
+{
+    read_len = MSGHEAD_LEN;
+    Readbuff_head.new_buff(MSGHEAD_LEN);
+    Readbuff = &Readbuff_head;
+    read_stat = READ_MESGHEAD;
+    error = 0;
+    finish = 0;
+    Parent_Agent = ptr;
+    type = CONNECT_EU_AGENT;
+}
 EU_Agent::EU_Agent()
 {
     read_len = MSGHEAD_LEN;
@@ -24,6 +35,7 @@ EU_Agent::EU_Agent()
     Readbuff = &Readbuff_head;
     read_stat = READ_MESGHEAD;
     error = 0;
+    finish = 0;
     type = CONNECT_EU_AGENT;
 }
 
@@ -35,7 +47,9 @@ EU_Agent::EU_Agent(int I_fd)
     Readbuff = & Readbuff_head;
     read_stat = READ_MESGHEAD;
     error = 0;
+    finish = 0;
     type = LISTEN_EU_AGENT;
+    Parent_Agent = NULL;
 }
 
 EU_Agent::~EU_Agent()
@@ -270,10 +284,13 @@ int EU_Agent::cmnd_exec()
         responsehead.error = 0;
         responsehead.length = 0;
         Writebuff.add_buff(&responsehead,MSGHEAD_LEN);
+        m_epoll.epoll_modify(EPOLLOUT,this);
         return 0;
     }
     if(Head -> cmd == MSG_EU_EU_SHUFFLE_ACK)
     {
+        finish = 1;
+        Parent_Agent -> CheckShuffleResult();
         return 0;
     }
         

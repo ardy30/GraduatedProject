@@ -24,11 +24,17 @@ I_Agent::I_Agent(int I_fd)
     Readbuff_head.new_buff(MSGHEAD_LEN);
     Readbuff = &Readbuff_head;
     read_stat = READ_MESGHEAD;
+    eu_agent = NULL;
 
 }
 
 I_Agent::~I_Agent()
 {
+    if(eu_agent != NULL)
+    {
+        delete []eu_agent;
+        eu_agent = NULL;
+    }
     if(m_epoll.epoll_delete(this) < 0)
     {
         cout<< "epoll_delete error"<<endl;
@@ -239,6 +245,7 @@ int I_Agent::cmnd_exec()
                 void *dp;
                 //destdata = map(sourcedata,para);
                 vector<pair<string,string> > (*lib)(vector<pair<string,string> >,vector<string>);
+                cout << "plugin is :"<< cmd.c_str();
                 dp = dlopen(cmd.c_str(),RTLD_LAZY);
                 if(dp == NULL)
                 {
@@ -291,61 +298,55 @@ int I_Agent::cmnd_exec()
 
             g_DataSet.SeeDataSet(deletedataid);
         }
-/*    if(ptr.cmd == MSG_BC_EU_REDUCE)
+        if(Head -> cmd == MSG_BC_EU_REDUCE)
         {
-            cout << "MSG TYPE: REDUCE, LENGTH:"<< ptr.length<< endl;
-            char *temp = new char[ptr.length];
+            cout << "MSG TYPE: REDUCE, LENGTH:"<< Head -> length<< endl;
 
-            number = read(connfdcontainer.at(i),temp,ptr.length);
-            while (number < 0)
-            {
-                number = read(connfdcontainer.at(i),temp,ptr.length);
-
-            }
-            if(number != ptr.length)
-            {
-                cout << "read error"<< endl;
-            }
-            number =-1;
             bc_eu::pb_MSG_BC_EU_REDUCE Reduceoperation;
-            string load(temp,ptr.length);
+            char* Data = (char*)Readbuff_data.bufferptr;
+            string load(Data,Head-> length);
             Reduceoperation.ParseFromString(load);
-
-            string sourcedata =Reduceoperation.sourcesplitname();
+            
+            string instanceid = Reduceoperation.instanceid();
+            string sourcedataname =Reduceoperation.sourcesplitname();
             int sourcedatasplitnumber = Reduceoperation.sourcesplitnumber();
-            string sourcedataid = sourcedata+ IntToString(sourcedatasplitnumber) ;
+            string sourcedataid = sourcedataname + IntToString(sourcedatasplitnumber) ;
 
             cout << "sourcedataid"<<sourcedataid<< endl;
 
-            struct mesg_head responsereduce_ptr;
-            responsereduce_ptr.cmd = MSG_BC_EU_REDUCE_ACK;
-            responsereduce_ptr.error = -1;
-            responsereduce_ptr.length = 0;
-
-            set<string>::iterator tempit;
-            string temp_str;
-            char* body;
-            if((tempit = datacontainer.find(sourcedataid)) != datacontainer.end())
+            vector<pair<string,string> >destdata;
+            if(g_DataSet.ReturnDataSet(sourcedataid,destdata) < 0)
             {
-                responsereduce_ptr.error = 0;
+                struct mesg_head responsehead;
+                responsehead.cmd = MSG_BC_EU_REDUCE_ACK;
+                responsehead.error = -1;
+                responsehead.length = 0;
+                Writebuff.add_buff(&responsehead,MSGHEAD_LEN);
+            }
+            else
+            {
+                struct mesg_head responsehead;
+                responsehead.cmd =MSG_BC_EU_REDUCE_ACK;
+                responsehead.error = 0;
+                string temp_str;
+                char* body;
                 bc_eu::pb_MSG_BC_EU_REDUCE_ACK mesg_body;
-
+                for(int i = 0; i < destdata.size();i ++)
+                {
                     bc_eu::pb_MSG_BC_EU_REDUCE_ACK_result *result;
                     result = mesg_body.add_result_list();
-                    result -> set_key("1");
-                    result -> set_value("1,2");
-
+                    result -> set_key(destdata.at(i).first);
+                    result -> set_value(destdata.at(i).second);
+                }
                 mesg_body.SerializeToString(&temp_str);
-                responsereduce_ptr.length = temp_str.length();
+                responsehead.length = temp_str.length();
                 body = new char[temp_str.size()];
                 memcpy(body,temp_str.c_str(),temp_str.length());
-
+                Writebuff.add_buff(&responsehead,MSGHEAD_LEN);
+                Writebuff.add_buff(body,temp_str.length());
+                delete body;
             }
-            write(connfdcontainer.at(i),&responsereduce_ptr,20);
-            write(connfdcontainer.at(i),body,temp_str.length());
-            delete body;
-            see_datacontainer(datacontainer);
-        }*/
+        }
     if(Head -> cmd == MSG_BC_EU_SHUFFLE)
         {
             cout << "MSG TYPE: SHUFFLE,LENGTH:"<< Head -> length<< endl;
@@ -397,6 +398,7 @@ int I_Agent::cmnd_exec()
                 eu_agent = new EU_Agent[eu_agent_size];
                 for(int i = 0; i < destdatalist.size();i ++)
                 {
+                    eu_agent[i].Parent_Agent = this;
                     if(0 > eu_agent[i].connect_server((char*)(Shuffleoperation.ipinfolist(i).ip()).c_str()) )
                         continue;
                     struct mesg_head eu_eu_shuffle;
@@ -430,6 +432,43 @@ int I_Agent::cmnd_exec()
 
 
 }
+
+int I_Agent::CheckShuffleResult()
+{
+    if(CheckFinish() < 0)
+        return 0;
+    else
+    {
+        int error_no = -1;
+        for(int i = 0; i < eu_agent_size;i ++)
+        {
+            if(eu_agent[i].error == 1)
+            {
+                error_no = i;
+                break;
+            }
+        }
+        struct mesg_head responseshuffle;
+        responseshuffle.cmd = MSG_BC_EU_SHUFLLE_ACK;
+        responseshuffle.error = error_no;
+        responseshuffle.length = 0;
+        Writebuff.add_buff(&responseshuffle,MSGHEAD_LEN);
+        m_epoll.epoll_modify(EPOLLOUT,this);
+    }
+}
+
+int I_Agent::CheckFinish()
+{
+    for(int i = 0 ;i < eu_agent_size;i ++)
+    {
+        if(eu_agent[i].finish == 0 && eu_agent[i].error == 0)
+        {
+            return -1;
+        }
+    }
+    return 0;
+}
+
 vector <pair<string,string> > I_Agent::map(vector<pair<string,string> > &sourcedata, vector<string> para)     
 {
     cout << "abc"<< endl;
